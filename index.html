@@ -449,6 +449,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Prerequisites &amp; Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-install-ibm-bob" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 — Install IBM Bob
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-other-prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 — Other prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -793,6 +821,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Prerequisites &amp; Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-install-ibm-bob" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 — Install IBM Bob
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-other-prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 — Other prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -900,16 +956,66 @@ flowchart LR
 <hr>
 <h2 id="prerequisites-setup">Prerequisites &amp; Setup<a class="headerlink" href="#prerequisites-setup" title="Permanent link">¶</a></h2>
 <p>Before starting any lab, verify you have the essentials ready:</p>
-<ol>
-<li><strong>VS Code</strong> with the <strong>IBM Bob extension</strong> installed and logged in.</li>
-<li><strong>Node.js 20 LTS</strong> &amp; <strong>Python 3.11+</strong> installed on your workstation.</li>
-<li><strong>Git</strong> configured (<code>user.name</code> and <code>user.email</code>).</li>
+<h3 id="1-install-ibm-bob">1 — Install IBM Bob<a class="headerlink" href="#1-install-ibm-bob" title="Permanent link">¶</a></h3>
+<p>IBM Bob is a <strong>standalone IDE</strong> — not a VS Code extension. Download and install it from <a href="https://bob.ibm.com/download">bob.ibm.com/download</a>. Sign in with your IBMid on first launch.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">IBM Bob IDE (recommended)</label><label for="__tabbed_1_2">Bob Shell (terminal alternative)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Download the installer for your OS from <strong><a href="https://bob.ibm.com/download">bob.ibm.com/download</a></strong>:</p>
+<table>
+<thead>
+<tr>
+<th>OS</th>
+<th>Installer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>macOS (Apple Silicon)</td>
+<td><code>.pkg</code> — mac-ARM</td>
+</tr>
+<tr>
+<td>macOS (Intel)</td>
+<td><code>.pkg</code> — mac-intel</td>
+</tr>
+<tr>
+<td>Windows</td>
+<td><code>.exe</code></td>
+</tr>
+<tr>
+<td>Linux (Debian/Ubuntu)</td>
+<td><code>.deb</code></td>
+</tr>
+<tr>
+<td>Linux (Red Hat/Fedora)</td>
+<td><code>.rpm</code></td>
+</tr>
+</tbody>
+</table>
+<p>Open the installer, follow the wizard, then sign in with your <strong>IBMid</strong>.</p>
+</div>
+<div class="tabbed-block">
+<p>If you prefer to work in a terminal, install Bob Shell:</p>
+<p><strong>macOS / Linux</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://bob.ibm.com/download/bobshell.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
+</code></pre></div>
+<strong>Windows (PowerShell)</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">powershell</span> <span class="n">-ep</span> <span class="n">Bypass</span> <span class="s1">'irm -Uri "https://bob.ibm.com/download/bobshell.ps1" | iex'</span>
+</code></pre></div>
+Authenticate at <code>bob.ibm.com/login</code> when prompted.<p></p>
+</div>
+</div>
+</div>
+<h3 id="2-other-prerequisites">2 — Other prerequisites<a class="headerlink" href="#2-other-prerequisites" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>Node.js 20 LTS</strong> and <strong>Python 3.11+</strong> installed.</li>
+<li><strong>Git</strong> configured (<code>git config --global user.name</code> and <code>user.email</code>).</li>
 <li><strong>Workshop Starter Repositories:</strong><ul>
-<li><strong>Galaxium Travels:</strong> Clone with <code>git clone https://github.com/IBM/galaxium-travels</code></li>
+<li><strong>Galaxium Travels:</strong> <code>git clone https://github.com/IBM/galaxium-travels</code></li>
 <li><strong>Workshop Materials &amp; GFM Bank:</strong> Available directly inside this repository.</li>
 </ul>
 </li>
-</ol>
+</ul>
 <hr>
 <h2 id="lab-tracks-summary">Lab Tracks Summary<a class="headerlink" href="#lab-tracks-summary" title="Permanent link">¶</a></h2>
 <table>
