@@ -11,18 +11,6 @@ Two labs · ~70 minutes total · Assumes basic Bob familiarity
 | I1 | **GitHub SDLC with Bob** | 40 min | Drive a full issue → branch → implement → PR loop with GitHub MCP |
 | I2 | **Author, Modify & Commit Rules** | 30 min | Build version-controlled team standards that Bob applies automatically |
 
-!!! warning "Mode names have changed"
-    Older lab materials and videos may refer to **"Code mode"** and **"Chat mode"**.
-    These names no longer exist. The current modes are:
-
-    | Old name | Current name |
-    |---|---|
-    | Code mode | **Agent** mode |
-    | Chat mode | **Ask** mode |
-    | *(unchanged)* | **Plan** mode |
-
-    Use the current names throughout this lab.
-
 ---
 
 ## Prerequisites
@@ -31,7 +19,6 @@ Two labs · ~70 minutes total · Assumes basic Bob familiarity
 - [ ] Git configured (`git config --global user.name` and `user.email`)
 - [ ] GitHub account with a personal access token (`repo` scope)
 - [ ] GitHub MCP installed in Bob (see Lab I1 Step 1)
-- [ ] Galaxium Travels cloned and running (from Beginner Track, or re-clone fresh)
 
 ---
 
@@ -62,48 +49,181 @@ flowchart LR
 !!! tip "Create a token"
     GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic) → New token → tick **repo** → Generate.
 
-### Step 2 — Fork or use the GitHub-SDLC lab repo
-
-The lab ships with a pre-built React finance dashboard you connect to GitHub.
-
-**Option A — Use the lab repo directly (recommended):**
+### Step 2 — Open the lab repo in VS Code
 
 ```bash
-cd labs/github-sdlc
+cd intermediate/labs/github-sdlc
 ```
 
-Open this folder in VS Code. It contains a React finance app and two workshop guides.
+Open this folder in VS Code. It contains a React finance app skeleton and supporting docs.
 
-**Option B — Use your own GitHub repo:**
-Push any existing project to GitHub and substitute that repo in the prompts below.
+### Step 3 — Plan and build the finance dashboard
 
-### Step 3 — Follow the GitHub-SDLC workshop
+Switch to **Agent** mode. Start by having Bob understand the project and plan the build:
 
-The lab ships as two structured workshop files:
+```
+Review this repository and propose a build plan for a small React finance dashboard application.
+The app should use Yahoo Finance data for:
+- Euro Stoxx 50 (`^STOXX50E`), DAX (`^GDAXI`), Nikkei 225 (`^N225`),
+  Dow Jones Industrial Average (`^DJI`), and MSCI World (`URTH`).
+The dashboard should provide views for current day, last 7 days, and last quarter.
+Explain the recommended project structure, data-fetching approach, UI sections, and testing strategy.
+```
 
-| File | Content |
-|---|---|
-| `labs/github-sdlc/WORKSHOP-part1-BUILD.md` | Part 1: Bob builds and validates the finance dashboard locally |
-| `labs/github-sdlc/WORKSHOP-part2-GITHUB-AUTOMATION.md` | Part 2: Bob connects to GitHub, reads an issue, implements, and opens a PR |
+Once Bob has responded, scaffold the application:
 
-Work through both parts using **Agent** mode (formerly "Code mode").
+```
+Create a React application structure for this repository inside a directory named "finance-app".
+Include a dashboard page, reusable chart card components, a finance data service layer,
+and a clean folder layout suitable for future enhancements.
+```
 
-!!! warning "Terminology in the workshop files"
-    The workshop Markdown files were written before the mode rename. Wherever you see
-    **"Code mode"** read it as **Agent mode**. Wherever you see **"Chat mode"** read it as **Ask mode**.
+**Observe:** Bob creates the `finance-app` directory with the full project structure.
 
-### Step 4 — Key checkpoints
+### Step 4 — Integrate Yahoo Finance data
 
-Watch Bob do each of these automatically:
+Start a **new chat** in Bob and send:
 
-- [ ] Read the GitHub issue via the MCP `get_issue` tool
-- [ ] Create a feature branch with `create_branch`
-- [ ] Implement the feature in Agent mode
-- [ ] Run `npm run lint` and `npm test` to validate
-- [ ] Commit with a descriptive message
-- [ ] Open a PR using `create_pull_request`, referencing the issue number
+```
+Implement a finance data layer for the following stock indices using Yahoo Finance data:
+Euro Stoxx 50 (`^STOXX50E`), DAX (`^GDAXI`), Nikkei 225 (`^N225`),
+Dow Jones Industrial Average (`^DJI`), and MSCI World (`URTH`).
+Normalize the returned data so the UI can display quote summaries,
+short-term history, and quarterly trend views.
+Keep the code easy to extend if more indices need to be added later.
+```
 
-### Step 5 — Reflection
+In the same chat, build the dashboard views:
+
+```
+Build 2 to 3 dashboard views for the finance application:
+- current day market summary
+- last 7 days trend comparison
+- last quarter comparison view
+
+Include all five stock indices. Use charts and summary cards. Keep the UI simple and demo-friendly.
+```
+
+Run the app locally to verify:
+
+```bash
+cd finance-app
+npm install
+npm start
+```
+
+### Step 5 — Add validation and tests
+
+Start a **new chat** in Bob and send:
+
+```
+Add appropriate validation for the finance dashboard project.
+Include unit tests for the data formatting and normalization utilities,
+and integration tests for at least one dashboard view rendered with mocked API data.
+Use MSW to mock the finance API responses in tests.
+Provide a single command that runs lint, type-check, tests, and build together,
+and summarize what a successful run looks like.
+```
+
+Run the validation suite:
+
+```bash
+cd finance-app
+npm run validate
+```
+
+A successful run completes without errors — lint, type-check, tests, and build all pass.
+
+### Step 6 — Push to GitHub
+
+1. Go to [https://github.com/new](https://github.com/new) and create a new repo named `finance-app` (no README, no .gitignore)
+2. Copy the GitHub Actions CI config into your project:
+
+```bash
+# from the github-sdlc lab root
+cp -r .github finance-app/.github
+```
+
+3. Initialize git and push:
+
+```bash
+cd finance-app
+git init
+git add .
+git commit -m "Initial commit: finance dashboard"
+git remote add origin https://github.com/YOUR_USERNAME/finance-app.git
+git branch -M main
+git push -u origin main
+```
+
+4. On GitHub, go to **Settings → General** and confirm **Issues** is enabled
+5. Create a feature branch:
+
+```bash
+git checkout -b feature/user-selected-chart
+git push -u origin feature/user-selected-chart
+```
+
+### Step 7 — Create a GitHub issue
+
+On GitHub, open **Issues → New issue**:
+
+- **Title:** `Add a graph for a user-selected index`
+- **Body:** `Users should be able to type any stock ticker symbol and see a new chart for that symbol alongside the existing dashboards. Include loading and error states. Existing dashboard views must not be affected.`
+
+Note the issue number (e.g. `#1`).
+
+### Step 8 — Issue-to-PR loop
+
+Open a **new chat** in Bob (**Agent** mode) and send — replace `#1` with your actual issue number:
+
+```
+Fetch and analyze GitHub issue #1 from this repository.
+Explain the requested feature, identify which files need to change,
+and propose an implementation plan.
+```
+
+In the same chat, implement:
+
+```
+Implement the feature described in the GitHub issue.
+Add a user input for a stock ticker symbol that fetches and displays a new chart
+for that symbol alongside the existing dashboards.
+Reuse the existing data service layer, keep the UX simple,
+and preserve all existing dashboard views.
+```
+
+Validate:
+
+```
+Run the full validation suite. Summarize what passed, what failed,
+and whether the branch is ready to push to GitHub.
+```
+
+Start a **new chat** in Bob, then commit and push:
+
+```
+Review the changes made to implement the user-selected index chart feature in finance-app/.
+Summarize what was added, fix any obvious problems, commit with a meaningful message,
+and push to the feature/user-selected-chart branch. Do not yet create a pull request.
+```
+
+### Step 9 — Create the pull request
+
+In the same chat, type this command directly:
+
+```
+/create-pr
+```
+
+Bob will display a workflow dialog. Click **"Start workflow"**, leave the pre-filled **Repository** and **Base Branch** values as-is, then click **"Generate PR Description"**.
+
+**Observe:** Bob reads the git diff, detects the linked issue, fills in the PR template, and creates the pull request automatically.
+
+!!! tip "Check the PR on GitHub"
+    Visit the **Pull requests** tab on your repo to confirm the PR exists and references the issue number.
+
+### Reflection
 
 Switch to **Ask** mode:
 
@@ -111,15 +231,6 @@ Switch to **Ask** mode:
 In the SDLC loop we just ran, which steps required a human decision
 and which were fully automated by Bob?
 What are the risks of fully automating the PR step?
-```
-
-### Extension task
-
-Create a second GitHub issue of your own design and run the complete loop unassisted:
-
-```
-Read the latest open issue in this repo, create a feature branch,
-implement the change, validate it passes lint and tests, and open a PR.
 ```
 
 ---
@@ -209,7 +320,7 @@ Make a small code change in Agent mode (e.g. rename a variable). **Observe:** Bo
 !!! info "Mode-scoped rules"
     Files in `.bob/rules-agent/` are only injected when Bob is in Agent mode.
     Files in `.bob/rules/` are injected in every mode.
-    Mode slug for built-in modes: `agent`, `plan`, `ask`, `advanced`.
+    Mode slug for built-in modes: `agent`, `plan`, `ask`.
 
 ### Step 5 — Commit the rules
 

@@ -68,17 +68,3 @@ Choose your hands-on track for the OpenSlava Bobathon. Each track is self-contai
 | **Custom Modes & Personas** | — | — | ✅ Deep dive (E3) |
 | **Security Audit & Remediation** | — | — | ✅ PCI-DSS / OWASP (E1) |
 
----
-
-## 📚 Extended Modernization & Specialized Labs
-
-Interested in exploring what IBM Bob can do on specialized enterprise platforms? Browse our extended catalog of deep-dive modernization labs:
-
-| Category | Lab Guide | Key Focus |
-|---|---|---|
-| **Software Development Lifecycle** | [SDLC Workflows](sdlc.md) | Feature implementation, incident remediation, and watsonx Orchestrate agentic workflows |
-| **IBM i Modernization** | [IBM i (PPi)](ibm-i.md) | RPG free-format conversion, DDS to SQL, RPGUnit test generation, SAMCO & Flight400 |
-| **IBM Z Mainframe** | [IBM Z Modernization](ibm-z.md) | COBOL/PL/I discovery, impact analysis, dead code elimination, and service extraction |
-| **Java Modernization** | [Java Modernization](java.md) | WebSphere to Liberty migration, Java 8 to 21 upgrade, javax to jakarta namespace migration |
-| **Enterprise Operations** | [Other Labs](other.md) | Ansible, OpenShift, IBM Maximo, IBM MQ, C++, and .NET modernizations |
-| **Marketplace & Extensions** | [CE Marketplace](marketplace.md) | Discover 300+ community skills, modes, and lab packs |

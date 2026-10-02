@@ -73,12 +73,6 @@ flowchart LR
     class Custom secondary
 ```
 
-!!! warning "Mode Names Reminder"
-    Previous materials or videos may refer to **"Code mode"** or **"Chat mode"**. 
-    * Use **Agent mode** (formerly Code mode) for writing code and running actions.
-    * Use **Ask mode** (formerly Chat mode) for explanations and codebase queries.
-    * Use **Plan mode** for designing architecture and multi-step tasks before coding.
-
 ---
 
 ## Prerequisites & Setup

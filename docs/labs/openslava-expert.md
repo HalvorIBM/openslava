@@ -13,17 +13,6 @@ Four labs · ~90 minutes total · For experienced Bob users
 | E3 | **Custom Mode, Mode-Scoped Rules & Re-Init** | 20 min | Build a read-only `fintech-reviewer` mode with PCI-DSS rules |
 | E4 | **GitHub MCP Integration** | 25 min | Issue → branch → implement → PR driven entirely by Bob with GitHub MCP |
 
-!!! warning "Mode names have changed"
-    Older lab materials and videos may refer to **"Code mode"** and **"Chat mode"**.
-    The current names are:
-
-    | Old name | Current name |
-    |---|---|
-    | Code mode | **Agent** mode |
-    | Chat mode | **Ask** mode |
-    | *(unchanged)* | **Plan** mode |
-    | *(unchanged)* | **Advanced** mode |
-
 ---
 
 ## Prerequisites
@@ -72,8 +61,6 @@ Explain the architecture, the role-based access model, and the transaction proce
 Create a Mermaid diagram showing the system components and a sequence diagram for a money transfer.
 ```
 
-For a full structured walkthrough, open `labs/banking-industry/WORKSHOP-part1-architecture.md` in VS Code.
-
 ### Part 2 — Build the React Teller UI (10 min)
 
 Switch to **Agent** mode:
@@ -85,8 +72,6 @@ transaction history, money transfer form, and overdraft request message.
 Plain CSS — no external component library.
 ```
 
-For the full step-by-step guide, open `labs/banking-industry/WORKSHOP-part2-react-ui.md` in VS Code.
-
 ### Part 3 — Security Audit (7 min)
 
 Open `labs/banking-industry/security-audit/code/` in VS Code. Switch to **Agent** mode:
@@ -97,8 +82,6 @@ For each finding provide: file, line, CWE category, severity, attack scenario,
 and remediation recommendation.
 Then generate SECURITY_AUDIT_REPORT.md.
 ```
-
-For the full audit workflow including fix generation, open `labs/banking-industry/WORKSHOP-part3-security.md` in VS Code.
 
 !!! tip "Expected findings"
     Bob should find at minimum: hardcoded credentials, SQL injection, command injection, insecure `pickle` deserialization, disabled SSL, and MD5 password hashing. A total of 12 vulnerabilities across both files.
