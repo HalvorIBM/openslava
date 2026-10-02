@@ -100,6 +100,4 @@ Before starting any lab, verify you have the essentials ready:
 
 ## Additional Resources
 
-* [**Full Lab Catalog & Modernization Tracks**](labs/index.md) — Explore extended tracks (IBM Z, IBM i, Java Modernization, SDLC).
-* [**Troubleshooting Guide**](delivery/troubleshooting.md) — Quick solutions for common issues during the workshop.
-* [**Resources & Links**](resources.md) — Documentation, community links, and post-event follow-up.
+* [**Resources & Links**](resources.md) — IBM Bob documentation and community links.
