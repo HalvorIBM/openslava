@@ -79,11 +79,42 @@ flowchart LR
 
 Before starting any lab, verify you have the essentials ready:
 
-1. **VS Code** with the **IBM Bob extension** installed and logged in.
-2. **Node.js 20 LTS** & **Python 3.11+** installed on your workstation.
-3. **Git** configured (`user.name` and `user.email`).
-4. **Workshop Starter Repositories:**
-    * **Galaxium Travels:** Clone with `git clone https://github.com/IBM/galaxium-travels`
+### 1 — Install IBM Bob
+
+IBM Bob is a **standalone IDE** — not a VS Code extension. Download and install it from [bob.ibm.com/download](https://bob.ibm.com/download). Sign in with your IBMid on first launch.
+
+=== "IBM Bob IDE (recommended)"
+    Download the installer for your OS from **[bob.ibm.com/download](https://bob.ibm.com/download)**:
+
+    | OS | Installer |
+    |---|---|
+    | macOS (Apple Silicon) | `.pkg` — mac-ARM |
+    | macOS (Intel) | `.pkg` — mac-intel |
+    | Windows | `.exe` |
+    | Linux (Debian/Ubuntu) | `.deb` |
+    | Linux (Red Hat/Fedora) | `.rpm` |
+
+    Open the installer, follow the wizard, then sign in with your **IBMid**.
+
+=== "Bob Shell (terminal alternative)"
+    If you prefer to work in a terminal, install Bob Shell:
+
+    **macOS / Linux**
+    ```bash
+    curl -fsSL https://bob.ibm.com/download/bobshell.sh | bash
+    ```
+    **Windows (PowerShell)**
+    ```powershell
+    powershell -ep Bypass 'irm -Uri "https://bob.ibm.com/download/bobshell.ps1" | iex'
+    ```
+    Authenticate at `bob.ibm.com/login` when prompted.
+
+### 2 — Other prerequisites
+
+- **Node.js 20 LTS** and **Python 3.11+** installed.
+- **Git** configured (`git config --global user.name` and `user.email`).
+- **Workshop Starter Repositories:**
+    * **Galaxium Travels:** `git clone https://github.com/IBM/galaxium-travels`
     * **Workshop Materials & GFM Bank:** Available directly inside this repository.
 
 ---

@@ -15,7 +15,7 @@ Two labs · ~70 minutes total · Assumes basic Bob familiarity
 
 ## Prerequisites
 
-- [ ] VS Code installed with IBM Bob extension
+- [ ] **IBM Bob IDE** installed and signed in — download from [bob.ibm.com/download](https://bob.ibm.com/download) (standalone app, not a VS Code extension), or **Bob Shell** if you prefer a terminal (`curl -fsSL https://bob.ibm.com/download/bobshell.sh | bash`)
 - [ ] Git configured (`git config --global user.name` and `user.email`)
 - [ ] GitHub account with a personal access token (`repo` scope)
 - [ ] GitHub MCP installed in Bob (see Lab I1 Step 1)

@@ -19,12 +19,10 @@ Three labs · ~70 minutes total · No prior Bob experience needed
 
 ## Prerequisites
 
-- [ ] VS Code installed
-- [ ] IBM Bob extension installed and signed in
+- [ ] **IBM Bob IDE** installed and signed in — download from [bob.ibm.com/download](https://bob.ibm.com/download) (standalone app, not a VS Code extension), or **Bob Shell** if you prefer a terminal (`curl -fsSL https://bob.ibm.com/download/bobshell.sh | bash`)
 - [ ] Node.js 20 LTS installed
 - [ ] Git installed
-- [ ] 10 minutes before the session: clone the Galaxium repo
-      `git clone https://github.com/IBM/galaxium-travels`
+- [ ] Galaxium repo cloned: `git clone https://github.com/IBM/galaxium-travels`
 
 ---
 

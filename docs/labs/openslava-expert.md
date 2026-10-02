@@ -17,7 +17,7 @@ Four labs · ~90 minutes total · For experienced Bob users
 
 ## Prerequisites
 
-- [ ] VS Code installed with IBM Bob extension, signed in
+- [ ] **IBM Bob IDE** installed and signed in — download from [bob.ibm.com/download](https://bob.ibm.com/download) (standalone app, not a VS Code extension), or **Bob Shell** if you prefer a terminal (`curl -fsSL https://bob.ibm.com/download/bobshell.sh | bash`)
 - [ ] Python 3.11+ and Node.js 20 LTS installed
 - [ ] Git configured with `user.name` and `user.email`
 - [ ] GitHub account with a personal access token (`repo` scope) — needed for E4
