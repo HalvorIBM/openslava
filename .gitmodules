@@ -1,0 +1,3 @@
+[submodule "galaxium-travels"]
+	path = galaxium-travels
+	url = https://github.com/IBM/galaxium-travels
