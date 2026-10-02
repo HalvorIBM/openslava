@@ -27,9 +27,6 @@ theme:
   features:
     - navigation.tabs
     - navigation.tabs.sticky
-    - navigation.sections
-    - navigation.expand
-    - navigation.path
     - navigation.top
     - navigation.footer
     - search.highlight
@@ -78,6 +75,9 @@ extra:
 
 nav:
   - Home: index.md
-  - 🟢 Beginner: labs/openslava-beginner.md
-  - 🟡 Intermediate: labs/openslava-intermediate.md
-  - 🔴 Expert: labs/openslava-expert.md
+  - 🟢 Beginner:
+    - labs/openslava-beginner.md
+  - 🟡 Intermediate:
+    - labs/openslava-intermediate.md
+  - 🔴 Expert:
+    - labs/openslava-expert.md
