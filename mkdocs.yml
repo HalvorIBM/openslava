@@ -78,9 +78,6 @@ extra:
 
 nav:
   - Home: index.md
-  - OpenSlava Tracks:
-    - Track Menu: labs/index.md
-    - 🟢 Beginner Track: labs/openslava-beginner.md
-    - 🟡 Intermediate Track: labs/openslava-intermediate.md
-    - 🔴 Expert Track: labs/openslava-expert.md
-  - Resources: resources.md
+  - 🟢 Beginner: labs/openslava-beginner.md
+  - 🟡 Intermediate: labs/openslava-intermediate.md
+  - 🔴 Expert: labs/openslava-expert.md

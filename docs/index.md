@@ -98,6 +98,10 @@ Before starting any lab, verify you have the essentials ready:
 
 ---
 
-## Additional Resources
+## Resources
 
-* [**Resources & Links**](resources.md) — IBM Bob documentation and community links.
+| Resource | Link |
+|---|---|
+| **IBM Bob** | [bob.ibm.com](https://bob.ibm.com) |
+| **Bob Documentation** | [ibm.biz/bob-doc](https://ibm.biz/bob-doc) |
+| **Getting the Most Out of Bob** | [bob.ibm.com/blog/getting-the-most-out-of-bob](https://bob.ibm.com/blog/getting-the-most-out-of-bob) |
