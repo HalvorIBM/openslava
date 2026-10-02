@@ -1,8 +1,8 @@
 site_name: IBM Bob — OpenSlava Lab Guide
 site_description: Hands-on lab guide for the IBM Bob Bobathon at OpenSlava — three tracks for Beginner, Intermediate, and Expert participants.
-site_url: https://halvorhbarndon.github.io/openslava
-repo_url: https://github.com/halvorhbarndon/openslava
-repo_name: halvorhbarndon/openslava
+site_url: https://pages.github.ibm.com/Halvor/openslava
+repo_url: https://github.ibm.com/Halvor/openslava
+repo_name: Halvor/openslava
 edit_uri: edit/main/docs/
 
 theme:
@@ -74,7 +74,7 @@ plugins:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/halvorhbarndon/openslava
+      link: https://github.ibm.com/Halvor/openslava
 
 nav:
   - Home: index.md
