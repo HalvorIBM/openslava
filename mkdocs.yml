@@ -1,0 +1,122 @@
+site_name: IBM Bob — OpenSlava Lab Guide
+site_description: Hands-on lab guide for the IBM Bob Bobathon at OpenSlava — three tracks for Beginner, Intermediate, and Expert participants.
+site_url: https://halvorhbarndon.github.io/openslava
+repo_url: https://github.com/halvorhbarndon/openslava
+repo_name: halvorhbarndon/openslava
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  logo: assets/Bob_icon_sm.png
+  favicon: assets/Bob_icon_sm.png
+  palette:
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+    - navigation.footer
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - toc.follow
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+extra_css:
+  - assets/css/mermaid-theme.css
+
+plugins:
+  - search
+  - glightbox
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/halvorhbarndon/openslava
+
+nav:
+  - Home: index.md
+  - Pitch & Discovery:
+    - Overview: pitch/index.md
+    - Value Proposition: pitch/value-proposition.md
+    - Pitch Conversation Guide: pitch/conversation-guide.md
+    - How to Engage CE: pitch/how-to-engage.md
+  - Discovery & Scoping:
+    - Overview: discovery/index.md
+    - Client Discovery Questions: discovery/client-questions.md
+    - Scoping Decisions: discovery/scoping-decisions.md
+    - Workshop (Mural): discovery/workshop.md
+  - Planning & Prep:
+    - Overview: planning/index.md
+    - Pre-Event Checklist: planning/checklist.md
+    - Environment Options: planning/environment-options.md
+    - Agenda Templates: planning/agenda-templates.md
+    - Room & Logistics: planning/logistics.md
+    - Building with Bob: planning/build-with-bob.md
+    - Client Context Spec Template: planning/client-spec.md
+    - Badging Setup: planning/badging.md
+    - Bobathon Lab Website: planning/lab-website.md
+  - Markets:
+    - Public Market: markets/public-market.md
+  - Use Cases & Labs:
+    - Lab Menu: labs/index.md
+    - OpenSlava Beginner Track: labs/openslava-beginner.md
+    - OpenSlava Intermediate Track: labs/openslava-intermediate.md
+    - OpenSlava Expert Track: labs/openslava-expert.md
+    - SDLC Workflows: labs/sdlc.md
+    - IBM i Modernization: labs/ibm-i.md
+    - IBM Z Modernization: labs/ibm-z.md
+    - Java Modernization: labs/java.md
+    - Other Labs: labs/other.md
+    - CE Bob Marketplace: labs/marketplace.md
+  - Delivery:
+    - Day-of Guide: delivery/index.md
+    - Facilitation Tips: delivery/facilitation.md
+    - Troubleshooting: delivery/troubleshooting.md
+  - Follow-Up:
+    - Post-Event Activities: followup/index.md
+    - Pilot & PoC Guide: followup/pilot.md
+    - Bobathons in the CVE Motion: followup/cve.md
+  - Resources: resources.md

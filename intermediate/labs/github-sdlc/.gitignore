@@ -1,0 +1,12 @@
+#finance-app/*
+.bob/*
+!.bob/workshop-hints.md
+!.bob/rules/
+package-lock.json
+#finance-dashboard/*
+
+github-sdlc-lab-*.zip
+
+*/node_modules
+*/coverage
+*/dist

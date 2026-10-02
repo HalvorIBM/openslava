@@ -1,0 +1,17 @@
+/*
+ * Force Mermaid node label text to white in both light and dark themes.
+ *
+ * Material for MkDocs injects .nodeLabel { color: var(--md-mermaid-label-fg-color) }
+ * into each diagram's Shadow DOM. The variable resolves from :root, so overriding
+ * it here propagates into the shadow root's var() lookups.
+ *
+ * Both [data-md-color-scheme] selectors have equal specificity — the last one wins
+ * per the toggle order in mkdocs.yml (dark first, light second), so we just set
+ * the same value for both.
+ */
+
+:root,
+[data-md-color-scheme="default"],
+[data-md-color-scheme="slate"] {
+  --md-mermaid-label-fg-color: #ffffff;
+}

@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 520" width="640" height="520" style="font-family:-apple-system,'Segoe UI',system-ui,sans-serif">
+
+  <!-- LIGHT MODE -->
+
+  <!-- quadrant backgrounds -->
+  <rect x="80" y="40"  width="250" height="210" rx="4" fill="rgba(219,234,254,0.6)"   stroke="rgba(59,130,246,0.25)" stroke-width="1"/>
+  <rect x="330" y="40" width="250" height="210" rx="4" fill="rgba(209,250,229,0.6)"   stroke="rgba(34,197,94,0.25)"  stroke-width="1"/>
+  <rect x="80" y="250" width="250" height="210" rx="4" fill="rgba(254,243,199,0.5)"   stroke="rgba(245,158,11,0.25)" stroke-width="1"/>
+  <rect x="330" y="250" width="250" height="210" rx="4" fill="rgba(241,245,249,0.5)"  stroke="rgba(148,163,184,0.25)" stroke-width="1"/>
+
+  <!-- axis lines -->
+  <line x1="80" y1="460" x2="590" y2="460" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="80" y1="460" x2="80"  y2="28"  stroke="#64748b" stroke-width="1.5"/>
+
+  <!-- centre dividers -->
+  <line x1="330" y1="40"  x2="330" y2="460" stroke="#94a3b8" stroke-width="1" stroke-dasharray="5,4"/>
+  <line x1="80"  y1="250" x2="580" y2="250" stroke="#94a3b8" stroke-width="1" stroke-dasharray="5,4"/>
+
+  <!-- axis arrows -->
+  <polygon points="590,456 600,460 590,464" fill="#64748b"/>
+  <polygon points="76,28 80,18 84,28"       fill="#64748b"/>
+
+  <!-- axis end labels -->
+  <text x="80"  y="478" text-anchor="middle" font-size="11" font-weight="600" fill="#64748b">Low</text>
+  <text x="580" y="478" text-anchor="middle" font-size="11" font-weight="600" fill="#64748b">High</text>
+  <text x="58"  y="464" text-anchor="middle" font-size="11" font-weight="600" fill="#64748b">Low</text>
+  <text x="58"  y="44"  text-anchor="middle" font-size="11" font-weight="600" fill="#64748b">High</text>
+
+  <!-- axis title labels -->
+  <text x="330" y="498" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">Feasibility →</text>
+  <text x="18"  y="250" text-anchor="middle" font-size="12" font-weight="700" fill="#475569" transform="rotate(-90,18,250)">← Value</text>
+
+  <!-- Q2 Big Bets (top-left) -->
+  <text x="205" y="66"  text-anchor="middle" font-size="13" font-weight="700" fill="#1d4ed8">🎲 Big Bets</text>
+  <text x="205" y="81"  text-anchor="middle" font-size="10" fill="#3b82f6">Challenge feasibility → Pilot</text>
+
+  <!-- Q1 No-Brainers (top-right) -->
+  <text x="455" y="66"  text-anchor="middle" font-size="13" font-weight="700" fill="#15803d">🚀 No-Brainers</text>
+  <text x="455" y="81"  text-anchor="middle" font-size="10" fill="#16a34a">Anchor the Bobathon here</text>
+
+  <!-- Q3 Save for Later (bottom-left) -->
+  <text x="205" y="274" text-anchor="middle" font-size="13" font-weight="700" fill="#b45309">🗄 Save for Later</text>
+  <text x="205" y="289" text-anchor="middle" font-size="10" fill="#d97706">Revisit when context changes</text>
+
+  <!-- Q4 Utilities (bottom-right) -->
+  <text x="455" y="274" text-anchor="middle" font-size="13" font-weight="700" fill="#475569">🔧 Utilities</text>
+  <text x="455" y="289" text-anchor="middle" font-size="10" fill="#64748b">Add if time permits</text>
+
+  <!-- No-Brainers dots (green) -->
+  <circle cx="500" cy="128" r="7" fill="#16a34a" stroke="#fff" stroke-width="1.5"/>
+  <text x="510" y="124" font-size="10" fill="#15803d" dominant-baseline="middle">Code Documentation</text>
+
+  <circle cx="450" cy="107" r="7" fill="#16a34a" stroke="#fff" stroke-width="1.5"/>
+  <text x="460" y="103" font-size="10" fill="#15803d" dominant-baseline="middle">Impact Analysis</text>
+
+  <circle cx="425" cy="149" r="7" fill="#16a34a" stroke="#fff" stroke-width="1.5"/>
+  <text x="435" y="145" font-size="10" fill="#15803d" dominant-baseline="middle">Test Generation</text>
+
+  <circle cx="515" cy="174" r="7" fill="#16a34a" stroke="#fff" stroke-width="1.5"/>
+  <text x="525" y="170" font-size="10" fill="#15803d" dominant-baseline="middle">App Understanding</text>
+
+  <!-- Big Bets dots (blue) -->
+  <circle cx="260" cy="90"  r="7" fill="#2563eb" stroke="#fff" stroke-width="1.5"/>
+  <text x="270" y="87"  font-size="10" fill="#1d4ed8" dominant-baseline="middle">COBOL Refactoring</text>
+
+  <circle cx="310" cy="124" r="7" fill="#2563eb" stroke="#fff" stroke-width="1.5"/>
+  <text x="148" y="121" font-size="10" fill="#1d4ed8" dominant-baseline="middle" text-anchor="start">Security Remediation</text>
+
+  <circle cx="230" cy="166" r="7" fill="#2563eb" stroke="#fff" stroke-width="1.5"/>
+  <text x="240" y="163" font-size="10" fill="#1d4ed8" dominant-baseline="middle">New Code Gen</text>
+
+  <!-- Utilities dot (slate) -->
+  <circle cx="395" cy="305" r="7" fill="#94a3b8" stroke="#fff" stroke-width="1.5"/>
+  <text x="405" y="301" font-size="10" fill="#64748b" dominant-baseline="middle">DevOps Automation</text>
+
+</svg>

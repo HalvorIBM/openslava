@@ -1,0 +1,58 @@
+name: Finance App CI
+
+on:
+  push:
+    branches:
+      - main
+      - "feature/**"
+      - "bob/**"
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  validate:
+    name: Install, lint, type-check, test, build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Type check
+        run: npm run type-check
+
+      - name: Test
+        run: npm run test
+
+      - name: Build
+        run: npm run build
+
+  bob-feature-flow:
+    name: Bob-assisted feature workflow guidance
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Explain Bob collaboration workflow
+        run: |
+          echo "This workflow validates the repository and documents the expected Bob collaboration flow."
+          echo "Example flow:"
+          echo "1. A PR is opened with a feature request."
+          echo "2. Bob analyzes the branch diff and request context."
+          echo "3. Bob implements the requested feature locally."
+          echo "4. Bob runs tests and build commands."
+          echo "5. Bob pushes updates back to the branch for review."
+          echo "6. A maintainer or external automation merges/closes the PR."
