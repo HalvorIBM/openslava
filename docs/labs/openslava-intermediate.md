@@ -49,13 +49,13 @@ flowchart LR
 !!! tip "Create a token"
     GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic) → New token → tick **repo** → Generate.
 
-### Step 2 — Open the lab repo in VS Code
+### Step 2 — Open the lab repo in IBM Bob
 
 ```bash
 cd intermediate/labs/github-sdlc
 ```
 
-Open this folder in VS Code. It contains a React finance app skeleton and supporting docs.
+Open this folder in **IBM Bob**. It contains a React finance app skeleton and supporting docs.
 
 ### Step 3 — Plan and build the finance dashboard
 
@@ -254,7 +254,7 @@ flowchart LR
 
 ### Step 1 — Create global rules
 
-Open `galaxium-travels/` in VS Code. In **Agent** mode:
+Open `galaxium-travels/` in **IBM Bob**. In **Agent** mode:
 
 ```bash
 mkdir -p .bob/rules
@@ -336,7 +336,7 @@ git add .bob/ && git commit -m "Add team Bob rules for Galaxium Travels"
 
 ### Step 6 — Verify the rules persist
 
-Close and reopen VS Code, then ask Bob something simple in Agent mode. Check that `bob-log/` gets a new entry — confirming the rules survive a session restart.
+Close and reopen **IBM Bob**, then ask Bob something simple in Agent mode. Check that `bob-log/` gets a new entry — confirming the rules survive a session restart.
 
 ---
 

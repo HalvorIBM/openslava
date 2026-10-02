@@ -44,8 +44,8 @@ flowchart LR
 
 ### Step 1 — Ask mode: understand the modes
 
-1. Open VS Code on an **empty folder**
-2. Open the Bob sidebar and select **Ask** mode
+1. Open **IBM Bob** on an **empty folder**
+2. Select **Ask** mode
 3. Send this prompt:
 
 ```
@@ -151,7 +151,7 @@ Open `http://localhost:5173` — you should see the Galaxium flight booking UI.
 
 ### Step 2 — Run /init
 
-1. Open the `galaxium-travels/` folder in VS Code
+1. Open the `galaxium-travels/` folder in **IBM Bob**
 2. Switch to **Agent** mode
 3. Type `/init` and send
 

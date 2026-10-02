@@ -53,7 +53,7 @@ API running at `http://127.0.0.1:8000` · Docs at `http://127.0.0.1:8000/docs`
 
 ### Part 1 — Architecture Understanding (8 min)
 
-Open `labs/banking-industry/gfm-bank/` in VS Code. Switch to **Ask** mode:
+Open `labs/banking-industry/gfm-bank/` in **IBM Bob**. Switch to **Ask** mode:
 
 ```
 Analyse the GFM Bank codebase (demo_api.py, teller_client.py, backoffice_client.py).
@@ -74,7 +74,7 @@ Plain CSS — no external component library.
 
 ### Part 3 — Security Audit (7 min)
 
-Open `labs/banking-industry/security-audit/code/` in VS Code. Switch to **Agent** mode:
+Open `labs/banking-industry/security-audit/code/` in **IBM Bob**. Switch to **Agent** mode:
 
 ```
 Analyse data_pipeline.py and synthetic_generator.py for security vulnerabilities.

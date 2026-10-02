@@ -1,50 +1,40 @@
 # IBM Bob — OpenSlava Bobathon
 
-Welcome to the **IBM Bob Hands-On Workshop** at OpenSlava!
-
-This portal is your complete guide for the 90-minute session. Choose your track below, follow the step-by-step instructions, and build real applications and workflows with IBM Bob.
+Welcome to the **IBM Bob Hands-On Workshop** at OpenSlava! This is your complete guide for the 90-minute session — choose a track, follow the step-by-step instructions, and build real applications with IBM Bob.
 
 ---
 
-## Quick Start — Choose Your Track
-
-Select the track that best matches your background and goals:
+## Choose Your Track
 
 <div class="grid cards" markdown>
 
--   :material-numeric-1-circle:{ .lg .middle } __[🟢 Beginner Track](labs/openslava-beginner.md)__
+-   :material-numeric-1-circle:{ .lg .middle } __[🟢 Beginner](labs/openslava-beginner.md)__
 
     ---
 
-    **~70 minutes · 3 Labs · No prior Bob experience needed**
+    **~70 min · 3 labs · No prior Bob experience needed**
 
-    * **B1 (25m):** Discover **Ask**, **Plan**, and **Agent** modes by building the OpenSlava 2026 Welcome App with confetti.
-    * **B2 (25m):** Add layover support to the full-stack **Galaxium Travels** app.
-    * **B3 (20m):** Implement date pickers, price ranking, and mock AI booking agents.
+    Build a confetti welcome app, add layover support to a full-stack travel app, then wire up date pickers and a mock AI booking agent — touching **Ask**, **Plan**, and **Agent** modes throughout.
 
     [:octicons-arrow-right-24: Start Beginner Track](labs/openslava-beginner.md)
 
--   :material-numeric-2-circle:{ .lg .middle } __[🟡 Intermediate Track](labs/openslava-intermediate.md)__
+-   :material-numeric-2-circle:{ .lg .middle } __[🟡 Intermediate](labs/openslava-intermediate.md)__
 
     ---
 
-    **~70 minutes · 2 Labs · Basic Bob familiarity assumed**
+    **~70 min · 2 labs · Basic Bob familiarity assumed**
 
-    * **I1 (40m):** End-to-end SDLC loop with **GitHub MCP** — Issue → Branch → Code → Test → PR.
-    * **I2 (30m):** Author, test, and commit custom project rules (`.bob/rules/`) for team standards.
+    Drive a full **Issue → Branch → Code → PR** loop with GitHub MCP, then author and commit version-controlled team rules that Bob applies automatically on every interaction.
 
     [:octicons-arrow-right-24: Start Intermediate Track](labs/openslava-intermediate.md)
 
--   :material-numeric-3-circle:{ .lg .middle } __[🔴 Expert Track](labs/openslava-expert.md)__
+-   :material-numeric-3-circle:{ .lg .middle } __[🔴 Expert](labs/openslava-expert.md)__
 
     ---
 
-    **~90 minutes · 4 Labs · For power users and architects**
+    **~90 min · 4 labs · For power users and architects**
 
-    * **E1 (25m):** GFM Core Bank — Architecture discovery, React UI build, and security audit.
-    * **E2 (20m):** `/init`, project rules, and fintech compliance governance.
-    * **E3 (20m):** Custom modes with scoped rules and tool permissions (`fintech-reviewer`).
-    * **E4 (25m):** Full SDLC automation with GitHub MCP.
+    Discover a banking-industry codebase, build a React UI, run a security audit, author fintech compliance rules, create a custom scoped mode, and automate the full SDLC with GitHub MCP.
 
     [:octicons-arrow-right-24: Start Expert Track](labs/openslava-expert.md)
 
@@ -52,36 +42,30 @@ Select the track that best matches your background and goals:
 
 ---
 
-## Workshop Architecture & Modes
-
-IBM Bob operates across dedicated modes optimized for each phase of software development:
+## Bob Modes at a Glance
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#1a56db', 'primaryTextColor': '#ffffff', 'primaryBorderColor': '#1a56db', 'lineColor': '#6b7280', 'mainBkg': '#1a56db', 'nodeBorder': '#1a56db', 'clusterBkg': '#1e3a5f', 'titleColor': '#ffffff', 'edgeLabelBackground': 'transparent'}}}%%
 flowchart LR
-    Ask["💬 Ask Mode\nCode exploration & Q&A\nRead-only context\nNo file edits"] --> Plan["📋 Plan Mode\nArchitecture & design\nImplementation steps\nStructured breakdown"]
-    Plan --> Agent["⚡ Agent Mode\nCode generation & edits\nTool execution\nFull autonomous loops"]
-    Agent --> Custom["🛠️ Custom Modes\nDomain-specific personas\nScoped rules & tools\nTailored workflows"]
+    Ask["💬 Ask\nExplore & Q&A\n(read-only)"] --> Plan["📋 Plan\nArchitecture & design\n(structured breakdown)"]
+    Plan --> Agent["⚡ Agent\nCode generation & edits\n(full autonomous loops)"]
+    Agent --> Custom["🛠️ Custom Modes\nDomain-specific personas\n(scoped rules & tools)"]
 
     classDef node fill:#1a56db,color:#fff,stroke:#1a56db
-    classDef secondary fill:#2563eb,color:#fff,stroke:#2563eb
-    classDef highlight fill:#1d4ed8,color:#fff,stroke:#1d4ed8,stroke-width:3px
-
-    class Ask secondary
-    class Plan secondary
-    class Agent highlight
-    class Custom secondary
+    class Ask,Plan,Agent,Custom node
 ```
 
 ---
 
 ## Prerequisites & Setup
 
-Before starting any lab, verify you have the essentials ready:
+### 1 — Get an IBMid
 
-### 1 — Install IBM Bob
+IBM Bob requires an IBMid. **IBMid is free** — create one at [ibm.com/account/reg](https://www.ibm.com/account/reg/us-en/signup?formid=urx-19776) (takes ~2 minutes). If you already have one, skip this step.
 
-IBM Bob is a **standalone IDE** — not a VS Code extension. Download and install it from [bob.ibm.com/download](https://bob.ibm.com/download). Sign in with your IBMid on first launch.
+### 2 — Install IBM Bob
+
+IBM Bob is a **standalone IDE** — not a VS Code extension. Download from [bob.ibm.com/download](https://bob.ibm.com/download) and sign in with your IBMid.
 
 === "IBM Bob IDE (recommended)"
     Download the installer for your OS from **[bob.ibm.com/download](https://bob.ibm.com/download)**:
@@ -94,10 +78,10 @@ IBM Bob is a **standalone IDE** — not a VS Code extension. Download and instal
     | Linux (Debian/Ubuntu) | `.deb` |
     | Linux (Red Hat/Fedora) | `.rpm` |
 
-    Open the installer, follow the wizard, then sign in with your **IBMid**.
+    Run the installer, follow the wizard, then sign in with your **IBMid** on first launch.
 
-=== "Bob Shell (terminal alternative)"
-    If you prefer to work in a terminal, install Bob Shell:
+=== "Bob Shell (terminal)"
+    Prefer the terminal? Install Bob Shell instead:
 
     **macOS / Linux**
     ```bash
@@ -109,30 +93,19 @@ IBM Bob is a **standalone IDE** — not a VS Code extension. Download and instal
     ```
     Authenticate at `bob.ibm.com/login` when prompted.
 
-### 2 — Other prerequisites
+### 3 — Other prerequisites
 
-- **Node.js 20 LTS** and **Python 3.11+** installed.
-- **Git** configured (`git config --global user.name` and `user.email`).
-- **Workshop Starter Repositories:**
-    * **Galaxium Travels:** `git clone https://github.com/IBM/galaxium-travels`
-    * **Workshop Materials & GFM Bank:** Available directly inside this repository.
-
----
-
-## Lab Tracks Summary
-
-| Track | Level | Key Focus Areas | Duration |
-|---|---|---|---|
-| [**Beginner**](labs/openslava-beginner.md) | 🟢 Introductory | Modes overview, full-stack React/Node feature addition, rapid UI prototyping | ~70 min |
-| [**Intermediate**](labs/openslava-intermediate.md) | 🟡 Intermediate | GitHub MCP agentic SDLC loop, custom rules configuration, team standards | ~70 min |
-| [**Expert**](labs/openslava-expert.md) | 🔴 Advanced | Banking core architecture, security remediation, custom modes, MCP orchestration | ~90 min |
+- **Node.js 20 LTS** and **Python 3.11+** installed
+- **Git** configured with `user.name` and `user.email`
+- **Galaxium Travels** cloned: `git clone https://github.com/IBM/galaxium-travels` *(Beginner / Intermediate tracks)*
 
 ---
 
 ## Resources
 
-| Resource | Link |
+| | Link |
 |---|---|
 | **IBM Bob** | [bob.ibm.com](https://bob.ibm.com) |
-| **Bob Documentation** | [ibm.biz/bob-doc](https://ibm.biz/bob-doc) |
-| **Getting the Most Out of Bob** | [bob.ibm.com/blog/getting-the-most-out-of-bob](https://bob.ibm.com/blog/getting-the-most-out-of-bob) |
+| **Documentation** | [ibm.biz/bob-doc](https://ibm.biz/bob-doc) |
+| **Blog** | [bob.ibm.com/blog/getting-the-most-out-of-bob](https://bob.ibm.com/blog/getting-the-most-out-of-bob) |
+| **IBMid sign-up** | [ibm.com/account/reg](https://www.ibm.com/account/reg/us-en/signup?formid=urx-19776) |
