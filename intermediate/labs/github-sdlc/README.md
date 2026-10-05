@@ -91,7 +91,7 @@ Participants receive a ZIP export — **not** a clone of this repository. The ZI
 
 This produces `github-sdlc-lab-<date>.zip` in the same directory.
 
-PDF generation requires [md2pdf](https://github.ibm.com/technology-garage-dach/md-to-pdf). Install it before running the export. If `md2pdf` is not installed, PDF conversion is skipped — the export still works and produces the ZIP without PDFs.
+PDF generation requires `md2pdf`. Install it before running the export. If `md2pdf` is not installed, PDF conversion is skipped — the export still works and produces the ZIP without PDFs.
 
 ### What the ZIP contains
 
@@ -120,4 +120,4 @@ Share the ZIP via the workshop platform, Slack, or email. Participants unzip it 
 
 ## Related Reference
 
-See the existing reference materials in [Git Platform Operations Guide](https://github.ibm.com/ClientEngineering/bob/blob/main/GitOps/README.md).
+See the [GitHub CLI documentation](https://cli.github.com/manual/) for reference on `gh` commands used in Part 2.

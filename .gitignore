@@ -18,7 +18,7 @@ build/
 .cache/
 
 # Database files (seeded at runtime)
-labs/banking-industry/gfm-bank/code/corebank.db
+expert/labs/banking-industry/gfm-bank/code/corebank.db
 
 # Java build artefacts
 galaxium-travels/booking_system_inventory_hold_service/target/
