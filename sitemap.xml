@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://pages.github.ibm.com/Halvor/openslava/</loc>
-         <lastmod>2026-10-02</lastmod>
+         <loc>https://halvoribm.github.io/openslava/</loc>
+         <lastmod>2026-10-05</lastmod>
     </url>
     <url>
-         <loc>https://pages.github.ibm.com/Halvor/openslava/labs/openslava-beginner/</loc>
-         <lastmod>2026-10-02</lastmod>
+         <loc>https://halvoribm.github.io/openslava/labs/openslava-beginner/</loc>
+         <lastmod>2026-10-05</lastmod>
     </url>
     <url>
-         <loc>https://pages.github.ibm.com/Halvor/openslava/labs/openslava-expert/</loc>
-         <lastmod>2026-10-02</lastmod>
+         <loc>https://halvoribm.github.io/openslava/labs/openslava-expert/</loc>
+         <lastmod>2026-10-05</lastmod>
     </url>
     <url>
-         <loc>https://pages.github.ibm.com/Halvor/openslava/labs/openslava-intermediate/</loc>
-         <lastmod>2026-10-02</lastmod>
+         <loc>https://halvoribm.github.io/openslava/labs/openslava-intermediate/</loc>
+         <lastmod>2026-10-05</lastmod>
     </url>
 </urlset>
