@@ -948,6 +948,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#recommended-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended workflow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#hints-guidance" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1184,6 +1195,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#recommended-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended workflow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#hints-guidance" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1308,6 +1330,17 @@
 <hr>
 <h2 id="bob-requirements">Bob Requirements<a class="headerlink" href="#bob-requirements" title="Permanent link">¶</a></h2>
 <p>This is not just an application challenge — it is a <strong>Bob workflow</strong> challenge. Your submission must demonstrate that you used Bob correctly and completely. The following Bob artefacts are <strong>required</strong> and will be checked by the judges.</p>
+<div class="admonition info">
+<p class="admonition-title">Why are Bob artefacts required?</p>
+<p>The challenge is designed to test whether you can apply the <strong>full Bob development workflow</strong>, not just generate code quickly. Judges are looking for evidence that you:</p>
+<ul>
+<li>Used <code>/init</code> to give Bob persistent project context</li>
+<li>Created rules to enforce standards automatically (not just as prompts)</li>
+<li>Built a custom mode with appropriate permission restrictions</li>
+<li>Drove the full GitHub SDLC loop with MCP</li>
+</ul>
+<p>A working app with no Bob artefacts scores zero. An app that demonstrates every Bob pattern — even if imperfect — scores high.</p>
+</div>
 <h3 id="b-req-1-init-generated-agentsmd">B-REQ-1 — <code>/init</code> generated <code>AGENTS.md</code><a class="headerlink" href="#b-req-1-init-generated-agentsmd" title="Permanent link">¶</a></h3>
 <p>Run <code>/init</code> on the completed codebase. The <code>AGENTS.md</code> at the repo root must exist and must describe:</p>
 <ul>
@@ -1316,6 +1349,11 @@
 <li>The database layer</li>
 <li>At least one project-specific constraint Bob inferred or that you added</li>
 </ul>
+<div class="admonition tip">
+<p class="admonition-title">When to run <code>/init</code></p>
+<p>Run <code>/init</code> <strong>after</strong> the project skeleton is in place — not on an empty folder. Then re-run it after you add a new module (e.g. when you add authentication). Each re-run refreshes Bob's map of the codebase.</p>
+<p>You can also manually add constraints to <code>AGENTS.md</code> that Bob couldn't infer from the code: deployment notes, known limitations, team conventions. The judges will reward a well-curated <code>AGENTS.md</code>.</p>
+</div>
 <h3 id="b-req-2-team-rules-file">B-REQ-2 — Team rules file<a class="headerlink" href="#b-req-2-team-rules-file" title="Permanent link">¶</a></h3>
 <p>Create <code>.bob/rules/pocketledger-standards.md</code> containing at minimum these three rules:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>All Python functions that handle monetary amounts must use float with exactly
@@ -1327,6 +1365,16 @@
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>in the format: [ISO timestamp] [mode] [brief description of change]
 </code></pre></div>
 <p>Run at least one Agent mode interaction after creating the rules and confirm <code>bob-audit/audit.log</code> has a new entry.</p>
+<div class="admonition info">
+<p class="admonition-title">Rules enforce standards without reminders</p>
+<p>Once this rules file exists, Bob will:</p>
+<ul>
+<li>Round monetary values automatically in every function it writes</li>
+<li>Add JSDoc comments to every React component it creates</li>
+<li>Append to <code>bob-audit/audit.log</code> after every Agent interaction</li>
+</ul>
+<p>You don't need to ask. You don't need to remind Bob. The standard is always active. This is the difference between rules and prompts: rules are permanent, prompts are per-conversation.</p>
+</div>
 <h3 id="b-req-3-custom-ledger-reviewer-mode">B-REQ-3 — Custom <code>ledger-reviewer</code> mode<a class="headerlink" href="#b-req-3-custom-ledger-reviewer-mode" title="Permanent link">¶</a></h3>
 <p>Create <code>.bob/custom_modes.yaml</code> with a <code>ledger-reviewer</code> mode that:</p>
 <ul>
@@ -1335,6 +1383,15 @@
 <li>Has at least 3 <code>customInstructions</code> items covering: float precision, hardcoded secrets, and input validation</li>
 </ul>
 <p>Use the mode to run at least one review prompt and include the output (copy it into a file <code>ledger-review/initial-review.md</code> in the repo).</p>
+<div class="admonition tip">
+<p class="admonition-title">Switch to your custom mode with a slash command</p>
+<p>Once <code>.bob/custom_modes.yaml</code> is saved, type <code>/ledger-reviewer</code> in the chat to switch to it instantly. You don't need to navigate through the settings menu.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Why a read-only reviewer mode?</p>
+<p><code>ledger-reviewer</code> with no <code>edit</code> or <code>command</code> groups <strong>cannot modify your code</strong>, even if you ask it to. This enforced read-only constraint means you can run compliance reviews without any risk of unintended changes to your working code.</p>
+<p>The output you save to <code>ledger-review/initial-review.md</code> becomes your project's first formal security review — committed to version control alongside the code it reviewed.</p>
+</div>
 <h3 id="b-req-4-github-issue-pr-loop">B-REQ-4 — GitHub issue → PR loop<a class="headerlink" href="#b-req-4-github-issue-pr-loop" title="Permanent link">¶</a></h3>
 <ol>
 <li>Push your repo to GitHub (public or private, your choice)</li>
@@ -1342,6 +1399,18 @@
 <li>Use <strong>Agent</strong> mode (with GitHub MCP) to read the issue, implement the endpoint, commit on a feature branch, and open a PR that references the issue number</li>
 </ol>
 <p>The PR must exist on GitHub and must reference the issue. The CSV export endpoint does not need to be production-perfect — it just needs to exist and work for the basic case.</p>
+<div class="admonition tip">
+<p class="admonition-title">Use <code>/create-pr</code> for the PR step</p>
+<p>After Bob has committed and pushed the feature branch, type <code>/create-pr</code> in the chat. Bob reads the git diff, identifies the linked issue from your branch name and commit message, generates a PR description, and creates the PR via GitHub MCP — all in one command.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Why issue → branch → PR, not just a direct commit?</p>
+<p>The issue-to-PR loop creates a traceable link: requirement → implementation → review. This is the professional engineering workflow that works at scale.</p>
+<p>When Bob reads the issue and generates a PR description that references <code>#&lt;issue-number&gt;</code>, GitHub automatically:
+- Links the PR to the issue
+- Closes the issue when the PR merges</p>
+<p>The audit trail is automatic. This is what "Bob as a team tool" looks like in practice.</p>
+</div>
 <hr>
 <h2 id="submission">Submission<a class="headerlink" href="#submission" title="Permanent link">¶</a></h2>
 <h3 id="how-to-submit">How to submit<a class="headerlink" href="#how-to-submit" title="Permanent link">¶</a></h3>
@@ -1392,6 +1461,30 @@
 <h3 id="scoring-tiebreaker">Scoring tiebreaker<a class="headerlink" href="#scoring-tiebreaker" title="Permanent link">¶</a></h3>
 <p>If multiple submissions arrive at the same time, the tiebreaker is quality of <code>AGENTS.md</code> — specifically how well Bob was guided to capture the real architectural decisions of the project.</p>
 <hr>
+<h2 id="recommended-workflow">Recommended workflow<a class="headerlink" href="#recommended-workflow" title="Permanent link">¶</a></h2>
+<p>Following the patterns you learned in the tracks will get you to a submission faster than guessing. Here is the recommended sequence:</p>
+<pre class="mermaid"><code>%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#1a56db', 'primaryTextColor': '#ffffff', 'primaryBorderColor': '#1a56db', 'lineColor': '#6b7280', 'mainBkg': '#1a56db', 'nodeBorder': '#1a56db', 'clusterBkg': '#1e3a5f', 'titleColor': '#ffffff', 'edgeLabelBackground': 'transparent'}}}%%
+flowchart TD
+    A["📋 Plan mode\nDesign full project structure"] --&gt; B["⚙️ Agent mode\nScaffold backend + frontend"]
+    B --&gt; C["🔧 /init\nGenerate AGENTS.md"]
+    C --&gt; D["📝 Create .bob/rules/\npocketledger-standards.md"]
+    D --&gt; E["⚙️ Agent mode\nBuild features F1–F10\n(+ New task between features)"]
+    E --&gt; F["🏦 Create ledger-reviewer mode\nRun review → save to file"]
+    F --&gt; G["🔁 Re-run /init\nUpdate AGENTS.md"]
+    G --&gt; H["🔀 GitHub MCP\nIssue → implement → /create-pr"]
+    classDef node fill:#1a56db,color:#fff,stroke:#1a56db
+    class A,B,C,D,E,F,G,H node</code></pre>
+<div class="admonition tip">
+<p class="admonition-title">Start new tasks frequently</p>
+<p>Each feature (F1 through F10) should ideally be its own Bob task. Clean context per feature means:</p>
+<ul>
+<li>Bob focuses only on the feature at hand</li>
+<li>Errors in one feature don't contaminate the next</li>
+<li>The token budget stays healthy throughout</li>
+</ul>
+<p>If you try to build all 10 features in a single conversation, the context window will fill and quality will degrade by F7.</p>
+</div>
+<hr>
 <h2 id="hints-guidance">Hints &amp; Guidance<a class="headerlink" href="#hints-guidance" title="Permanent link">¶</a></h2>
 <p>These hints are here if you get stuck. Try without them first.</p>
 <details class="tip">
@@ -1399,10 +1492,10 @@
 <ol>
 <li>Create an empty folder <code>pocketledger/</code></li>
 <li>Open it in <strong>IBM Bob</strong>, switch to <strong>Plan</strong> mode, paste the feature list and ask Bob to design the full project structure</li>
-<li>Switch to <strong>Agent</strong> mode, scaffold both services</li>
+<li>Start a <strong>+ New task</strong>, switch to <strong>Agent</strong> mode, scaffold both services</li>
 <li>Run <code>/init</code> once the skeleton is in place</li>
 <li>Create your rules file before writing any business logic</li>
-<li>Build features F1–F10 in Agent mode</li>
+<li>Build features F1–F10 in Agent mode, one or two features per task</li>
 </ol>
 </details>
 <details class="tip">
@@ -1416,6 +1509,7 @@
 <a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">401</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">"Unauthorized"</span><span class="p">)</span>
 </code></pre></div>
 Add <code>Depends(verify_token)</code> to every route that should be protected.<p></p>
+<p>The token is read from the environment — never hardcoded. If Bob ever hardcodes a token value, ask it to move the value to <code>.env</code> and load it with <code>os.environ</code>.</p>
 </details>
 <details class="tip">
 <summary>Hint 3 — Vanilla JS bar chart approach</summary>
@@ -1424,7 +1518,8 @@ Add <code>Depends(verify_token)</code> to every route that should be protected.<
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>{ category: string, total: number } objects and renders horizontal bars.
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>No external library.
 </code></pre></div>
-Then switch to <strong>Agent</strong> mode to implement.<p></p>
+Then start a <strong>+ New task</strong> and switch to <strong>Agent</strong> mode to implement.<p></p>
+<p>The Plan → new task → Agent pattern is particularly important here because the chart logic is complex enough to benefit from a design pass.</p>
 </details>
 <details class="tip">
 <summary>Hint 4 — start.sh template</summary>
@@ -1439,13 +1534,24 @@ Then switch to <strong>Agent</strong> mode to implement.<p></p>
 </details>
 <details class="tip">
 <summary>Hint 5 — GitHub MCP PR prompt</summary>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Read GitHub issue #&lt;number&gt; from this repo.
+<p></p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Read GitHub issue #&lt;number&gt; from this repo.
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Create a branch called feature/csv-export.
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Implement a GET /transactions/export endpoint in main.py that returns
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>a CSV with columns: id, date, description, category, amount.
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>Use Python's built-in csv module.
 <a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>Commit the change and open a pull request referencing the issue.
 </code></pre></div>
+Then in the same chat type <code>/create-pr</code> to trigger the PR workflow.<p></p>
+</details>
+<details class="tip">
+<summary>Hint 6 — Context hygiene during the build</summary>
+<p>If Bob starts giving inconsistent responses or producing code that doesn't match your existing files:</p>
+<ol>
+<li>Start a <strong>+ New task</strong></li>
+<li>Reference your key files directly: <code>@/backend/main.py @/frontend/src/App.tsx</code></li>
+<li>Remind Bob of the AGENTS.md conventions: <code>"Follow the AGENTS.md conventions in this project"</code></li>
+</ol>
+<p>Clean context is the single most effective fix for drift. Don't try to correct Bob in a long conversation — reset and start fresh.</p>
 </details>
 <hr>
 <h2 id="prize">Prize<a class="headerlink" href="#prize" title="Permanent link">¶</a></h2>

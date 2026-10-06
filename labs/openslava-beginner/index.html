@@ -568,6 +568,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#why-use-three-modes-instead-of-just-one" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why use three modes instead of just one?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#step-1-ask-mode-understand-the-modes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -612,10 +623,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-5-reflection" class="md-nav__link">
+  <a href="#step-5-reflection-start-a-new-task" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 5 — Reflection
+        Step 5 — Reflection: start a new task
       
     </span>
   </a>
@@ -644,6 +655,17 @@
     <span class="md-ellipsis">
       
         What you will learn
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-init-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why /init matters
       
     </span>
   </a>
@@ -779,6 +801,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-patterns-from-this-track" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key patterns from this track
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1136,6 +1169,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#why-use-three-modes-instead-of-just-one" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why use three modes instead of just one?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#step-1-ask-mode-understand-the-modes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1180,10 +1224,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-5-reflection" class="md-nav__link">
+  <a href="#step-5-reflection-start-a-new-task" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 5 — Reflection
+        Step 5 — Reflection: start a new task
       
     </span>
   </a>
@@ -1212,6 +1256,17 @@
     <span class="md-ellipsis">
       
         What you will learn
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-init-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why /init matters
       
     </span>
   </a>
@@ -1351,6 +1406,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#key-patterns-from-this-track" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key patterns from this track
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#whats-next" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1437,6 +1503,14 @@ flowchart LR
     A["🔍 Ask mode\nLearn the modes"] --&gt; P["📋 Plan mode\nDesign the app"] --&gt; G["⚙️ Agent mode\nBuild it"]
     classDef node fill:#1a56db,color:#fff,stroke:#1a56db
     class A,P,G node</code></pre>
+<h3 id="why-use-three-modes-instead-of-just-one">Why use three modes instead of just one?<a class="headerlink" href="#why-use-three-modes-instead-of-just-one" title="Permanent link">¶</a></h3>
+<p>Splitting work across modes is a <strong>smart development pattern</strong>, not just a Bob quirk. Each mode has different tool permissions by design:</p>
+<ul>
+<li><strong>Ask</strong> can read files but cannot write or run commands — safe for exploration and Q&amp;A</li>
+<li><strong>Plan</strong> can read and propose changes but cannot execute — ideal for design without side-effects</li>
+<li><strong>Agent</strong> can read, write, and run commands — the full power of an autonomous coding agent</li>
+</ul>
+<p>Using the right mode for each phase keeps Bob's actions <strong>predictable, reviewable, and reversible</strong>. When you prototype in Ask, nothing breaks. When you finalize in Agent, every action is intentional.</p>
 <h3 id="step-1-ask-mode-understand-the-modes">Step 1 — Ask mode: understand the modes<a class="headerlink" href="#step-1-ask-mode-understand-the-modes" title="Permanent link">¶</a></h3>
 <ol>
 <li>Open <strong>IBM Bob</strong> on an <strong>empty folder</strong></li>
@@ -1450,7 +1524,7 @@ flowchart LR
 Ask mode is read-only by design — perfect for questions and exploration.</p>
 <div class="admonition info">
 <p class="admonition-title">Ask mode = read-only</p>
-<p>Ask mode has no <code>edit</code> or <code>command</code> tool groups. Bob can see your code but cannot touch it.</p>
+<p>Ask mode has no <code>edit</code> or <code>command</code> tool groups. Bob can see your code but cannot touch it. This is the safest mode to use when you want answers without the risk of unintended changes.</p>
 </div>
 <h3 id="step-2-plan-mode-design-the-app">Step 2 — Plan mode: design the app<a class="headerlink" href="#step-2-plan-mode-design-the-app" title="Permanent link">¶</a></h3>
 <ol>
@@ -1470,7 +1544,11 @@ Ask mode is read-only by design — perfect for questions and exploration.</p>
 <p><strong>Observe:</strong> Bob produces a detailed plan — component names, CSS strategy, file tree — but writes nothing to disk. Plan mode can design but not implement.</p>
 <div class="admonition info">
 <p class="admonition-title">Plan mode = design without side-effects</p>
-<p>Plan mode can read and propose edits, but does not execute commands. Great for pair-designing before committing to an implementation.</p>
+<p>Plan mode can read and propose edits, but does not execute commands. Use it to pair-design with Bob before committing to an implementation. A good plan prompt saves you from costly mid-build pivots.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Why plan before building?</p>
+<p>Asking Bob to plan first gives you a chance to review and refine the approach. If the plan looks off, you correct it here — not after Bob has written 15 files. This is the same discipline as writing a design doc before opening an editor.</p>
 </div>
 <h3 id="step-3-agent-mode-implement">Step 3 — Agent mode: implement<a class="headerlink" href="#step-3-agent-mode-implement" title="Permanent link">¶</a></h3>
 <ol>
@@ -1490,6 +1568,10 @@ Ask mode is read-only by design — perfect for questions and exploration.</p>
 <li>Creates <code>src/confetti.ts</code> — generates ~40 <code>&lt;span&gt;</code> elements with random colours, positions, rotation, and staggered CSS animation delays</li>
 <li>Adds confetti CSS to <code>src/index.css</code></li>
 </ul>
+<div class="admonition tip">
+<p class="admonition-title">Review Bob's tool calls before approving</p>
+<p>Bob will ask permission before running commands like <code>npm create vite</code>. <strong>Read the proposed command before clicking Approve.</strong> This is the safest habit to build: understand what Bob is doing at every step. You can always edit a proposed command before approving it.</p>
+</div>
 <h3 id="step-4-run-it">Step 4 — Run it<a class="headerlink" href="#step-4-run-it" title="Permanent link">¶</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>npm<span class="w"> </span>run<span class="w"> </span>dev
 </code></pre></div>
@@ -1497,17 +1579,26 @@ Ask mode is read-only by design — perfect for questions and exploration.</p>
 <div class="admonition tip">
 <p class="admonition-title">Didn't get confetti?</p>
 <p>Ask Bob in Agent mode: <code>"The confetti isn't appearing — check confetti.ts and the CSS animation names match."</code></p>
+<p><strong>This is normal iterative development.</strong> First runs rarely work perfectly. Bob reads the error, diagnoses it, and fixes it — often in one message. The pattern is: run → observe → feed the error back → repeat.</p>
 </div>
-<h3 id="step-5-reflection">Step 5 — Reflection<a class="headerlink" href="#step-5-reflection" title="Permanent link">¶</a></h3>
-<p>Switch back to <strong>Ask</strong> mode and send:</p>
+<h3 id="step-5-reflection-start-a-new-task">Step 5 — Reflection: start a new task<a class="headerlink" href="#step-5-reflection-start-a-new-task" title="Permanent link">¶</a></h3>
+<p>Switch back to <strong>Ask</strong> mode, click <strong>+ New task</strong> to start a fresh conversation, and send:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>What would have happened if I had tried to run npm install
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>in Ask or Plan mode?
 </code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Why start a new task?</p>
+<p>Bob has a <strong>270,000-token context window</strong> — a large but finite budget. Every file read, tool call, and response consumes tokens. Starting a new task with <strong>+ New task</strong> gives you a clean slate for a new topic. The old conversation stays in history but no longer consumes your budget.</p>
+<p><strong>Best practice:</strong> Start a new task when you change topic, finish a build phase, or notice Bob starting to drift or contradict itself. Keep tasks focused and short.</p>
+</div>
 <hr>
 <h2 id="lab-b2-connect-expand-galaxium-travels-flights-with-layovers">Lab B2 — Connect &amp; Expand Galaxium Travels: Flights with Layovers<a class="headerlink" href="#lab-b2-connect-expand-galaxium-travels-flights-with-layovers" title="Permanent link">¶</a></h2>
 <p><strong>25 minutes</strong> · Requires Lab B1 complete</p>
 <h3 id="what-you-will-learn_1">What you will learn<a class="headerlink" href="#what-you-will-learn_1" title="Permanent link">¶</a></h3>
 <p>Galaxium Travels is the official IBM Bob demo app — a full-stack interplanetary booking system. You will run <code>/init</code> to give Bob deep context, then plan and implement a real feature across the full stack.</p>
+<h3 id="why-init-matters">Why <code>/init</code> matters<a class="headerlink" href="#why-init-matters" title="Permanent link">¶</a></h3>
+<p>Large language models are <strong>stateless</strong> — each new conversation starts with zero memory of the codebase. Without explicit context, Bob must re-discover every file from scratch on every task, which wastes tokens and produces inconsistent results.</p>
+<p><code>/init</code> solves this by scanning the project and writing a structured <code>AGENTS.md</code> summary that Bob reads at the start of every conversation automatically. It is the equivalent of onboarding documentation for Bob — written once, applied everywhere.</p>
 <h3 id="prerequisites_1">Prerequisites<a class="headerlink" href="#prerequisites_1" title="Permanent link">¶</a></h3>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Lab B1 complete (modes understood)</li>
@@ -1523,13 +1614,13 @@ Ask mode is read-only by design — perfect for questions and exploration.</p>
 <p class="admonition-title">Start.sh takes ~2 minutes</p>
 <p>It installs Python deps, Node deps, and starts both servers. Frontend on <code>:5173</code>, backend on <code>:8001</code>.</p>
 </div>
-<h3 id="step-2-run-init">Step 2 — Run /init<a class="headerlink" href="#step-2-run-init" title="Permanent link">¶</a></h3>
+<h3 id="step-2-run-init">Step 2 — Run <code>/init</code><a class="headerlink" href="#step-2-run-init" title="Permanent link">¶</a></h3>
 <ol>
 <li>Open the <code>galaxium-travels/</code> folder in <strong>IBM Bob</strong></li>
 <li>Switch to <strong>Agent</strong> mode</li>
 <li>Type <code>/init</code> and send</li>
 </ol>
-<p><strong>Observe:</strong> Bob reads the entire codebase, then writes:</p>
+<p><strong>What happens:</strong> Bob reads the entire codebase, then writes:</p>
 <ul>
 <li><code>AGENTS.md</code> at the repo root — project overview, key constraints, file map</li>
 <li><code>.bob/rules-agent/AGENTS-agent.md</code>, <code>.bob/rules-plan/AGENTS-plan.md</code>, <code>.bob/rules-ask/AGENTS-ask.md</code></li>
@@ -1541,6 +1632,20 @@ Ask mode is read-only by design — perfect for questions and exploration.</p>
 <li>The FastMCP integration at <code>/mcp</code></li>
 <li>The key constraint: <strong>every new backend endpoint needs a REST handler AND a matching MCP tool</strong></li>
 </ul>
+<div class="admonition info">
+<p class="admonition-title">AGENTS.md — Bob's memory across sessions</p>
+<p>Bob automatically injects <code>AGENTS.md</code> into every new conversation. This means:</p>
+<ul>
+<li>New team members get project context instantly when they <code>git clone</code> and open Bob</li>
+<li>You never repeat the same "here's how this project works" prompt</li>
+<li>Rules and constraints discovered in one session carry forward to the next</li>
+</ul>
+<p><strong>Re-run <code>/init</code> whenever you add new modules, change directory structure, or onboard new team members.</strong></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">You can edit AGENTS.md manually</p>
+<p>The automated scan is a starting point. Add your own lines: deployment conventions, business rules, things the scan can't infer. Think of it as your team's living onboarding doc.</p>
+</div>
 <h3 id="step-3-plan-the-layovers-feature">Step 3 — Plan the layovers feature<a class="headerlink" href="#step-3-plan-the-layovers-feature" title="Permanent link">¶</a></h3>
 <p>Switch to <strong>Plan</strong> mode and send:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Plan a "flights with layovers" feature for Galaxium Travels.
@@ -1557,8 +1662,12 @@ Ask mode is read-only by design — perfect for questions and exploration.</p>
 <a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>Follow the existing AGENTS.md conventions.
 </code></pre></div>
 <p><strong>Observe:</strong> Bob produces a plan across all three layers without writing a single file.</p>
+<div class="admonition tip">
+<p class="admonition-title">Always reference AGENTS.md conventions in your Plan prompts</p>
+<p>Telling Bob to "follow the existing AGENTS.md conventions" is a powerful shorthand. Because AGENTS.md describes your project's patterns, Bob applies them automatically — naming conventions, file locations, required MCP tools alongside REST endpoints — without you having to repeat everything.</p>
+</div>
 <h3 id="step-4-implement">Step 4 — Implement<a class="headerlink" href="#step-4-implement" title="Permanent link">¶</a></h3>
-<p>Switch to <strong>Agent</strong> mode and send:</p>
+<p>Start a <strong>+ New task</strong> and switch to <strong>Agent</strong> mode before sending this prompt. This keeps implementation context clean and separate from the planning discussion:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Implement the layovers plan. Follow the AGENTS.md conventions:
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>- Add the REST endpoint AND a matching MCP tool for any new backend route
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>- Use snake_case in Python, PascalCase for TypeScript types
@@ -1573,16 +1682,21 @@ Ask mode is read-only by design — perfect for questions and exploration.</p>
 <li>A new <code>LayoverBadge</code> component</li>
 </ul>
 <p><strong>Restart the backend, refresh the browser</strong> — multi-stop routes now appear.</p>
+<div class="admonition info">
+<p class="admonition-title">Why start a new task for implementation?</p>
+<p>Starting a fresh task before the Agent implementation run keeps the planning discussion out of the implementation context. This prevents the model from trying to reconcile half-finished plans with the real files it is writing — a common cause of drift. Clean context → focused results.</p>
+</div>
 <h3 id="step-5-verify">Step 5 — Verify<a class="headerlink" href="#step-5-verify" title="Permanent link">¶</a></h3>
 <p>In <strong>Ask</strong> mode:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Does the new layover implementation follow the AGENTS.md constraint
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>that every backend route has both a REST handler and an MCP tool?
 </code></pre></div>
+<p>This is <strong>trust but verify</strong> — a healthy habit with any agentic tool. Ask mode can audit the codebase without risk of accidentally changing anything.</p>
 <hr>
 <h2 id="lab-b3-date-picker-price-ranker-booking-agent">Lab B3 — Date Picker, Price Ranker &amp; Booking Agent<a class="headerlink" href="#lab-b3-date-picker-price-ranker-booking-agent" title="Permanent link">¶</a></h2>
 <p><strong>20 minutes</strong> · Requires Lab B2 complete · App must be running</p>
 <h3 id="what-you-will-learn_2">What you will learn<a class="headerlink" href="#what-you-will-learn_2" title="Permanent link">¶</a></h3>
-<p>Three quick enhancements showing Bob handling UI input, sorting logic, and a mock AI agent pattern — all without leaving the Galaxium codebase.</p>
+<p>Three quick enhancements showing Bob handling UI input, sorting logic, and a mock AI agent pattern — all without leaving the Galaxium codebase. Each enhancement shows a different Bob prompt technique.</p>
 <h3 id="enhancement-1-date-picker-agent-mode">Enhancement 1 — Date picker (Agent mode)<a class="headerlink" href="#enhancement-1-date-picker-agent-mode" title="Permanent link">¶</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Add a departure date picker to the Galaxium flight search form.
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>Use a native HTML &lt;input type="date"&gt;.
@@ -1590,6 +1704,7 @@ Ask mode is read-only by design — perfect for questions and exploration.</p>
 <a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>to show only flights available on that day.
 <a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>No external date library.
 </code></pre></div>
+<p><strong>Why this prompt works:</strong> It is <strong>specific</strong> (native <code>&lt;input type="date"&gt;</code>), states the <strong>constraint</strong> (no library), and describes the <strong>expected behaviour</strong> (filter on selection). Vague prompts like "add a date thing" produce inconsistent results. Be as specific as the input field on a well-designed form.</p>
 <p>Verify the date input renders and the results list updates on selection.</p>
 <h3 id="enhancement-2-price-sort-toggle-agent-mode">Enhancement 2 — Price sort toggle (Agent mode)<a class="headerlink" href="#enhancement-2-price-sort-toggle-agent-mode" title="Permanent link">¶</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Add a sort toggle button to the Galaxium flight search results.
@@ -1597,7 +1712,12 @@ Ask mode is read-only by design — perfect for questions and exploration.</p>
 <a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>Implement the sort entirely in component state — no external sort library.
 </code></pre></div>
 <p>Verify clicking the button re-orders the results.</p>
+<div class="admonition tip">
+<p class="admonition-title">Use <code>@/path/to/file</code> to give Bob precise context</p>
+<p>If Bob needs context from a specific file, use <code>@/booking_system_frontend/src/pages/Flights.tsx</code> in your prompt instead of describing the file. Bob reads it directly. This is faster than pasting code and avoids copy-paste errors.</p>
+</div>
 <h3 id="enhancement-3-interplanetary-booking-agent-plan-agent">Enhancement 3 — Interplanetary Booking Agent (Plan → Agent)<a class="headerlink" href="#enhancement-3-interplanetary-booking-agent-plan-agent" title="Permanent link">¶</a></h3>
+<p>This enhancement follows the <strong>Plan → new task → Agent</strong> pattern deliberately — it is more complex and benefits from a design pass first.</p>
 <p>First, switch to <strong>Plan</strong> mode:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Design a mock AI booking agent component called BookingAgent.
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>It takes a natural-language text input (e.g. "cheapest route to Europa")
@@ -1605,7 +1725,7 @@ Ask mode is read-only by design — perfect for questions and exploration.</p>
 <a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>using keyword matching and price/speed intent detection.
 <a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>No real LLM call — pure client-side JavaScript logic.
 </code></pre></div>
-<p>Then switch to <strong>Agent</strong> mode:</p>
+<p>Then click <strong>+ New task</strong>, switch to <strong>Agent</strong> mode:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Implement the BookingAgent component you just planned.
 <a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>- A text input + submit button
 <a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>- Parse the input for destination keywords and "cheapest"/"fastest" intent
@@ -1616,7 +1736,48 @@ Ask mode is read-only by design — perfect for questions and exploration.</p>
 <div class="admonition tip">
 <p class="admonition-title">Ask Bob to explain it</p>
 <p>Switch to Ask mode: <code>"How does BookingAgent decide which flights match the intent 'cheapest'? Walk me through the logic."</code></p>
+<p><strong>This is great habit.</strong> Using Ask mode to review Agent's output helps you understand code Bob wrote — so you own it, not just run it.</p>
 </div>
+<hr>
+<h2 id="key-patterns-from-this-track">Key patterns from this track<a class="headerlink" href="#key-patterns-from-this-track" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Why it matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ask → Plan → Agent</strong></td>
+<td>Each phase has the right permissions. Design without side-effects, then implement with confidence.</td>
+</tr>
+<tr>
+<td><strong>Start a + New task between phases</strong></td>
+<td>Clean context = focused results. Prevents planning drift from contaminating implementation.</td>
+</tr>
+<tr>
+<td><strong>Run <code>/init</code> first on any new project</strong></td>
+<td>Gives Bob persistent context without re-reading files every session.</td>
+</tr>
+<tr>
+<td><strong>Re-run <code>/init</code> after major changes</strong></td>
+<td>Keeps AGENTS.md current as the project grows.</td>
+</tr>
+<tr>
+<td><strong>Review before approving</strong></td>
+<td>Read every proposed command before clicking Approve. Bob can edit commands too.</td>
+</tr>
+<tr>
+<td><strong>Be specific in prompts</strong></td>
+<td>Name the file, the function, the constraint. Vague prompts produce vague code.</td>
+</tr>
+<tr>
+<td><strong>Use <code>@/file/path</code> references</strong></td>
+<td>Give Bob the exact file it needs rather than describing it.</td>
+</tr>
+</tbody>
+</table>
 <hr>
 <h2 id="whats-next">What's next?<a class="headerlink" href="#whats-next" title="Permanent link">¶</a></h2>
 <table>

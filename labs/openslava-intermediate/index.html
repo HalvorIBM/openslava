@@ -653,6 +653,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#why-mcp-matters-for-sdlc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why MCP matters for SDLC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#step-1-install-github-mcp" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -784,6 +795,17 @@
     <span class="md-ellipsis">
       
         What you will learn
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-rules-change-the-development-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why rules change the development pattern
       
     </span>
   </a>
@@ -1130,6 +1152,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#why-mcp-matters-for-sdlc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why MCP matters for SDLC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#step-1-install-github-mcp" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1261,6 +1294,17 @@
     <span class="md-ellipsis">
       
         What you will learn
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-rules-change-the-development-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why rules change the development pattern
       
     </span>
   </a>
@@ -1409,12 +1453,21 @@
 <h2 id="lab-i1-github-sdlc-with-bob">Lab I1 — GitHub SDLC with Bob<a class="headerlink" href="#lab-i1-github-sdlc-with-bob" title="Permanent link">¶</a></h2>
 <p><strong>40 minutes</strong></p>
 <h3 id="what-you-will-learn">What you will learn<a class="headerlink" href="#what-you-will-learn" title="Permanent link">¶</a></h3>
-<p>Bob can drive an entire software development lifecycle — reading a GitHub issue, creating a branch, implementing the change, running validation, and opening a PR — without you leaving your editor.</p>
+<p>Bob can drive an entire software development lifecycle — reading a GitHub issue, creating a branch, implementing the change, running validation, and opening a PR — without you leaving your editor. This lab shows you how, and more importantly, <strong>why</strong> this is valuable.</p>
 <pre class="mermaid"><code>%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#1a56db', 'primaryTextColor': '#ffffff', 'primaryBorderColor': '#1a56db', 'lineColor': '#6b7280', 'mainBkg': '#1a56db', 'nodeBorder': '#1a56db', 'clusterBkg': '#1e3a5f', 'titleColor': '#ffffff', 'edgeLabelBackground': 'transparent'}}}%%
 flowchart LR
     I["📋 GitHub Issue\n(read via MCP)"] --&gt; B["🌿 Feature Branch\n(created by Bob)"] --&gt; C["⚙️ Implement\n(Agent mode)"] --&gt; T["✅ Validate\n(lint + tests)"] --&gt; PR["🔀 Pull Request\n(opened by Bob)"]
     classDef node fill:#1a56db,color:#fff,stroke:#1a56db
     class I,B,C,T,PR node</code></pre>
+<h3 id="why-mcp-matters-for-sdlc">Why MCP matters for SDLC<a class="headerlink" href="#why-mcp-matters-for-sdlc" title="Permanent link">¶</a></h3>
+<p>MCP (Model Context Protocol) servers extend Bob with <strong>real-world integrations</strong>. Without MCP, Bob can only interact with your local filesystem. With GitHub MCP, Bob can:</p>
+<ul>
+<li>Read and create issues</li>
+<li>Create branches</li>
+<li>Commit and push files</li>
+<li>Open pull requests — with a description that references the issue number</li>
+</ul>
+<p>This turns Bob from a local coding assistant into a <strong>connected engineering agent</strong> that works within your team's actual workflow. Issues stay linked to implementations, PRs reference requirements, and the audit trail is automatic.</p>
 <h3 id="step-1-install-github-mcp">Step 1 — Install GitHub MCP<a class="headerlink" href="#step-1-install-github-mcp" title="Permanent link">¶</a></h3>
 <ol>
 <li>Open the Bob sidebar → <strong>Marketplace</strong> icon</li>
@@ -1426,6 +1479,14 @@ flowchart LR
 <div class="admonition tip">
 <p class="admonition-title">Create a token</p>
 <p>GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic) → New token → tick <strong>repo</strong> → Generate.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Why use <code>/configure-mcp</code> in the chat?</p>
+<p>You can also type <code>/configure-mcp</code> in Bob's chat to open the MCP configuration panel directly without leaving your conversation. This is especially useful mid-task when you realise you need a new integration.</p>
+<p>MCP configuration can live at two levels:
+- <strong>Global</strong> (<code>~/.bob/mcp_settings.json</code>) — available in all workspaces
+- <strong>Project</strong> (<code>.bob/mcp.json</code>) — scoped to this repo, can be committed for team use</p>
+<p>For team projects, committing <code>.bob/mcp.json</code> means everyone who clones the repo gets the same MCP configuration automatically.</p>
 </div>
 <h3 id="step-2-open-the-lab-repo-in-ibm-bob">Step 2 — Open the lab repo in IBM Bob<a class="headerlink" href="#step-2-open-the-lab-repo-in-ibm-bob" title="Permanent link">¶</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">cd</span><span class="w"> </span>intermediate/labs/github-sdlc
@@ -1447,7 +1508,7 @@ flowchart LR
 </code></pre></div>
 <p><strong>Observe:</strong> Bob creates the <code>finance-app</code> directory with the full project structure.</p>
 <h3 id="step-4-integrate-yahoo-finance-data">Step 4 — Integrate Yahoo Finance data<a class="headerlink" href="#step-4-integrate-yahoo-finance-data" title="Permanent link">¶</a></h3>
-<p>Start a <strong>new chat</strong> in Bob and send:</p>
+<p>Start a <strong>+ New task</strong> in Bob and send:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Implement a finance data layer for the following stock indices using Yahoo Finance data:
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Euro Stoxx 50 (`^STOXX50E`), DAX (`^GDAXI`), Nikkei 225 (`^N225`),
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Dow Jones Industrial Average (`^DJI`), and MSCI World (`URTH`).
@@ -1468,8 +1529,13 @@ flowchart LR
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>npm<span class="w"> </span>install
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>npm<span class="w"> </span>start
 </code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Why start a new task for each phase?</p>
+<p>Bob's context window is 270,000 tokens — large but finite. Each file read, command output, and response consumes budget. Starting a new task with <strong>+ New task</strong> between phases keeps each conversation focused.</p>
+<p>Think of it as a clean desk rule: clear yesterday's notes before starting today's work. The planning output is saved to disk (as plan files), not just in the chat, so the implementation task can reference files rather than long conversation history.</p>
+</div>
 <h3 id="step-5-add-validation-and-tests">Step 5 — Add validation and tests<a class="headerlink" href="#step-5-add-validation-and-tests" title="Permanent link">¶</a></h3>
-<p>Start a <strong>new chat</strong> in Bob and send:</p>
+<p>Start a <strong>+ New task</strong> in Bob and send:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Add appropriate validation for the finance dashboard project.
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Include unit tests for the data formatting and normalization utilities,
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>and integration tests for at least one dashboard view rendered with mocked API data.
@@ -1482,6 +1548,10 @@ flowchart LR
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>npm<span class="w"> </span>run<span class="w"> </span>validate
 </code></pre></div>
 <p>A successful run completes without errors — lint, type-check, tests, and build all pass.</p>
+<div class="admonition tip">
+<p class="admonition-title">Let Bob write the test scaffolding</p>
+<p>Asking Bob to provide "a single command that runs lint, type-check, tests, and build together" is a smart delegation. Bob knows the standard npm script conventions and wires up the <code>validate</code> script in <code>package.json</code>. You get a repeatable quality gate without writing a shell wrapper yourself.</p>
+</div>
 <h3 id="step-6-push-to-github">Step 6 — Push to GitHub<a class="headerlink" href="#step-6-push-to-github" title="Permanent link">¶</a></h3>
 <ol>
 <li>Go to <a href="https://github.com/new">https://github.com/new</a> and create a new repo named <code>finance-app</code> (no README, no .gitignore)</li>
@@ -1508,6 +1578,10 @@ flowchart LR
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/user-selected-chart
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>feature/user-selected-chart
 </code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Small, frequent commits are the professional pattern</p>
+<p>Notice that the initial commit includes <em>everything</em> — but from this point on, each feature should get its own commit. Bob can help: at any time in Agent mode, ask <code>"Commit the changes made so far with a descriptive message."</code> Bob reads your git diff and writes a meaningful commit message automatically.</p>
+</div>
 <h3 id="step-7-create-a-github-issue">Step 7 — Create a GitHub issue<a class="headerlink" href="#step-7-create-a-github-issue" title="Permanent link">¶</a></h3>
 <p>On GitHub, open <strong>Issues → New issue</strong>:</p>
 <ul>
@@ -1515,8 +1589,12 @@ flowchart LR
 <li><strong>Body:</strong> <code>Users should be able to type any stock ticker symbol and see a new chart for that symbol alongside the existing dashboards. Include loading and error states. Existing dashboard views must not be affected.</code></li>
 </ul>
 <p>Note the issue number (e.g. <code>#1</code>).</p>
+<div class="admonition info">
+<p class="admonition-title">Issues as the contract between requester and implementer</p>
+<p>Writing a clear issue before implementing is a best practice that makes the automated PR loop much more powerful. When Bob reads the issue via MCP, it has a precise specification — not just a vague description you typed in a chat. The issue becomes the source of truth: referenced in the branch name, referenced in the PR description, closed automatically when the PR merges.</p>
+</div>
 <h3 id="step-8-issue-to-pr-loop">Step 8 — Issue-to-PR loop<a class="headerlink" href="#step-8-issue-to-pr-loop" title="Permanent link">¶</a></h3>
-<p>Open a <strong>new chat</strong> in Bob (<strong>Agent</strong> mode) and send — replace <code>#1</code> with your actual issue number:</p>
+<p>Open a <strong>+ New task</strong> in Bob (<strong>Agent</strong> mode) and send — replace <code>#1</code> with your actual issue number:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Fetch and analyze GitHub issue #1 from this repository.
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>Explain the requested feature, identify which files need to change,
 <a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>and propose an implementation plan.
@@ -1532,17 +1610,32 @@ flowchart LR
 <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Run the full validation suite. Summarize what passed, what failed,
 <a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>and whether the branch is ready to push to GitHub.
 </code></pre></div>
-<p>Start a <strong>new chat</strong> in Bob, then commit and push:</p>
+<p>Start a <strong>+ New task</strong> in Bob, then commit and push:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Review the changes made to implement the user-selected index chart feature in finance-app/.
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>Summarize what was added, fix any obvious problems, commit with a meaningful message,
 <a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>and push to the feature/user-selected-chart branch. Do not yet create a pull request.
 </code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Why a new task for 'review and commit'?</p>
+<p>The implementation task may have left stale reasoning in its context — half-formed plans, earlier error messages, abandoned file reads. Starting a fresh task to review and commit means Bob is reading the <strong>final state of the files</strong>, not the history of how they were produced. Clean context = accurate review.</p>
+</div>
 <h3 id="step-9-create-the-pull-request">Step 9 — Create the pull request<a class="headerlink" href="#step-9-create-the-pull-request" title="Permanent link">¶</a></h3>
 <p>In the same chat, type this command directly:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>/create-pr
 </code></pre></div>
 <p>Bob will display a workflow dialog. Click <strong>"Start workflow"</strong>, leave the pre-filled <strong>Repository</strong> and <strong>Base Branch</strong> values as-is, then click <strong>"Generate PR Description"</strong>.</p>
 <p><strong>Observe:</strong> Bob reads the git diff, detects the linked issue, fills in the PR template, and creates the pull request automatically.</p>
+<div class="admonition info">
+<p class="admonition-title">What <code>/create-pr</code> does</p>
+<p><code>/create-pr</code> is a <strong>built-in Bob slash command</strong> that triggers a structured PR workflow. Bob:</p>
+<ol>
+<li>Reads the current git diff</li>
+<li>Identifies the linked issue from your branch name and commit messages</li>
+<li>Generates a PR title and description following your repo's PR template (if one exists)</li>
+<li>Creates the PR via GitHub MCP</li>
+</ol>
+<p>You review the generated description before it is posted. You are always in the loop.</p>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">Check the PR on GitHub</p>
 <p>Visit the <strong>Pull requests</strong> tab on your repo to confirm the PR exists and references the issue number.</p>
@@ -1553,6 +1646,10 @@ flowchart LR
 <a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>and which were fully automated by Bob?
 <a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>What are the risks of fully automating the PR step?
 </code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Humans stay in the loop by design</p>
+<p>Bob's automation is always <strong>propose, then approve</strong>. You review the implementation plan. You approve each file write. You review the PR description before it posts. The automation handles the mechanical repetition — finding files, writing boilerplate, remembering to reference the issue number — while you focus on the decisions that actually require judgement.</p>
+</div>
 <hr>
 <h2 id="lab-i2-author-modify-commit-rules">Lab I2 — Author, Modify &amp; Commit Rules<a class="headerlink" href="#lab-i2-author-modify-commit-rules" title="Permanent link">¶</a></h2>
 <p><strong>30 minutes</strong> · Requires Lab I1 complete (git configured)</p>
@@ -1564,6 +1661,14 @@ flowchart LR
     S[".bob/rules-agent/\nmode-scoped rules"] --&gt; AGT["Agent mode only"]
     classDef node fill:#1a56db,color:#fff,stroke:#1a56db
     class R,S,ALL,AGT node</code></pre>
+<h3 id="why-rules-change-the-development-pattern">Why rules change the development pattern<a class="headerlink" href="#why-rules-change-the-development-pattern" title="Permanent link">¶</a></h3>
+<p>Without rules, every Bob conversation starts blank. You repeat the same "our project uses X, always do Y" instructions in every prompt. With rules, those standards are injected automatically — enforced at the start of every conversation, in every mode, for every team member.</p>
+<p>Rules are a force multiplier:</p>
+<ul>
+<li><strong>Consistency without supervision</strong> — Bob follows the standard even when you forget to mention it</li>
+<li><strong>Automatic onboarding</strong> — new team members get the rules the moment they clone the repo</li>
+<li><strong>Code-review for standards</strong> — rule changes go through your normal PR process, so the team agrees on them before they take effect</li>
+</ul>
 <h3 id="step-1-create-global-rules">Step 1 — Create global rules<a class="headerlink" href="#step-1-create-global-rules" title="Permanent link">¶</a></h3>
 <p>Open <code>galaxium-travels/</code> in <strong>IBM Bob</strong>. In <strong>Agent</strong> mode:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>.bob/rules
@@ -1577,6 +1682,11 @@ flowchart LR
 <a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>Name each file with a timestamp prefix followed by a concise description.
 <a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>Example: 2026-01-15_update-readme.md
 </code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Why put rules in <code>.bob/rules/</code>?</p>
+<p>Files in <code>.bob/rules/</code> are <strong>global to all modes</strong> — they apply whether Bob is in Ask, Plan, or Agent mode. This is the right place for standards that should always be active regardless of what Bob is doing.</p>
+<p>The numeric prefix (<code>01-</code>) controls load order. If you have multiple rules files and some should take precedence, use <code>01-</code>, <code>02-</code>, etc.</p>
+</div>
 <h3 id="step-2-test-the-rules">Step 2 — Test the rules<a class="headerlink" href="#step-2-test-the-rules" title="Permanent link">¶</a></h3>
 <p>In <strong>Agent</strong> mode, ask Bob to add a utility function:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>Add a utility function called formatPrice to
@@ -1585,9 +1695,13 @@ flowchart LR
 </code></pre></div>
 <p><strong>Observe:</strong></p>
 <ul>
-<li>Bob adds the function with a JSDoc comment automatically</li>
+<li>Bob adds the function with a JSDoc comment automatically — because the rule says so</li>
 <li>A new file appears in <code>internal-monologue/</code> describing what was changed</li>
 </ul>
+<div class="admonition tip">
+<p class="admonition-title">This is the value of rules over prompts</p>
+<p>You didn't ask for a JSDoc comment. You didn't ask for a summary. Bob did both because the rules told it to. As a team practice, this means code quality standards are enforced without relying on every developer to remember to ask for them.</p>
+</div>
 <h3 id="step-3-modify-a-rule">Step 3 — Modify a rule<a class="headerlink" href="#step-3-modify-a-rule" title="Permanent link">¶</a></h3>
 <p>Edit <code>.bob/rules/01-standards.md</code> — change <code>internal-monologue/</code> to <code>bob-log/</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>After every Bob interaction, write a summary to the folder <span class="sb">`bob-log/`</span>.
@@ -1599,6 +1713,10 @@ flowchart LR
 <a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>that formats an ISO date string as "DD MMM YYYY".
 </code></pre></div>
 <p><strong>Observe:</strong> Bob writes to <code>bob-log/</code> now, not <code>internal-monologue/</code>.</p>
+<div class="admonition info">
+<p class="admonition-title">Rules are live — no restart required</p>
+<p>Bob reads rules files at the start of each conversation, not at IDE startup. Change a rule, start a new task, and the new rule takes effect immediately. This makes it easy to experiment with different standards before committing them.</p>
+</div>
 <h3 id="step-4-add-a-mode-scoped-rule">Step 4 — Add a mode-scoped rule<a class="headerlink" href="#step-4-add-a-mode-scoped-rule" title="Permanent link">¶</a></h3>
 <p>Create <code>.bob/rules-agent/02-agent-commits.md</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>In Agent mode, after every file change create a git commit
@@ -1610,6 +1728,7 @@ flowchart LR
 <p>Files in <code>.bob/rules-agent/</code> are only injected when Bob is in Agent mode.
 Files in <code>.bob/rules/</code> are injected in every mode.
 Mode slug for built-in modes: <code>agent</code>, <code>plan</code>, <code>ask</code>.</p>
+<p><strong>This is powerful for compliance.</strong> An auto-commit rule in Agent mode means every file Bob touches is committed with a traceable message — a complete audit trail of what Bob did and why, baked into your git history.</p>
 </div>
 <h3 id="step-5-commit-the-rules">Step 5 — Commit the rules<a class="headerlink" href="#step-5-commit-the-rules" title="Permanent link">¶</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>git<span class="w"> </span>add<span class="w"> </span>.bob/<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Add team Bob rules for Galaxium Travels"</span>
@@ -1619,9 +1738,56 @@ Mode slug for built-in modes: <code>agent</code>, <code>plan</code>, <code>ask</
 <li>New team members get the standards automatically on first <code>git clone</code></li>
 <li>Rule changes are reviewed through the normal PR process</li>
 <li>Rules are scoped to the project, not the developer's global Bob config</li>
+<li>The full history of what standards were active at any commit is preserved</li>
 </ul>
+<div class="admonition info">
+<p class="admonition-title">Rules vs. AGENTS.md — what is the difference?</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>AGENTS.md</code></th>
+<th><code>.bob/rules/*.md</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Generated by</strong></td>
+<td><code>/init</code> (automated)</td>
+<td>You (manual)</td>
+</tr>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>Describe the project structure</td>
+<td>Define behaviour standards</td>
+</tr>
+<tr>
+<td><strong>Edited by</strong></td>
+<td>Bob + you</td>
+<td>You (or Bob, on instruction)</td>
+</tr>
+<tr>
+<td><strong>Example content</strong></td>
+<td>"This project has a FastAPI backend and a React frontend"</td>
+<td>"Always use Decimal for monetary values"</td>
+</tr>
+</tbody>
+</table>
+<p>Use both together: <code>AGENTS.md</code> tells Bob <strong>what the project is</strong>, rules tell Bob <strong>how to behave in it</strong>.</p>
+</div>
 <h3 id="step-6-verify-the-rules-persist">Step 6 — Verify the rules persist<a class="headerlink" href="#step-6-verify-the-rules-persist" title="Permanent link">¶</a></h3>
 <p>Close and reopen <strong>IBM Bob</strong>, then ask Bob something simple in Agent mode. Check that <code>bob-log/</code> gets a new entry — confirming the rules survive a session restart.</p>
+<div class="admonition tip">
+<p class="admonition-title">Rules + AGENTS.md + mode scoping = team Bob configuration</p>
+<p>The combination of all three forms a complete Bob configuration for a project:</p>
+<ol>
+<li><strong><code>AGENTS.md</code></strong> — project context (what is this codebase?)</li>
+<li><strong><code>.bob/rules/</code></strong> — global standards (always apply)</li>
+<li><strong><code>.bob/rules-agent/</code></strong> — agent-specific behaviour (auto-commit, auto-audit)</li>
+<li><strong><code>.bob/custom_modes.yaml</code></strong> — custom personas (covered in Expert track)</li>
+</ol>
+<p>All of it is version-controlled. All of it propagates automatically on <code>git clone</code>. This is what "Bob as a team tool" looks like.</p>
+</div>
 <hr>
 <h2 id="whats-next">What's next?<a class="headerlink" href="#whats-next" title="Permanent link">¶</a></h2>
 <table>

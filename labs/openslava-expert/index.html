@@ -810,6 +810,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#the-stateless-problem-at-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The stateless problem at scale
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#step-1-run-init" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -893,6 +904,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#why-custom-modes-exist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why custom modes exist
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#step-1-create-the-custom-mode" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -969,6 +991,17 @@
     <span class="md-ellipsis">
       
         What you will learn
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-matters-in-a-regulated-codebase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this matters in a regulated codebase
       
     </span>
   </a>
@@ -1063,6 +1096,17 @@
     <span class="md-ellipsis">
       
         Mode tool groups reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#context-hygiene-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context hygiene reference
       
     </span>
   </a>
@@ -1319,6 +1363,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#the-stateless-problem-at-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The stateless problem at scale
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#step-1-run-init" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1402,6 +1457,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#why-custom-modes-exist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why custom modes exist
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#step-1-create-the-custom-mode" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1478,6 +1544,17 @@
     <span class="md-ellipsis">
       
         What you will learn
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-matters-in-a-regulated-codebase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this matters in a regulated codebase
       
     </span>
   </a>
@@ -1578,6 +1655,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#context-hygiene-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context hygiene reference
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1657,9 +1745,15 @@
 <p><strong>25 minutes</strong></p>
 <h3 id="what-you-will-learn">What you will learn<a class="headerlink" href="#what-you-will-learn" title="Permanent link">¶</a></h3>
 <p>The GFM Bank lab is an industry-grade demo with a Python/FastAPI backend, a teller CLI, a back-office CLI, and a deliberately vulnerable data pipeline. This lab runs all three parts in compressed form.</p>
+<p>The three parts map directly to three Bob modes and three patterns you should carry into every real project:</p>
+<ol>
+<li><strong>Ask</strong> for architecture discovery — understand before you build</li>
+<li><strong>Agent</strong> for rapid UI scaffolding — Bob as a full-stack pair programmer</li>
+<li><strong>Agent</strong> for security audit — systematic vulnerability analysis, not just guesswork</li>
+</ol>
 <h3 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">¶</a></h3>
 <p><strong>1 — Clone the workshop repo</strong> (skip if you already have it)</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>git@github.ibm.com:Halvor/openslava.git
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>git@github-halvoribm:HalvorIBM/openslava.git
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>openslava
 </code></pre></div>
 <p><strong>2 — Start the GFM Bank API</strong></p>
@@ -1667,6 +1761,10 @@
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>./start.sh
 </code></pre></div>
 <p>API running at <code>http://127.0.0.1:8000</code> · Docs at <code>http://127.0.0.1:8000/docs</code></p>
+<div class="admonition info">
+<p class="admonition-title">Why localhost, not 0.0.0.0?</p>
+<p>Notice the API binds to <code>127.0.0.1</code> — not all interfaces. This is a <strong>security best practice</strong>: development services should never be exposed on all network interfaces. The same rule applies to any service Bob scaffolds for you. If Bob suggests <code>0.0.0.0</code>, change it before running.</p>
+</div>
 <p><strong>Test credentials:</strong></p>
 <table>
 <thead>
@@ -1696,15 +1794,30 @@
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Explain the architecture, the role-based access model, and the transaction processing logic.
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Create a Mermaid diagram showing the system components and a sequence diagram for a money transfer.
 </code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Why Ask mode for architecture discovery?</p>
+<p>You are using Ask mode because you want to <strong>understand the system, not change it</strong>. Ask mode is read-only — Bob can read every file and reason about the full codebase, but cannot accidentally modify anything while exploring.</p>
+<p>This is the professional pattern before any major work on an unfamiliar codebase: understand first, then plan, then implement. Using Ask mode enforces this discipline at the tool level.</p>
+<p>Notice how Bob can produce a Mermaid diagram from code it reads — this is architecture documentation generated automatically from the source of truth, not a stale diagram someone drew once and never updated.</p>
+</div>
 <h3 id="part-2-build-the-react-teller-ui-10-min">Part 2 — Build the React Teller UI (10 min)<a class="headerlink" href="#part-2-build-the-react-teller-ui-10-min" title="Permanent link">¶</a></h3>
-<p>Switch to <strong>Agent</strong> mode:</p>
+<p>Switch to <strong>Agent</strong> mode. Start a <strong>+ New task</strong> first — you are switching from discovery to implementation:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Build a React + Vite teller front-end for GFM Bank connected to http://127.0.0.1:8000.
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Include: login form (credentials from .env), server health indicator, balance inquiry,
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>transaction history, money transfer form, and overdraft request message.
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>Plain CSS — no external component library.
 </code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Load credentials from .env, not hardcoded</p>
+<p>The prompt explicitly says "credentials from .env". This is intentional — <strong>never hardcode passwords or tokens in source code</strong>. Bob follows this instruction and generates a <code>.env</code> file pattern.</p>
+<p>If Bob proposes hardcoded credentials anywhere, correct it: <code>"Move these credentials to a .env file and load them with import.meta.env in Vite"</code>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Reference the API spec as context</p>
+<p>The GFM Bank API has Swagger docs at <code>http://127.0.0.1:8000/docs</code>. You can reference this as context by adding <code>@http://127.0.0.1:8000/openapi.json</code> in your prompt — Bob fetches the OpenAPI spec and uses the exact endpoint shapes. This produces accurate API client code without trial and error.</p>
+</div>
 <h3 id="part-3-security-audit-7-min">Part 3 — Security Audit (7 min)<a class="headerlink" href="#part-3-security-audit-7-min" title="Permanent link">¶</a></h3>
-<p>Open <code>expert/labs/banking-industry/security-audit/code/</code> in <strong>IBM Bob</strong>. Switch to <strong>Agent</strong> mode:</p>
+<p>Open <code>expert/labs/banking-industry/security-audit/code/</code> in <strong>IBM Bob</strong>. Start a <strong>+ New task</strong> and switch to <strong>Agent</strong> mode:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Analyse data_pipeline.py and synthetic_generator.py for security vulnerabilities.
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>For each finding provide: file, line, CWE category, severity, attack scenario,
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>and remediation recommendation.
@@ -1714,12 +1827,31 @@
 <p class="admonition-title">Expected findings</p>
 <p>Bob should find at minimum: hardcoded credentials, SQL injection, command injection, insecure <code>pickle</code> deserialization, disabled SSL, and MD5 password hashing. A total of 12 vulnerabilities across both files.</p>
 </div>
+<div class="admonition info">
+<p class="admonition-title">Why generate SECURITY_AUDIT_REPORT.md?</p>
+<p>Asking Bob to write a structured audit report is a <strong>smart documentation pattern</strong>. The output:</p>
+<ul>
+<li>Is immediately shareable with a security team</li>
+<li>Traces each finding to a specific file and line</li>
+<li>Includes CWE categories — machine-readable vulnerability identifiers used by security tooling</li>
+<li>Persists across sessions (it is a file, not a chat message)</li>
+</ul>
+<p>In a real project, you would commit this report and reference it in your PR. The finding is now tracked, not buried in a chat transcript.</p>
+</div>
 <hr>
 <h2 id="lab-e2-init-re-init-fintech-rules">Lab E2 — <code>/init</code>, Re-Init &amp; Fintech Rules<a class="headerlink" href="#lab-e2-init-re-init-fintech-rules" title="Permanent link">¶</a></h2>
 <p><strong>20 minutes</strong> · Requires E1 complete</p>
 <h3 id="what-you-will-learn_1">What you will learn<a class="headerlink" href="#what-you-will-learn_1" title="Permanent link">¶</a></h3>
 <p><code>/init</code> reverse-engineers your codebase into a living <code>AGENTS.md</code> — Bob's persistent context document. Re-running it after adding modules updates that context. Rules let you encode compliance standards that Bob enforces automatically.</p>
-<h3 id="step-1-run-init">Step 1 — Run /init<a class="headerlink" href="#step-1-run-init" title="Permanent link">¶</a></h3>
+<h3 id="the-stateless-problem-at-scale">The stateless problem at scale<a class="headerlink" href="#the-stateless-problem-at-scale" title="Permanent link">¶</a></h3>
+<p>In a 50-file banking application, asking Bob to discover the codebase fresh in every conversation wastes tokens and produces inconsistent results. Without context, Bob might:</p>
+<ul>
+<li>Use <code>float</code> for monetary values (losing precision)</li>
+<li>Miss the auth pattern used by existing endpoints</li>
+<li>Add a REST endpoint without the required MCP tool counterpart</li>
+</ul>
+<p><code>/init</code> solves this by writing <strong>Bob's understanding of the project to disk</strong>, where it persists across every conversation and every team member's machine. Rules go further: they encode the invariants Bob must never violate, regardless of who is prompting or what they ask for.</p>
+<h3 id="step-1-run-init">Step 1 — Run <code>/init</code><a class="headerlink" href="#step-1-run-init" title="Permanent link">¶</a></h3>
 <p>From <code>expert/labs/banking-industry/gfm-bank/</code>, switch to <strong>Agent</strong> mode, type <code>/init</code> and send.</p>
 <p><strong>Read <code>AGENTS.md</code>:</strong></p>
 <ul>
@@ -1728,6 +1860,17 @@
 <li>What constraints did it record (e.g. Decimal for monetary values)?</li>
 </ul>
 <p><strong>Open <code>.bob/rules-agent/AGENTS-agent.md</code>:</strong> compare to the root file. What is mode-specific?</p>
+<div class="admonition info">
+<p class="admonition-title">Mode-specific AGENTS.md files</p>
+<p><code>/init</code> generates <strong>four</strong> context files:</p>
+<ul>
+<li><code>AGENTS.md</code> — root, loaded in all modes</li>
+<li><code>.bob/rules-agent/AGENTS-agent.md</code> — extra context for Agent (file structure, implementation patterns)</li>
+<li><code>.bob/rules-plan/AGENTS-plan.md</code> — extra context for Plan (architecture, constraints)</li>
+<li><code>.bob/rules-ask/AGENTS-ask.md</code> — extra context for Ask (project overview, glossary)</li>
+</ul>
+<p>Each mode gets the context relevant to its purpose. Plan mode gets architecture guidance; Agent mode gets file layout and naming conventions.</p>
+</div>
 <h3 id="step-2-author-fintech-rules">Step 2 — Author fintech rules<a class="headerlink" href="#step-2-author-fintech-rules" title="Permanent link">¶</a></h3>
 <p>Create <code>.bob/rules/fintech-standards.md</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>All Python functions that handle monetary values must use the Decimal type, never float.
@@ -1735,6 +1878,16 @@
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>After every Bob interaction, append a one-line audit entry to bob-audit/audit.log
 <a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>in the format: [ISO timestamp] [mode] [brief description of change]
 </code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Why <code>Decimal</code> over <code>float</code>?</p>
+<p>This is a <strong>real production rule</strong> used in fintech systems. IEEE 754 floating-point arithmetic accumulates rounding errors that are unacceptable for financial calculations. <code>0.1 + 0.2</code> in Python float is <code>0.30000000000000004</code> — not <code>0.3</code>. For a bank, that is a compliance issue.</p>
+<p>Encoding this as a Bob rule means Bob enforces it automatically on every function it writes or modifies — no code review step required to catch it.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">The audit log pattern</p>
+<p>The audit log rule creates a <strong>machine-readable trail</strong> of every Bob action. In regulated environments, you need to be able to answer: "on this date, what did the AI assistant change?" The <code>bob-audit/audit.log</code> file answers that question directly.</p>
+<p>Commit this log alongside your code for a complete development history.</p>
+</div>
 <h3 id="step-3-test-the-rules">Step 3 — Test the rules<a class="headerlink" href="#step-3-test-the-rules" title="Permanent link">¶</a></h3>
 <p>In <strong>Agent</strong> mode:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Add a function called calculate_transfer_fee to demo_api.py
@@ -1751,14 +1904,42 @@
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>that logs a structured alert message.
 </code></pre></div>
 <p>Re-run <code>/init</code>. Open <code>AGENTS.md</code> — observe <code>notifications/</code> now appears in the codebase context.</p>
+<div class="admonition tip">
+<p class="admonition-title">Re-init after major structure changes</p>
+<p><code>/init</code> is not a one-time setup — it should be re-run whenever the project structure meaningfully changes:</p>
+<ul>
+<li>After adding a new service or module</li>
+<li>After a major refactor</li>
+<li>When onboarding a new team member</li>
+<li>Before a significant feature build</li>
+</ul>
+<p>Think of it as "refresh Bob's map of the codebase". Old <code>AGENTS.md</code> with stale paths leads to Bob guessing at file locations — always re-init when in doubt.</p>
+</div>
 <h3 id="step-5-commit">Step 5 — Commit<a class="headerlink" href="#step-5-commit" title="Permanent link">¶</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git<span class="w"> </span>add<span class="w"> </span>.<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Add fintech Bob rules and updated AGENTS.md"</span>
 </code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Always commit <code>.bob/</code> alongside your code</p>
+<p>Your Bob configuration is part of the project. Committing <code>.bob/rules/</code>, <code>.bob/custom_modes.yaml</code>, and <code>AGENTS.md</code> means:</p>
+<ul>
+<li>New team members get the full Bob setup on <code>git clone</code></li>
+<li>Rule changes are code-reviewed like any other change</li>
+<li>The history of what Bob was configured to do is auditable</li>
+</ul>
+</div>
 <hr>
 <h2 id="lab-e3-custom-mode-mode-scoped-rules-re-init">Lab E3 — Custom Mode, Mode-Scoped Rules &amp; Re-Init<a class="headerlink" href="#lab-e3-custom-mode-mode-scoped-rules-re-init" title="Permanent link">¶</a></h2>
 <p><strong>20 minutes</strong> · Requires E2 complete</p>
 <h3 id="what-you-will-learn_2">What you will learn<a class="headerlink" href="#what-you-will-learn_2" title="Permanent link">¶</a></h3>
 <p>Custom modes let you create role-specific Bob personas with their own tool restrictions and auto-injected instructions. A <code>fintech-reviewer</code> mode that can only read and report — never edit — is a powerful compliance tool.</p>
+<h3 id="why-custom-modes-exist">Why custom modes exist<a class="headerlink" href="#why-custom-modes-exist" title="Permanent link">¶</a></h3>
+<p>The three built-in modes (Ask, Plan, Agent) cover the development workflow. But real teams have additional workflows that don't fit neatly into "implement" or "review":</p>
+<ul>
+<li>A <strong>compliance reviewer</strong> who should never accidentally modify production code</li>
+<li>A <strong>security auditor</strong> who needs to check for specific vulnerability classes systematically</li>
+<li>A <strong>documentation writer</strong> who only updates <code>.md</code> files and never touches source code</li>
+</ul>
+<p>Custom modes let you encode these roles with <strong>enforced tool permissions</strong>. The restrictions are at the tool level — they cannot be overridden by a clever prompt. If a mode lacks <code>edit</code>, Bob physically cannot write files, no matter what anyone asks.</p>
 <h3 id="step-1-create-the-custom-mode">Step 1 — Create the custom mode<a class="headerlink" href="#step-1-create-the-custom-mode" title="Permanent link">¶</a></h3>
 <p>Open Bob Settings → <strong>Modes</strong> → <strong>Edit Project Modes</strong> (<code>.bob/custom_modes.yaml</code>).</p>
 <p>Add the following complete mode definition:</p>
@@ -1787,6 +1968,19 @@
 <div class="admonition info">
 <p class="admonition-title">Why <code>read</code>, <code>mcp</code>, <code>skill</code> only?</p>
 <p>Omitting <code>edit</code> and <code>command</code> makes this a <strong>read-only</strong> mode. Bob can analyse files and call MCP tools (e.g. to look up CVEs), but cannot write files or run commands. This is enforced at the tool-permission level — it cannot be overridden by a prompt.</p>
+<p>This is the key security property of custom modes: <strong>the restriction is structural, not advisory</strong>. You cannot accidentally break it by typing "just fix it while you're there".</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">The <code>slug</code> becomes a slash command</p>
+<p>Once you create a mode with <code>slug: fintech-reviewer</code>, you can switch to it instantly by typing <code>/fintech-reviewer</code> in the chat. No menu navigation needed. Custom mode slugs become first-class slash commands automatically.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Where to save the YAML file</p>
+<ul>
+<li><strong><code>.bob/custom_modes.yaml</code></strong> — project-scoped, committed to the repo, shared with the team ✅</li>
+<li><strong><code>~/.bob/custom_modes.yaml</code></strong> — global, applies to all your workspaces</li>
+</ul>
+<p>For compliance roles that are project-specific, always use the project-scoped file. For personal productivity modes you use across all projects, use the global file.</p>
 </div>
 <h3 id="step-2-mode-scoped-rules">Step 2 — Mode-scoped rules<a class="headerlink" href="#step-2-mode-scoped-rules" title="Permanent link">¶</a></h3>
 <p>Create <code>.bob/rules-fintech-reviewer/01-pci-checklist.md</code>:</p>
@@ -1798,9 +1992,14 @@
 <a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="k">4.</span> All dependencies are on vendor-supported versions
 <a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="k">5.</span> Secrets and credentials are not hardcoded or committed to version control
 </code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Mode-scoped rules for the custom mode</p>
+<p>The directory name must match the mode slug: <code>.bob/rules-fintech-reviewer/</code>. Bob injects these rules only when that mode is active — so the PCI-DSS checklist runs automatically every time a review is started, without anyone having to remember to include it.</p>
+<p>This is <strong>systematic compliance review</strong>, not best-effort. The checklist is always present, always complete.</p>
+</div>
 <h3 id="step-3-test-the-mode">Step 3 — Test the mode<a class="headerlink" href="#step-3-test-the-mode" title="Permanent link">¶</a></h3>
 <ol>
-<li>Switch to <strong>🏦 Fintech Reviewer</strong> mode in the Bob sidebar</li>
+<li>Switch to <strong>🏦 Fintech Reviewer</strong> mode in the Bob sidebar (or type <code>/fintech-reviewer</code>)</li>
 <li>Send:</li>
 </ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Review the payments module (demo_api.py and data_pipeline.py)
@@ -1811,20 +2010,71 @@
 <li>Bob reports a numbered finding list with severities</li>
 <li>If you ask <code>"Fix the SQL injection in data_pipeline.py"</code>, Bob refuses — it has no <code>edit</code> tools</li>
 </ul>
+<div class="admonition tip">
+<p class="admonition-title">Pair the reviewer mode with an Agent task</p>
+<p>A good workflow: run <code>fintech-reviewer</code> to get the finding list, then start a new Agent mode task and reference the findings: <code>"Fix findings 1, 3, and 5 from the fintech review."</code> The reviewer can't write, the agent can't see your restrictions — each mode does exactly one job.</p>
+</div>
 <h3 id="step-4-re-init-and-commit">Step 4 — Re-init and commit<a class="headerlink" href="#step-4-re-init-and-commit" title="Permanent link">¶</a></h3>
 <p>Switch back to <strong>Agent</strong> mode. Re-run <code>/init</code> — the new custom mode now appears in <code>AGENTS.md</code>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>git<span class="w"> </span>add<span class="w"> </span>.bob/<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Add fintech-reviewer custom mode and PCI-DSS review checklist"</span>
 </code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Re-init after adding custom modes</p>
+<p>When you add a custom mode, re-running <code>/init</code> updates <code>AGENTS.md</code> to document the mode — its purpose, tool groups, and when to use it. This means:</p>
+<ul>
+<li>New team members can discover the mode from <code>AGENTS.md</code></li>
+<li>Bob in any mode knows the <code>fintech-reviewer</code> mode exists and can suggest switching to it</li>
+</ul>
+</div>
 <h3 id="reflection">Reflection<a class="headerlink" href="#reflection" title="Permanent link">¶</a></h3>
 <p>In <strong>Ask</strong> mode:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>How do custom modes, rules, and MCP servers differ as Bob extension mechanisms?
 <a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>When would you use each one?
 </code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Three extension mechanisms — when to use each</p>
+<table>
+<thead>
+<tr>
+<th>Mechanism</th>
+<th>What it does</th>
+<th>Best for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Rules</strong></td>
+<td>Injects instructions into every conversation</td>
+<td>Coding standards, output formats, audit logging</td>
+</tr>
+<tr>
+<td><strong>Custom modes</strong></td>
+<td>Creates a new persona with restricted tool access</td>
+<td>Compliance roles, specialist reviewers, safe read-only workflows</td>
+</tr>
+<tr>
+<td><strong>MCP servers</strong></td>
+<td>Connects Bob to external systems</td>
+<td>GitHub, Jira, Datadog, Vault — anything outside your filesystem</td>
+</tr>
+</tbody>
+</table>
+<p>They compose: a <code>fintech-reviewer</code> mode (custom mode) with PCI rules (rules) that calls a CVE database (MCP) is a complete compliance workflow built from three primitives.</p>
+</div>
 <hr>
 <h2 id="lab-e4-github-mcp-integration">Lab E4 — GitHub MCP Integration<a class="headerlink" href="#lab-e4-github-mcp-integration" title="Permanent link">¶</a></h2>
 <p><strong>25 minutes</strong> · Requires E3 complete · GitHub account + PAT required</p>
 <h3 id="what-you-will-learn_3">What you will learn<a class="headerlink" href="#what-you-will-learn_3" title="Permanent link">¶</a></h3>
 <p>MCP servers extend Bob with real-world integrations. GitHub MCP lets Bob read issues, create branches, commit code, and open PRs as native Bob actions — no shell scripts, no copy-paste.</p>
+<h3 id="why-this-matters-in-a-regulated-codebase">Why this matters in a regulated codebase<a class="headerlink" href="#why-this-matters-in-a-regulated-codebase" title="Permanent link">¶</a></h3>
+<p>In financial software, the audit trail is not optional. Every change must be traceable:</p>
+<ul>
+<li><strong>Why</strong> was this change made? (Issue reference)</li>
+<li><strong>What</strong> was changed? (PR diff)</li>
+<li><strong>Who</strong> authorized it? (PR review)</li>
+<li><strong>When</strong> did it happen? (commit timestamp)</li>
+</ul>
+<p>Bob with GitHub MCP produces all four automatically. The issue description becomes the requirement. The PR description links to the issue. The commit timestamp is git. The review is your team's normal process. Bob handles the mechanical linkage so nothing falls through the cracks.</p>
 <h3 id="step-1-install-github-mcp-if-not-done-in-intermediate-track">Step 1 — Install GitHub MCP (if not done in Intermediate track)<a class="headerlink" href="#step-1-install-github-mcp-if-not-done-in-intermediate-track" title="Permanent link">¶</a></h3>
 <ol>
 <li>Bob sidebar → <strong>Marketplace</strong> → search <strong>GitHub</strong> → Install</li>
@@ -1839,23 +2089,36 @@
 </code></pre></div>
 Or use any repo you already have on GitHub.<p></p>
 </div>
+<div class="admonition info">
+<p class="admonition-title">Commit your <code>.bob/</code> configuration before pushing</p>
+<p>The rules and custom modes you built in E2 and E3 should be committed before you push:
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>git<span class="w"> </span>add<span class="w"> </span>.bob/<span class="w"> </span>AGENTS.md<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Add Bob configuration: fintech rules and custom modes"</span>
+</code></pre></div>
+Anyone who clones your repo now gets the full Bob setup — context, standards, and compliance modes — immediately.<p></p>
+</div>
 <h3 id="step-2-create-a-github-issue-with-bob">Step 2 — Create a GitHub issue with Bob<a class="headerlink" href="#step-2-create-a-github-issue-with-bob" title="Permanent link">¶</a></h3>
 <p>In <strong>Agent</strong> mode:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Use GitHub MCP to create a new issue in this repo titled
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>"Add transaction export to CSV endpoint"
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>with label "enhancement" and body:
-<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>"Users need to download their transaction history as a CSV file.
-<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>The endpoint should accept an account_id parameter and return
-<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>a CSV with columns: date, amount, type."
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>Use GitHub MCP to create a new issue in this repo titled
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>"Add transaction export to CSV endpoint"
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>with label "enhancement" and body:
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>"Users need to download their transaction history as a CSV file.
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>The endpoint should accept an account_id parameter and return
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>a CSV with columns: date, amount, type."
 </code></pre></div>
 <p><strong>Observe:</strong> Bob calls the GitHub MCP <code>create_issue</code> tool. Verify the issue appears on GitHub.</p>
+<div class="admonition tip">
+<p class="admonition-title">Write precise issue bodies</p>
+<p>The quality of Bob's implementation is directly proportional to the quality of the issue body. A precise issue with column names, parameter names, and expected behaviour produces accurate code on the first pass. Vague issues ("add CSV export") produce vague implementations that require multiple correction rounds.</p>
+<p>This is the same discipline as writing a good acceptance criterion — it benefits both human developers and AI agents equally.</p>
+</div>
 <h3 id="step-3-issue-to-pr-loop">Step 3 — Issue-to-PR loop<a class="headerlink" href="#step-3-issue-to-pr-loop" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>Read the issue you just created.
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>Create a feature branch called "feature/csv-export".
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>Implement a GET /transactions/{account_id}/export endpoint in demo_api.py
-<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>that returns a CSV response (Content-Type: text/csv) with columns:
-<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>booking_ts, amount_eur, type.
-<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>Commit the change and open a pull request with a description referencing the issue number.
+<p>Start a <strong>+ New task</strong> in Bob (<strong>Agent</strong> mode):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>Read the issue you just created.
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>Create a feature branch called "feature/csv-export".
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>Implement a GET /transactions/{account_id}/export endpoint in demo_api.py
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>that returns a CSV response (Content-Type: text/csv) with columns:
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>booking_ts, amount_eur, type.
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>Commit the change and open a pull request with a description referencing the issue number.
 </code></pre></div>
 <p><strong>Observe Bob:</strong></p>
 <ol>
@@ -1865,9 +2128,14 @@ Or use any repo you already have on GitHub.<p></p>
 <li>Commits and pushes via <code>create_or_update_file</code> or <code>push_files</code></li>
 <li>Opens a PR via <code>create_pull_request</code> referencing <code>#&lt;issue-number&gt;</code></li>
 </ol>
+<div class="admonition tip">
+<p class="admonition-title">Watch the MCP tool calls in the approval panel</p>
+<p>Each GitHub MCP tool call appears as an approval prompt — <code>create_branch</code>, <code>create_or_update_file</code>, <code>create_pull_request</code>. Review them before approving. You can see exactly what branch name Bob chose, what the commit message says, and what the PR description looks like — before any of it happens on GitHub.</p>
+<p>This is the <strong>propose, then approve</strong> pattern at work on a remote system.</p>
+</div>
 <h3 id="step-4-verify-the-endpoint">Step 4 — Verify the endpoint<a class="headerlink" href="#step-4-verify-the-endpoint" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>Test the new export endpoint with the sample IBAN DE89545769475769453536.
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>Show me the CSV output.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Test the new export endpoint with the sample IBAN DE89545769475769453536.
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>Show me the CSV output.
 </code></pre></div>
 <h3 id="discussion-questions">Discussion questions<a class="headerlink" href="#discussion-questions" title="Permanent link">¶</a></h3>
 <ul class="task-list">
@@ -1875,6 +2143,15 @@ Or use any repo you already have on GitHub.<p></p>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> How does GitHub MCP differ from Bob rules as an extension mechanism?</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> When should you use a custom mode vs. a rule vs. an MCP server?</li>
 </ul>
+<div class="admonition info">
+<p class="admonition-title">Suggested answers for discussion</p>
+<ul>
+<li><strong>Jira MCP</strong> — same issue-to-PR pattern for teams not on GitHub</li>
+<li><strong>Vault MCP</strong> — Bob could rotate and reference secrets without ever seeing plaintext values</li>
+<li><strong>Datadog MCP</strong> — Bob could read production alerts and implement fixes without leaving the editor</li>
+<li><strong>Rules</strong> are project-internal standards. <strong>MCP servers</strong> connect to external systems. <strong>Custom modes</strong> restrict what Bob is allowed to do. All three compose cleanly.</li>
+</ul>
+</div>
 <hr>
 <h2 id="expert-track-reference">Expert Track Reference<a class="headerlink" href="#expert-track-reference" title="Permanent link">¶</a></h2>
 <h3 id="bob-extension-mechanisms-comparison">Bob extension mechanisms — comparison<a class="headerlink" href="#bob-extension-mechanisms-comparison" title="Permanent link">¶</a></h3>
@@ -1885,6 +2162,7 @@ Or use any repo you already have on GitHub.<p></p>
 <th>Scope</th>
 <th>Modifies files?</th>
 <th>Requires setup?</th>
+<th>Version-controlled?</th>
 </tr>
 </thead>
 <tbody>
@@ -1893,24 +2171,28 @@ Or use any repo you already have on GitHub.<p></p>
 <td>Per-project or per-mode</td>
 <td>No (informs Bob)</td>
 <td>Create <code>.bob/rules/*.md</code></td>
+<td>Yes — commit <code>.bob/</code></td>
 </tr>
 <tr>
 <td><strong>Custom modes</strong></td>
-<td>Per-project</td>
+<td>Per-project or global</td>
 <td>No (restricts tools)</td>
 <td>Edit <code>.bob/custom_modes.yaml</code></td>
+<td>Yes — commit <code>.bob/</code></td>
 </tr>
 <tr>
 <td><strong>MCP servers</strong></td>
 <td>Per-workspace</td>
 <td>Yes (via Bob actions)</td>
 <td>Install from Marketplace + token</td>
+<td><code>.bob/mcp.json</code> for project scope</td>
 </tr>
 <tr>
 <td><strong><code>/init</code></strong></td>
 <td>Per-project</td>
 <td>Yes (writes <code>AGENTS.md</code>)</td>
 <td>Run once, re-run after changes</td>
+<td>Yes — commit <code>AGENTS.md</code></td>
 </tr>
 </tbody>
 </table>
@@ -1950,6 +2232,41 @@ Or use any repo you already have on GitHub.<p></p>
 <tr>
 <td><code>subtask</code></td>
 <td>Spawn subtasks</td>
+</tr>
+</tbody>
+</table>
+<h3 id="context-hygiene-reference">Context hygiene reference<a class="headerlink" href="#context-hygiene-reference" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Signal</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>You are switching from planning to implementation</td>
+<td>Start <strong>+ New task</strong></td>
+</tr>
+<tr>
+<td>Bob starts contradicting earlier responses</td>
+<td>Start <strong>+ New task</strong></td>
+</tr>
+<tr>
+<td>The token counter is &gt; 60% full</td>
+<td>Start <strong>+ New task</strong></td>
+</tr>
+<tr>
+<td>You added a new module or service</td>
+<td>Re-run <code>/init</code></td>
+</tr>
+<tr>
+<td>You are onboarding a new team member</td>
+<td>Re-run <code>/init</code> + ensure <code>.bob/</code> is committed</td>
+</tr>
+<tr>
+<td>You changed a rule and want it active now</td>
+<td>Start <strong>+ New task</strong> (rules load on task start)</td>
 </tr>
 </tbody>
 </table>
