@@ -48,6 +48,16 @@ PocketLedger helps individuals track income and expenses. Users add transactions
 
 This is not just an application challenge — it is a **Bob workflow** challenge. Your submission must demonstrate that you used Bob correctly and completely. The following Bob artefacts are **required** and will be checked by the judges.
 
+!!! info "Why are Bob artefacts required?"
+    The challenge is designed to test whether you can apply the **full Bob development workflow**, not just generate code quickly. Judges are looking for evidence that you:
+
+    - Used `/init` to give Bob persistent project context
+    - Created rules to enforce standards automatically (not just as prompts)
+    - Built a custom mode with appropriate permission restrictions
+    - Drove the full GitHub SDLC loop with MCP
+
+    A working app with no Bob artefacts scores zero. An app that demonstrates every Bob pattern — even if imperfect — scores high.
+
 ### B-REQ-1 — `/init` generated `AGENTS.md`
 
 Run `/init` on the completed codebase. The `AGENTS.md` at the repo root must exist and must describe:
@@ -56,6 +66,11 @@ Run `/init` on the completed codebase. The `AGENTS.md` at the repo root must exi
 - The auth model (bearer token from env)
 - The database layer
 - At least one project-specific constraint Bob inferred or that you added
+
+!!! tip "When to run `/init`"
+    Run `/init` **after** the project skeleton is in place — not on an empty folder. Then re-run it after you add a new module (e.g. when you add authentication). Each re-run refreshes Bob's map of the codebase.
+
+    You can also manually add constraints to `AGENTS.md` that Bob couldn't infer from the code: deployment notes, known limitations, team conventions. The judges will reward a well-curated `AGENTS.md`.
 
 ### B-REQ-2 — Team rules file
 
@@ -73,6 +88,15 @@ in the format: [ISO timestamp] [mode] [brief description of change]
 
 Run at least one Agent mode interaction after creating the rules and confirm `bob-audit/audit.log` has a new entry.
 
+!!! info "Rules enforce standards without reminders"
+    Once this rules file exists, Bob will:
+
+    - Round monetary values automatically in every function it writes
+    - Add JSDoc comments to every React component it creates
+    - Append to `bob-audit/audit.log` after every Agent interaction
+
+    You don't need to ask. You don't need to remind Bob. The standard is always active. This is the difference between rules and prompts: rules are permanent, prompts are per-conversation.
+
 ### B-REQ-3 — Custom `ledger-reviewer` mode
 
 Create `.bob/custom_modes.yaml` with a `ledger-reviewer` mode that:
@@ -83,6 +107,14 @@ Create `.bob/custom_modes.yaml` with a `ledger-reviewer` mode that:
 
 Use the mode to run at least one review prompt and include the output (copy it into a file `ledger-review/initial-review.md` in the repo).
 
+!!! tip "Switch to your custom mode with a slash command"
+    Once `.bob/custom_modes.yaml` is saved, type `/ledger-reviewer` in the chat to switch to it instantly. You don't need to navigate through the settings menu.
+
+!!! info "Why a read-only reviewer mode?"
+    `ledger-reviewer` with no `edit` or `command` groups **cannot modify your code**, even if you ask it to. This enforced read-only constraint means you can run compliance reviews without any risk of unintended changes to your working code.
+
+    The output you save to `ledger-review/initial-review.md` becomes your project's first formal security review — committed to version control alongside the code it reviewed.
+
 ### B-REQ-4 — GitHub issue → PR loop
 
 1. Push your repo to GitHub (public or private, your choice)
@@ -90,6 +122,18 @@ Use the mode to run at least one review prompt and include the output (copy it i
 3. Use **Agent** mode (with GitHub MCP) to read the issue, implement the endpoint, commit on a feature branch, and open a PR that references the issue number
 
 The PR must exist on GitHub and must reference the issue. The CSV export endpoint does not need to be production-perfect — it just needs to exist and work for the basic case.
+
+!!! tip "Use `/create-pr` for the PR step"
+    After Bob has committed and pushed the feature branch, type `/create-pr` in the chat. Bob reads the git diff, identifies the linked issue from your branch name and commit message, generates a PR description, and creates the PR via GitHub MCP — all in one command.
+
+!!! info "Why issue → branch → PR, not just a direct commit?"
+    The issue-to-PR loop creates a traceable link: requirement → implementation → review. This is the professional engineering workflow that works at scale.
+
+    When Bob reads the issue and generates a PR description that references `#<issue-number>`, GitHub automatically:
+    - Links the PR to the issue
+    - Closes the issue when the PR merges
+
+    The audit trail is automatic. This is what "Bob as a team tool" looks like in practice.
 
 ---
 
@@ -118,6 +162,35 @@ If multiple submissions arrive at the same time, the tiebreaker is quality of `A
 
 ---
 
+## Recommended workflow
+
+Following the patterns you learned in the tracks will get you to a submission faster than guessing. Here is the recommended sequence:
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#1a56db', 'primaryTextColor': '#ffffff', 'primaryBorderColor': '#1a56db', 'lineColor': '#6b7280', 'mainBkg': '#1a56db', 'nodeBorder': '#1a56db', 'clusterBkg': '#1e3a5f', 'titleColor': '#ffffff', 'edgeLabelBackground': 'transparent'}}}%%
+flowchart TD
+    A["📋 Plan mode\nDesign full project structure"] --> B["⚙️ Agent mode\nScaffold backend + frontend"]
+    B --> C["🔧 /init\nGenerate AGENTS.md"]
+    C --> D["📝 Create .bob/rules/\npocketledger-standards.md"]
+    D --> E["⚙️ Agent mode\nBuild features F1–F10\n(+ New task between features)"]
+    E --> F["🏦 Create ledger-reviewer mode\nRun review → save to file"]
+    F --> G["🔁 Re-run /init\nUpdate AGENTS.md"]
+    G --> H["🔀 GitHub MCP\nIssue → implement → /create-pr"]
+    classDef node fill:#1a56db,color:#fff,stroke:#1a56db
+    class A,B,C,D,E,F,G,H node
+```
+
+!!! tip "Start new tasks frequently"
+    Each feature (F1 through F10) should ideally be its own Bob task. Clean context per feature means:
+
+    - Bob focuses only on the feature at hand
+    - Errors in one feature don't contaminate the next
+    - The token budget stays healthy throughout
+
+    If you try to build all 10 features in a single conversation, the context window will fill and quality will degrade by F7.
+
+---
+
 ## Hints & Guidance
 
 These hints are here if you get stuck. Try without them first.
@@ -125,10 +198,10 @@ These hints are here if you get stuck. Try without them first.
 ??? tip "Hint 1 — Recommended start sequence"
     1. Create an empty folder `pocketledger/`
     2. Open it in **IBM Bob**, switch to **Plan** mode, paste the feature list and ask Bob to design the full project structure
-    3. Switch to **Agent** mode, scaffold both services
+    3. Start a **+ New task**, switch to **Agent** mode, scaffold both services
     4. Run `/init` once the skeleton is in place
     5. Create your rules file before writing any business logic
-    6. Build features F1–F10 in Agent mode
+    6. Build features F1–F10 in Agent mode, one or two features per task
 
 ??? tip "Hint 2 — Bearer token pattern (FastAPI)"
     ```python
@@ -142,6 +215,8 @@ These hints are here if you get stuck. Try without them first.
     ```
     Add `Depends(verify_token)` to every route that should be protected.
 
+    The token is read from the environment — never hardcoded. If Bob ever hardcodes a token value, ask it to move the value to `.env` and load it with `os.environ`.
+
 ??? tip "Hint 3 — Vanilla JS bar chart approach"
     Ask Bob in **Plan** mode first:
     ```
@@ -149,7 +224,9 @@ These hints are here if you get stuck. Try without them first.
     { category: string, total: number } objects and renders horizontal bars.
     No external library.
     ```
-    Then switch to **Agent** mode to implement.
+    Then start a **+ New task** and switch to **Agent** mode to implement.
+
+    The Plan → new task → Agent pattern is particularly important here because the chart logic is complex enough to benefit from a design pass.
 
 ??? tip "Hint 4 — start.sh template"
     Your repo should include a `start.sh` at the root that starts both services so judges can run it easily:
@@ -171,6 +248,16 @@ These hints are here if you get stuck. Try without them first.
     Use Python's built-in csv module.
     Commit the change and open a pull request referencing the issue.
     ```
+    Then in the same chat type `/create-pr` to trigger the PR workflow.
+
+??? tip "Hint 6 — Context hygiene during the build"
+    If Bob starts giving inconsistent responses or producing code that doesn't match your existing files:
+
+    1. Start a **+ New task**
+    2. Reference your key files directly: `@/backend/main.py @/frontend/src/App.tsx`
+    3. Remind Bob of the AGENTS.md conventions: `"Follow the AGENTS.md conventions in this project"`
+
+    Clean context is the single most effective fix for drift. Don't try to correct Bob in a long conversation — reset and start fresh.
 
 ---
 

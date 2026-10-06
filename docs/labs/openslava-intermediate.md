@@ -28,7 +28,7 @@ Two labs · ~70 minutes total · Assumes basic Bob familiarity
 
 ### What you will learn
 
-Bob can drive an entire software development lifecycle — reading a GitHub issue, creating a branch, implementing the change, running validation, and opening a PR — without you leaving your editor.
+Bob can drive an entire software development lifecycle — reading a GitHub issue, creating a branch, implementing the change, running validation, and opening a PR — without you leaving your editor. This lab shows you how, and more importantly, **why** this is valuable.
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#1a56db', 'primaryTextColor': '#ffffff', 'primaryBorderColor': '#1a56db', 'lineColor': '#6b7280', 'mainBkg': '#1a56db', 'nodeBorder': '#1a56db', 'clusterBkg': '#1e3a5f', 'titleColor': '#ffffff', 'edgeLabelBackground': 'transparent'}}}%%
@@ -37,6 +37,17 @@ flowchart LR
     classDef node fill:#1a56db,color:#fff,stroke:#1a56db
     class I,B,C,T,PR node
 ```
+
+### Why MCP matters for SDLC
+
+MCP (Model Context Protocol) servers extend Bob with **real-world integrations**. Without MCP, Bob can only interact with your local filesystem. With GitHub MCP, Bob can:
+
+- Read and create issues
+- Create branches
+- Commit and push files
+- Open pull requests — with a description that references the issue number
+
+This turns Bob from a local coding assistant into a **connected engineering agent** that works within your team's actual workflow. Issues stay linked to implementations, PRs reference requirements, and the audit trail is automatic.
 
 ### Step 1 — Install GitHub MCP
 
@@ -48,6 +59,15 @@ flowchart LR
 
 !!! tip "Create a token"
     GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic) → New token → tick **repo** → Generate.
+
+!!! info "Why use `/configure-mcp` in the chat?"
+    You can also type `/configure-mcp` in Bob's chat to open the MCP configuration panel directly without leaving your conversation. This is especially useful mid-task when you realise you need a new integration.
+
+    MCP configuration can live at two levels:
+    - **Global** (`~/.bob/mcp_settings.json`) — available in all workspaces
+    - **Project** (`.bob/mcp.json`) — scoped to this repo, can be committed for team use
+
+    For team projects, committing `.bob/mcp.json` means everyone who clones the repo gets the same MCP configuration automatically.
 
 ### Step 2 — Open the lab repo in IBM Bob
 
@@ -82,7 +102,7 @@ and a clean folder layout suitable for future enhancements.
 
 ### Step 4 — Integrate Yahoo Finance data
 
-Start a **new chat** in Bob and send:
+Start a **+ New task** in Bob and send:
 
 ```
 Implement a finance data layer for the following stock indices using Yahoo Finance data:
@@ -112,9 +132,14 @@ npm install
 npm start
 ```
 
+!!! info "Why start a new task for each phase?"
+    Bob's context window is 270,000 tokens — large but finite. Each file read, command output, and response consumes budget. Starting a new task with **+ New task** between phases keeps each conversation focused.
+
+    Think of it as a clean desk rule: clear yesterday's notes before starting today's work. The planning output is saved to disk (as plan files), not just in the chat, so the implementation task can reference files rather than long conversation history.
+
 ### Step 5 — Add validation and tests
 
-Start a **new chat** in Bob and send:
+Start a **+ New task** in Bob and send:
 
 ```
 Add appropriate validation for the finance dashboard project.
@@ -133,6 +158,9 @@ npm run validate
 ```
 
 A successful run completes without errors — lint, type-check, tests, and build all pass.
+
+!!! tip "Let Bob write the test scaffolding"
+    Asking Bob to provide "a single command that runs lint, type-check, tests, and build together" is a smart delegation. Bob knows the standard npm script conventions and wires up the `validate` script in `package.json`. You get a repeatable quality gate without writing a shell wrapper yourself.
 
 ### Step 6 — Push to GitHub
 
@@ -164,6 +192,9 @@ git checkout -b feature/user-selected-chart
 git push -u origin feature/user-selected-chart
 ```
 
+!!! tip "Small, frequent commits are the professional pattern"
+    Notice that the initial commit includes _everything_ — but from this point on, each feature should get its own commit. Bob can help: at any time in Agent mode, ask `"Commit the changes made so far with a descriptive message."` Bob reads your git diff and writes a meaningful commit message automatically.
+
 ### Step 7 — Create a GitHub issue
 
 On GitHub, open **Issues → New issue**:
@@ -173,9 +204,12 @@ On GitHub, open **Issues → New issue**:
 
 Note the issue number (e.g. `#1`).
 
+!!! info "Issues as the contract between requester and implementer"
+    Writing a clear issue before implementing is a best practice that makes the automated PR loop much more powerful. When Bob reads the issue via MCP, it has a precise specification — not just a vague description you typed in a chat. The issue becomes the source of truth: referenced in the branch name, referenced in the PR description, closed automatically when the PR merges.
+
 ### Step 8 — Issue-to-PR loop
 
-Open a **new chat** in Bob (**Agent** mode) and send — replace `#1` with your actual issue number:
+Open a **+ New task** in Bob (**Agent** mode) and send — replace `#1` with your actual issue number:
 
 ```
 Fetch and analyze GitHub issue #1 from this repository.
@@ -200,13 +234,16 @@ Run the full validation suite. Summarize what passed, what failed,
 and whether the branch is ready to push to GitHub.
 ```
 
-Start a **new chat** in Bob, then commit and push:
+Start a **+ New task** in Bob, then commit and push:
 
 ```
 Review the changes made to implement the user-selected index chart feature in finance-app/.
 Summarize what was added, fix any obvious problems, commit with a meaningful message,
 and push to the feature/user-selected-chart branch. Do not yet create a pull request.
 ```
+
+!!! tip "Why a new task for 'review and commit'?"
+    The implementation task may have left stale reasoning in its context — half-formed plans, earlier error messages, abandoned file reads. Starting a fresh task to review and commit means Bob is reading the **final state of the files**, not the history of how they were produced. Clean context = accurate review.
 
 ### Step 9 — Create the pull request
 
@@ -220,6 +257,16 @@ Bob will display a workflow dialog. Click **"Start workflow"**, leave the pre-fi
 
 **Observe:** Bob reads the git diff, detects the linked issue, fills in the PR template, and creates the pull request automatically.
 
+!!! info "What `/create-pr` does"
+    `/create-pr` is a **built-in Bob slash command** that triggers a structured PR workflow. Bob:
+
+    1. Reads the current git diff
+    2. Identifies the linked issue from your branch name and commit messages
+    3. Generates a PR title and description following your repo's PR template (if one exists)
+    4. Creates the PR via GitHub MCP
+
+    You review the generated description before it is posted. You are always in the loop.
+
 !!! tip "Check the PR on GitHub"
     Visit the **Pull requests** tab on your repo to confirm the PR exists and references the issue number.
 
@@ -232,6 +279,9 @@ In the SDLC loop we just ran, which steps required a human decision
 and which were fully automated by Bob?
 What are the risks of fully automating the PR step?
 ```
+
+!!! info "Humans stay in the loop by design"
+    Bob's automation is always **propose, then approve**. You review the implementation plan. You approve each file write. You review the PR description before it posts. The automation handles the mechanical repetition — finding files, writing boilerplate, remembering to reference the issue number — while you focus on the decisions that actually require judgement.
 
 ---
 
@@ -251,6 +301,16 @@ flowchart LR
     classDef node fill:#1a56db,color:#fff,stroke:#1a56db
     class R,S,ALL,AGT node
 ```
+
+### Why rules change the development pattern
+
+Without rules, every Bob conversation starts blank. You repeat the same "our project uses X, always do Y" instructions in every prompt. With rules, those standards are injected automatically — enforced at the start of every conversation, in every mode, for every team member.
+
+Rules are a force multiplier:
+
+- **Consistency without supervision** — Bob follows the standard even when you forget to mention it
+- **Automatic onboarding** — new team members get the rules the moment they clone the repo
+- **Code-review for standards** — rule changes go through your normal PR process, so the team agrees on them before they take effect
 
 ### Step 1 — Create global rules
 
@@ -272,6 +332,11 @@ Name each file with a timestamp prefix followed by a concise description.
 Example: 2026-01-15_update-readme.md
 ```
 
+!!! info "Why put rules in `.bob/rules/`?"
+    Files in `.bob/rules/` are **global to all modes** — they apply whether Bob is in Ask, Plan, or Agent mode. This is the right place for standards that should always be active regardless of what Bob is doing.
+
+    The numeric prefix (`01-`) controls load order. If you have multiple rules files and some should take precedence, use `01-`, `02-`, etc.
+
 ### Step 2 — Test the rules
 
 In **Agent** mode, ask Bob to add a utility function:
@@ -284,8 +349,11 @@ that takes a number and returns a string formatted as "€1,234.56".
 
 **Observe:**
 
-- Bob adds the function with a JSDoc comment automatically
+- Bob adds the function with a JSDoc comment automatically — because the rule says so
 - A new file appears in `internal-monologue/` describing what was changed
+
+!!! tip "This is the value of rules over prompts"
+    You didn't ask for a JSDoc comment. You didn't ask for a summary. Bob did both because the rules told it to. As a team practice, this means code quality standards are enforced without relying on every developer to remember to ask for them.
 
 ### Step 3 — Modify a rule
 
@@ -306,6 +374,9 @@ that formats an ISO date string as "DD MMM YYYY".
 
 **Observe:** Bob writes to `bob-log/` now, not `internal-monologue/`.
 
+!!! info "Rules are live — no restart required"
+    Bob reads rules files at the start of each conversation, not at IDE startup. Change a rule, start a new task, and the new rule takes effect immediately. This makes it easy to experiment with different standards before committing them.
+
 ### Step 4 — Add a mode-scoped rule
 
 Create `.bob/rules-agent/02-agent-commits.md`:
@@ -322,6 +393,8 @@ Make a small code change in Agent mode (e.g. rename a variable). **Observe:** Bo
     Files in `.bob/rules/` are injected in every mode.
     Mode slug for built-in modes: `agent`, `plan`, `ask`.
 
+    **This is powerful for compliance.** An auto-commit rule in Agent mode means every file Bob touches is committed with a traceable message — a complete audit trail of what Bob did and why, baked into your git history.
+
 ### Step 5 — Commit the rules
 
 ```bash
@@ -333,10 +406,31 @@ git add .bob/ && git commit -m "Add team Bob rules for Galaxium Travels"
 - New team members get the standards automatically on first `git clone`
 - Rule changes are reviewed through the normal PR process
 - Rules are scoped to the project, not the developer's global Bob config
+- The full history of what standards were active at any commit is preserved
+
+!!! info "Rules vs. AGENTS.md — what is the difference?"
+    | | `AGENTS.md` | `.bob/rules/*.md` |
+    |---|---|---|
+    | **Generated by** | `/init` (automated) | You (manual) |
+    | **Purpose** | Describe the project structure | Define behaviour standards |
+    | **Edited by** | Bob + you | You (or Bob, on instruction) |
+    | **Example content** | "This project has a FastAPI backend and a React frontend" | "Always use Decimal for monetary values" |
+
+    Use both together: `AGENTS.md` tells Bob **what the project is**, rules tell Bob **how to behave in it**.
 
 ### Step 6 — Verify the rules persist
 
 Close and reopen **IBM Bob**, then ask Bob something simple in Agent mode. Check that `bob-log/` gets a new entry — confirming the rules survive a session restart.
+
+!!! tip "Rules + AGENTS.md + mode scoping = team Bob configuration"
+    The combination of all three forms a complete Bob configuration for a project:
+
+    1. **`AGENTS.md`** — project context (what is this codebase?)
+    2. **`.bob/rules/`** — global standards (always apply)
+    3. **`.bob/rules-agent/`** — agent-specific behaviour (auto-commit, auto-audit)
+    4. **`.bob/custom_modes.yaml`** — custom personas (covered in Expert track)
+
+    All of it is version-controlled. All of it propagates automatically on `git clone`. This is what "Bob as a team tool" looks like.
 
 ---
 
