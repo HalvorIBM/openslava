@@ -38,6 +38,16 @@ Welcome to the **IBM Bob Hands-On Workshop** at OpenSlava! This is your complete
 
     [:octicons-arrow-right-24: Start Expert Track](labs/openslava-expert.md)
 
+-   :material-trophy:{ .lg .middle } __[🏆 Challenge](labs/openslava-challenge.md)__
+
+    ---
+
+    **Open build · First 3 to finish win a prize**
+
+    Build **PocketLedger** — a full-stack personal finance tracker — using every Bob skill you've learned: `/init`, rules, a custom mode, and a complete GitHub issue-to-PR loop. All Bob artefacts are judged.
+
+    [:octicons-arrow-right-24: Take the Challenge](labs/openslava-challenge.md)
+
 </div>
 
 ---
