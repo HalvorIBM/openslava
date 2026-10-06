@@ -35,8 +35,17 @@ The GFM Bank lab is an industry-grade demo with a Python/FastAPI backend, a tell
 
 ### Setup
 
+**1 — Clone the workshop repo** (skip if you already have it)
+
 ```bash
-cd labs/banking-industry/gfm-bank
+git clone git@github.ibm.com:Halvor/openslava.git
+cd openslava
+```
+
+**2 — Start the GFM Bank API**
+
+```bash
+cd expert/labs/banking-industry/gfm-bank
 ./start.sh
 ```
 
@@ -53,7 +62,7 @@ API running at `http://127.0.0.1:8000` · Docs at `http://127.0.0.1:8000/docs`
 
 ### Part 1 — Architecture Understanding (8 min)
 
-Open `labs/banking-industry/gfm-bank/` in **IBM Bob**. Switch to **Ask** mode:
+Open `expert/labs/banking-industry/gfm-bank/` in **IBM Bob**. Switch to **Ask** mode:
 
 ```
 Analyse the GFM Bank codebase (demo_api.py, teller_client.py, backoffice_client.py).
@@ -74,7 +83,7 @@ Plain CSS — no external component library.
 
 ### Part 3 — Security Audit (7 min)
 
-Open `labs/banking-industry/security-audit/code/` in **IBM Bob**. Switch to **Agent** mode:
+Open `expert/labs/banking-industry/security-audit/code/` in **IBM Bob**. Switch to **Agent** mode:
 
 ```
 Analyse data_pipeline.py and synthetic_generator.py for security vulnerabilities.
@@ -98,7 +107,7 @@ Then generate SECURITY_AUDIT_REPORT.md.
 
 ### Step 1 — Run /init
 
-From `labs/banking-industry/gfm-bank/`, switch to **Agent** mode, type `/init` and send.
+From `expert/labs/banking-industry/gfm-bank/`, switch to **Agent** mode, type `/init` and send.
 
 **Read `AGENTS.md`:**
 
@@ -257,7 +266,7 @@ MCP servers extend Bob with real-world integrations. GitHub MCP lets Bob read is
 
 !!! tip "Push your banking lab to GitHub first"
     ```bash
-    cd labs/banking-industry/gfm-bank
+    cd expert/labs/banking-industry/gfm-bank
     git init && git add . && git commit -m "Initial GFM Bank commit"
     gh repo create gfm-bank --public --source=. --push
     ```
