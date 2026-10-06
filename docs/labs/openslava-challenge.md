@@ -95,11 +95,11 @@ The PR must exist on GitHub and must reference the issue. The CSV export endpoin
 
 ## Submission
 
-### What to submit
+### How to submit
 
-Post a link to your **pull request** in the `#openslava-challenge` Slack channel (or hand it to a facilitator). The PR must be on a public (or IBM-internal) GitHub repo.
+When you are done, **call over a facilitator** — they will check your screen live.
 
-### What judges will check
+### What the facilitator will check
 
 | Check | Pass criteria |
 |---|---|
