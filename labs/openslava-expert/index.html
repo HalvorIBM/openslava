@@ -13,6 +13,8 @@
         <link rel="prev" href="../openslava-intermediate/">
       
       
+        <link rel="next" href="../openslava-challenge/">
+      
       
         
       
@@ -295,6 +297,26 @@
   
   
   🔴 Expert
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../openslava-challenge/" class="md-tabs__link">
+          
+  
+  
+  🏆 Challenge
 
         </a>
       </li>
@@ -1068,6 +1090,91 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🏆 Challenge
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🏆 Challenge
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../openslava-challenge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🏆 OpenSlava — Final Challenge
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1551,8 +1658,13 @@
 <h3 id="what-you-will-learn">What you will learn<a class="headerlink" href="#what-you-will-learn" title="Permanent link">¶</a></h3>
 <p>The GFM Bank lab is an industry-grade demo with a Python/FastAPI backend, a teller CLI, a back-office CLI, and a deliberately vulnerable data pipeline. This lab runs all three parts in compressed form.</p>
 <h3 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">cd</span><span class="w"> </span>labs/banking-industry/gfm-bank
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>./start.sh
+<p><strong>1 — Clone the workshop repo</strong> (skip if you already have it)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>git@github.ibm.com:Halvor/openslava.git
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>openslava
+</code></pre></div>
+<p><strong>2 — Start the GFM Bank API</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span>expert/labs/banking-industry/gfm-bank
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>./start.sh
 </code></pre></div>
 <p>API running at <code>http://127.0.0.1:8000</code> · Docs at <code>http://127.0.0.1:8000/docs</code></p>
 <p><strong>Test credentials:</strong></p>
@@ -1579,24 +1691,24 @@
 </table>
 <p><strong>Sample IBAN:</strong> <code>DE89545769475769453536</code> (Alice Müller)</p>
 <h3 id="part-1-architecture-understanding-8-min">Part 1 — Architecture Understanding (8 min)<a class="headerlink" href="#part-1-architecture-understanding-8-min" title="Permanent link">¶</a></h3>
-<p>Open <code>labs/banking-industry/gfm-bank/</code> in <strong>IBM Bob</strong>. Switch to <strong>Ask</strong> mode:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Analyse the GFM Bank codebase (demo_api.py, teller_client.py, backoffice_client.py).
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Explain the architecture, the role-based access model, and the transaction processing logic.
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Create a Mermaid diagram showing the system components and a sequence diagram for a money transfer.
+<p>Open <code>expert/labs/banking-industry/gfm-bank/</code> in <strong>IBM Bob</strong>. Switch to <strong>Ask</strong> mode:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Analyse the GFM Bank codebase (demo_api.py, teller_client.py, backoffice_client.py).
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Explain the architecture, the role-based access model, and the transaction processing logic.
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Create a Mermaid diagram showing the system components and a sequence diagram for a money transfer.
 </code></pre></div>
 <h3 id="part-2-build-the-react-teller-ui-10-min">Part 2 — Build the React Teller UI (10 min)<a class="headerlink" href="#part-2-build-the-react-teller-ui-10-min" title="Permanent link">¶</a></h3>
 <p>Switch to <strong>Agent</strong> mode:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Build a React + Vite teller front-end for GFM Bank connected to http://127.0.0.1:8000.
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Include: login form (credentials from .env), server health indicator, balance inquiry,
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>transaction history, money transfer form, and overdraft request message.
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>Plain CSS — no external component library.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Build a React + Vite teller front-end for GFM Bank connected to http://127.0.0.1:8000.
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Include: login form (credentials from .env), server health indicator, balance inquiry,
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>transaction history, money transfer form, and overdraft request message.
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>Plain CSS — no external component library.
 </code></pre></div>
 <h3 id="part-3-security-audit-7-min">Part 3 — Security Audit (7 min)<a class="headerlink" href="#part-3-security-audit-7-min" title="Permanent link">¶</a></h3>
-<p>Open <code>labs/banking-industry/security-audit/code/</code> in <strong>IBM Bob</strong>. Switch to <strong>Agent</strong> mode:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Analyse data_pipeline.py and synthetic_generator.py for security vulnerabilities.
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>For each finding provide: file, line, CWE category, severity, attack scenario,
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>and remediation recommendation.
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>Then generate SECURITY_AUDIT_REPORT.md.
+<p>Open <code>expert/labs/banking-industry/security-audit/code/</code> in <strong>IBM Bob</strong>. Switch to <strong>Agent</strong> mode:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Analyse data_pipeline.py and synthetic_generator.py for security vulnerabilities.
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>For each finding provide: file, line, CWE category, severity, attack scenario,
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>and remediation recommendation.
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Then generate SECURITY_AUDIT_REPORT.md.
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Expected findings</p>
@@ -1608,7 +1720,7 @@
 <h3 id="what-you-will-learn_1">What you will learn<a class="headerlink" href="#what-you-will-learn_1" title="Permanent link">¶</a></h3>
 <p><code>/init</code> reverse-engineers your codebase into a living <code>AGENTS.md</code> — Bob's persistent context document. Re-running it after adding modules updates that context. Rules let you encode compliance standards that Bob enforces automatically.</p>
 <h3 id="step-1-run-init">Step 1 — Run /init<a class="headerlink" href="#step-1-run-init" title="Permanent link">¶</a></h3>
-<p>From <code>labs/banking-industry/gfm-bank/</code>, switch to <strong>Agent</strong> mode, type <code>/init</code> and send.</p>
+<p>From <code>expert/labs/banking-industry/gfm-bank/</code>, switch to <strong>Agent</strong> mode, type <code>/init</code> and send.</p>
 <p><strong>Read <code>AGENTS.md</code>:</strong></p>
 <ul>
 <li>What did Bob infer about the project structure?</li>
@@ -1618,15 +1730,15 @@
 <p><strong>Open <code>.bob/rules-agent/AGENTS-agent.md</code>:</strong> compare to the root file. What is mode-specific?</p>
 <h3 id="step-2-author-fintech-rules">Step 2 — Author fintech rules<a class="headerlink" href="#step-2-author-fintech-rules" title="Permanent link">¶</a></h3>
 <p>Create <code>.bob/rules/fintech-standards.md</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>All Python functions that handle monetary values must use the Decimal type, never float.
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>After every Bob interaction, append a one-line audit entry to bob-audit/audit.log
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>in the format: [ISO timestamp] [mode] [brief description of change]
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>All Python functions that handle monetary values must use the Decimal type, never float.
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>After every Bob interaction, append a one-line audit entry to bob-audit/audit.log
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>in the format: [ISO timestamp] [mode] [brief description of change]
 </code></pre></div>
 <h3 id="step-3-test-the-rules">Step 3 — Test the rules<a class="headerlink" href="#step-3-test-the-rules" title="Permanent link">¶</a></h3>
 <p>In <strong>Agent</strong> mode:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Add a function called calculate_transfer_fee to demo_api.py
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>that calculates a 0.1% fee on a transfer amount and returns the fee value.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Add a function called calculate_transfer_fee to demo_api.py
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>that calculates a 0.1% fee on a transfer amount and returns the fee value.
 </code></pre></div>
 <p><strong>Observe:</strong></p>
 <ul>
@@ -1635,12 +1747,12 @@
 </ul>
 <h3 id="step-4-add-a-module-and-re-init">Step 4 — Add a module and re-init<a class="headerlink" href="#step-4-add-a-module-and-re-init" title="Permanent link">¶</a></h3>
 <p>In <strong>Agent</strong> mode:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Add a notifications/ module with a send_alert(event: str, account_id: str) function
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>that logs a structured alert message.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Add a notifications/ module with a send_alert(event: str, account_id: str) function
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>that logs a structured alert message.
 </code></pre></div>
 <p>Re-run <code>/init</code>. Open <code>AGENTS.md</code> — observe <code>notifications/</code> now appears in the codebase context.</p>
 <h3 id="step-5-commit">Step 5 — Commit<a class="headerlink" href="#step-5-commit" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>git<span class="w"> </span>add<span class="w"> </span>.<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Add fintech Bob rules and updated AGENTS.md"</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git<span class="w"> </span>add<span class="w"> </span>.<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Add fintech Bob rules and updated AGENTS.md"</span>
 </code></pre></div>
 <hr>
 <h2 id="lab-e3-custom-mode-mode-scoped-rules-re-init">Lab E3 — Custom Mode, Mode-Scoped Rules &amp; Re-Init<a class="headerlink" href="#lab-e3-custom-mode-mode-scoped-rules-re-init" title="Permanent link">¶</a></h2>
@@ -1650,27 +1762,27 @@
 <h3 id="step-1-create-the-custom-mode">Step 1 — Create the custom mode<a class="headerlink" href="#step-1-create-the-custom-mode" title="Permanent link">¶</a></h3>
 <p>Open Bob Settings → <strong>Modes</strong> → <strong>Edit Project Modes</strong> (<code>.bob/custom_modes.yaml</code>).</p>
 <p>Add the following complete mode definition:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nt">customModes</span><span class="p">:</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">slug</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fintech-reviewer</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">🏦 Fintech Reviewer</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="nt">roleDefinition</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">      </span><span class="no">You are a senior fintech code reviewer specialising in PCI-DSS compliance,</span>
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">      </span><span class="no">Python Decimal correctness, and secure API design.</span>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">      </span><span class="no">You analyse code for correctness, security, and regulatory compliance.</span>
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">      </span><span class="no">You never modify files — you only report findings.</span>
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="nt">whenToUse</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
-<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">      </span><span class="no">Use this mode to review banking application code for compliance</span>
-<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">      </span><span class="no">and quality issues without risk of accidental changes.</span>
-<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">    </span><span class="nt">customInstructions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|-</span>
-<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">      </span><span class="no">- Always check for float usage where Decimal is required in monetary calculations</span>
-<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">      </span><span class="no">- Flag any hardcoded secrets, API keys, or credentials</span>
-<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">      </span><span class="no">- Check that all user inputs are validated server-side</span>
-<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">      </span><span class="no">- Verify error messages do not expose stack traces or internal paths</span>
-<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">      </span><span class="no">- Output findings as a numbered list with severity: Critical / High / Medium / Low</span>
-<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">    </span><span class="nt">groups</span><span class="p">:</span>
-<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">read</span>
-<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mcp</span>
-<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">skill</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nt">customModes</span><span class="p">:</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">slug</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fintech-reviewer</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">🏦 Fintech Reviewer</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="nt">roleDefinition</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">      </span><span class="no">You are a senior fintech code reviewer specialising in PCI-DSS compliance,</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">      </span><span class="no">Python Decimal correctness, and secure API design.</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">      </span><span class="no">You analyse code for correctness, security, and regulatory compliance.</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">      </span><span class="no">You never modify files — you only report findings.</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span><span class="nt">whenToUse</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">      </span><span class="no">Use this mode to review banking application code for compliance</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">      </span><span class="no">and quality issues without risk of accidental changes.</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">    </span><span class="nt">customInstructions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|-</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">      </span><span class="no">- Always check for float usage where Decimal is required in monetary calculations</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">      </span><span class="no">- Flag any hardcoded secrets, API keys, or credentials</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">      </span><span class="no">- Check that all user inputs are validated server-side</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">      </span><span class="no">- Verify error messages do not expose stack traces or internal paths</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">      </span><span class="no">- Output findings as a numbered list with severity: Critical / High / Medium / Low</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">    </span><span class="nt">groups</span><span class="p">:</span>
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">read</span>
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mcp</span>
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">skill</span>
 </code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Why <code>read</code>, <code>mcp</code>, <code>skill</code> only?</p>
@@ -1678,21 +1790,21 @@
 </div>
 <h3 id="step-2-mode-scoped-rules">Step 2 — Mode-scoped rules<a class="headerlink" href="#step-2-mode-scoped-rules" title="Permanent link">¶</a></h3>
 <p>Create <code>.bob/rules-fintech-reviewer/01-pci-checklist.md</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>When reviewing, always check these PCI-DSS items:
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="k">1.</span> No card numbers, CVVs, or PINs logged or stored in plaintext
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="k">2.</span> All API endpoints require authentication
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="k">3.</span> Error messages do not reveal stack traces or internal file paths
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="k">4.</span> All dependencies are on vendor-supported versions
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="k">5.</span> Secrets and credentials are not hardcoded or committed to version control
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>When reviewing, always check these PCI-DSS items:
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="k">1.</span> No card numbers, CVVs, or PINs logged or stored in plaintext
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="k">2.</span> All API endpoints require authentication
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="k">3.</span> Error messages do not reveal stack traces or internal file paths
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="k">4.</span> All dependencies are on vendor-supported versions
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="k">5.</span> Secrets and credentials are not hardcoded or committed to version control
 </code></pre></div>
 <h3 id="step-3-test-the-mode">Step 3 — Test the mode<a class="headerlink" href="#step-3-test-the-mode" title="Permanent link">¶</a></h3>
 <ol>
 <li>Switch to <strong>🏦 Fintech Reviewer</strong> mode in the Bob sidebar</li>
 <li>Send:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Review the payments module (demo_api.py and data_pipeline.py)
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>for compliance issues.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Review the payments module (demo_api.py and data_pipeline.py)
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>for compliance issues.
 </code></pre></div>
 <p><strong>Observe:</strong></p>
 <ul>
@@ -1701,12 +1813,12 @@
 </ul>
 <h3 id="step-4-re-init-and-commit">Step 4 — Re-init and commit<a class="headerlink" href="#step-4-re-init-and-commit" title="Permanent link">¶</a></h3>
 <p>Switch back to <strong>Agent</strong> mode. Re-run <code>/init</code> — the new custom mode now appears in <code>AGENTS.md</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>git<span class="w"> </span>add<span class="w"> </span>.bob/<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Add fintech-reviewer custom mode and PCI-DSS review checklist"</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>git<span class="w"> </span>add<span class="w"> </span>.bob/<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Add fintech-reviewer custom mode and PCI-DSS review checklist"</span>
 </code></pre></div>
 <h3 id="reflection">Reflection<a class="headerlink" href="#reflection" title="Permanent link">¶</a></h3>
 <p>In <strong>Ask</strong> mode:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>How do custom modes, rules, and MCP servers differ as Bob extension mechanisms?
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>When would you use each one?
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>How do custom modes, rules, and MCP servers differ as Bob extension mechanisms?
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>When would you use each one?
 </code></pre></div>
 <hr>
 <h2 id="lab-e4-github-mcp-integration">Lab E4 — GitHub MCP Integration<a class="headerlink" href="#lab-e4-github-mcp-integration" title="Permanent link">¶</a></h2>
@@ -1721,29 +1833,29 @@
 </ol>
 <div class="admonition tip">
 <p class="admonition-title">Push your banking lab to GitHub first</p>
-<p></p><div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nb">cd</span><span class="w"> </span>labs/banking-industry/gfm-bank
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>git<span class="w"> </span>init<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Initial GFM Bank commit"</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>gh<span class="w"> </span>repo<span class="w"> </span>create<span class="w"> </span>gfm-bank<span class="w"> </span>--public<span class="w"> </span>--source<span class="o">=</span>.<span class="w"> </span>--push
+<p></p><div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nb">cd</span><span class="w"> </span>expert/labs/banking-industry/gfm-bank
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>git<span class="w"> </span>init<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Initial GFM Bank commit"</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>gh<span class="w"> </span>repo<span class="w"> </span>create<span class="w"> </span>gfm-bank<span class="w"> </span>--public<span class="w"> </span>--source<span class="o">=</span>.<span class="w"> </span>--push
 </code></pre></div>
 Or use any repo you already have on GitHub.<p></p>
 </div>
 <h3 id="step-2-create-a-github-issue-with-bob">Step 2 — Create a GitHub issue with Bob<a class="headerlink" href="#step-2-create-a-github-issue-with-bob" title="Permanent link">¶</a></h3>
 <p>In <strong>Agent</strong> mode:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Use GitHub MCP to create a new issue in this repo titled
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>"Add transaction export to CSV endpoint"
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>with label "enhancement" and body:
-<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>"Users need to download their transaction history as a CSV file.
-<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>The endpoint should accept an account_id parameter and return
-<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>a CSV with columns: date, amount, type."
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Use GitHub MCP to create a new issue in this repo titled
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>"Add transaction export to CSV endpoint"
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>with label "enhancement" and body:
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>"Users need to download their transaction history as a CSV file.
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>The endpoint should accept an account_id parameter and return
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>a CSV with columns: date, amount, type."
 </code></pre></div>
 <p><strong>Observe:</strong> Bob calls the GitHub MCP <code>create_issue</code> tool. Verify the issue appears on GitHub.</p>
 <h3 id="step-3-issue-to-pr-loop">Step 3 — Issue-to-PR loop<a class="headerlink" href="#step-3-issue-to-pr-loop" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Read the issue you just created.
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>Create a feature branch called "feature/csv-export".
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>Implement a GET /transactions/{account_id}/export endpoint in demo_api.py
-<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>that returns a CSV response (Content-Type: text/csv) with columns:
-<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>booking_ts, amount_eur, type.
-<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>Commit the change and open a pull request with a description referencing the issue number.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>Read the issue you just created.
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>Create a feature branch called "feature/csv-export".
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>Implement a GET /transactions/{account_id}/export endpoint in demo_api.py
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>that returns a CSV response (Content-Type: text/csv) with columns:
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>booking_ts, amount_eur, type.
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>Commit the change and open a pull request with a description referencing the issue number.
 </code></pre></div>
 <p><strong>Observe Bob:</strong></p>
 <ol>
@@ -1754,8 +1866,8 @@ Or use any repo you already have on GitHub.<p></p>
 <li>Opens a PR via <code>create_pull_request</code> referencing <code>#&lt;issue-number&gt;</code></li>
 </ol>
 <h3 id="step-4-verify-the-endpoint">Step 4 — Verify the endpoint<a class="headerlink" href="#step-4-verify-the-endpoint" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>Test the new export endpoint with the sample IBAN DE89545769475769453536.
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>Show me the CSV output.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>Test the new export endpoint with the sample IBAN DE89545769475769453536.
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>Show me the CSV output.
 </code></pre></div>
 <h3 id="discussion-questions">Discussion questions<a class="headerlink" href="#discussion-questions" title="Permanent link">¶</a></h3>
 <ul class="task-list">
@@ -1893,6 +2005,22 @@ Or use any repo you already have on GitHub.<p></p>
             </div>
           </a>
         
+        
+          
+          <a href="../openslava-challenge/" class="md-footer__link md-footer__link--next" aria-label="Next: 🏆 OpenSlava — Final Challenge">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                🏆 OpenSlava — Final Challenge
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
         
       </nav>
     

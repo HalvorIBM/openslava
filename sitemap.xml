@@ -2,18 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://halvoribm.github.io/openslava/</loc>
-         <lastmod>2026-10-05</lastmod>
+         <lastmod>2026-10-06</lastmod>
     </url>
     <url>
          <loc>https://halvoribm.github.io/openslava/labs/openslava-beginner/</loc>
-         <lastmod>2026-10-05</lastmod>
+         <lastmod>2026-10-06</lastmod>
+    </url>
+    <url>
+         <loc>https://halvoribm.github.io/openslava/labs/openslava-challenge/</loc>
+         <lastmod>2026-10-06</lastmod>
     </url>
     <url>
          <loc>https://halvoribm.github.io/openslava/labs/openslava-expert/</loc>
-         <lastmod>2026-10-05</lastmod>
+         <lastmod>2026-10-06</lastmod>
     </url>
     <url>
          <loc>https://halvoribm.github.io/openslava/labs/openslava-intermediate/</loc>
-         <lastmod>2026-10-05</lastmod>
+         <lastmod>2026-10-06</lastmod>
     </url>
 </urlset>
