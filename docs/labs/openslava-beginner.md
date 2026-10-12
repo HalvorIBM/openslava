@@ -22,7 +22,7 @@ Three labs · ~70 minutes total · No prior Bob experience needed
 - [ ] **IBM Bob IDE** installed and signed in — download from [bob.ibm.com/download](https://bob.ibm.com/download) (standalone app, not a VS Code extension), or **Bob Shell** if you prefer a terminal (`curl -fsSL https://bob.ibm.com/download/bobshell.sh | bash`)
 - [ ] Node.js 20 LTS installed
 - [ ] Git installed
-- [ ] Galaxium repo cloned: `git clone https://github.com/IBM/galaxium-travels`
+- [ ] Galaxium Travels repo available at `galaxium-travels/` (already included in the workshop repo — no separate clone needed)
 
 ---
 
@@ -164,9 +164,9 @@ Large language models are **stateless** — each new conversation starts with ze
 
 - [ ] Lab B1 complete (modes understood)
 - [ ] Python 3.8+ installed
-- [ ] Galaxium cloned: `git clone https://github.com/IBM/galaxium-travels`
+- [ ] Galaxium Travels available at `galaxium-travels/` (already included — no separate clone needed)
 
-### Step 1 — Clone and start
+### Step 1 — Open and start
 
 ```bash
 cd galaxium-travels

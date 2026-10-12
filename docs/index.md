@@ -107,7 +107,7 @@ IBM Bob is a **standalone IDE** — not a VS Code extension. Download from [bob.
 
 - **Node.js 20 LTS** and **Python 3.11+** installed
 - **Git** configured with `user.name` and `user.email`
-- **Galaxium Travels** cloned: `git clone https://github.com/IBM/galaxium-travels` *(Beginner / Intermediate tracks)*
+- **Galaxium Travels** available at `galaxium-travels/` — already included in the workshop repo, no separate clone needed *(Beginner / Intermediate tracks)*
 
 ---
 
