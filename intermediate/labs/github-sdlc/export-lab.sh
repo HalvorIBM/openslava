@@ -27,18 +27,18 @@ fi
 
 rm -f "$ZIP_PATH"
 
-# cd one level up so zip entries get a "Github-SDLC/" prefix
+# cd one level up so zip entries get a "github-sdlc/" prefix
 cd "$LAB_DIR/.."
 
 zip -r "$ZIP_PATH" \
-  Github-SDLC/WORKSHOP-part1-BUILD.md \
-  Github-SDLC/WORKSHOP-part1-BUILD.pdf \
-  Github-SDLC/WORKSHOP-part2-GITHUB-AUTOMATION.md \
-  Github-SDLC/WORKSHOP-part2-GITHUB-AUTOMATION.pdf \
-  Github-SDLC/.github \
-  Github-SDLC/docs \
-  Github-SDLC/.bob/workshop-hints.md \
-  Github-SDLC/.bob/rules \
+  github-sdlc/WORKSHOP-part1-BUILD.md \
+  github-sdlc/WORKSHOP-part1-BUILD.pdf \
+  github-sdlc/WORKSHOP-part2-GITHUB-AUTOMATION.md \
+  github-sdlc/WORKSHOP-part2-GITHUB-AUTOMATION.pdf \
+  github-sdlc/.github \
+  github-sdlc/docs \
+  github-sdlc/.bob/workshop-hints.md \
+  github-sdlc/.bob/rules \
   -x "*.DS_Store"
 
 echo "✅ Done: ${ZIP_PATH}"

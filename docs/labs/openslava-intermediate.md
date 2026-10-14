@@ -321,7 +321,13 @@ Rules are a force multiplier:
 
 ### Step 1 — Create global rules
 
-Open `galaxium-travels/` in **IBM Bob**. In **Agent** mode:
+Open `galaxium-travels/` in **IBM Bob**. If the directory is empty, initialize the submodule first:
+
+```bash
+git submodule update --init galaxium-travels
+```
+
+In **Agent** mode:
 
 ```bash
 mkdir -p .bob/rules
