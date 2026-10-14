@@ -92,7 +92,7 @@ The `Tooltip` prop types changed in v3:
 - `formatter` receives `value: ValueType | undefined` (not `number`) — wrap with `Number(value)`
 - `labelFormatter` receives `label: ReactNode` (not `string`) — wrap with `String(label)`
 
-**Fix applied in [`src/components/StockChart/StockChart.tsx`](../finance-dashboard/src/components/StockChart/StockChart.tsx):**
+**Fix applied in [`src/components/StockChart/StockChart.tsx`](../finance-app/src/components/StockChart/StockChart.tsx):**
 ```tsx
 <Tooltip
   formatter={(value) => [formatPrice(Number(value)), '']}
@@ -144,9 +144,9 @@ in `proxy/server.ts`.
 **Fix:** Add `"@types/cors": "^2.8.x"` to `devDependencies`.
 
 ### 7. Single validation command
-Always generate a `check` script in `package.json` that runs the full pipeline in one shot:
+Always generate a `validate` script in `package.json` that runs the full pipeline in one shot:
 ```json
-"check": "npm run lint && npm run type-check && npm run test && npm run build"
+"validate": "npm run lint && npm run type-check && npm run test && npm run build"
 ```
 This is what participants use in Step E and what the CI workflow maps to individual steps.
 

@@ -127,12 +127,12 @@ Bob will implement the dashboard components. Once done, you can start the app lo
 ```bash
 cd finance-app
 npm install
-npm start
+npm run dev
 ```
 
 ### Check before continuing
 - confirm that `npm install` completes without errors
-- if the app uses separate client and server processes, use the scripts Bob added in `package.json`
+- if the app uses separate client and server processes, use the `dev:full` script Bob added in `package.json`
 - if you are unsure which command starts the app, ask Bob to explain how to run the application locally
 
 ---
