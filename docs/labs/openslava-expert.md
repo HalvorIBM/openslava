@@ -400,6 +400,13 @@ Bob with GitHub MCP produces all four automatically. The issue description becom
 2. Settings → MCP → GitHub → set `GITHUB_TOKEN` (needs `repo` scope)
 3. Verify: no error badge; Bob shows GitHub tools in the sidebar
 
+!!! warning "Authenticate `gh` CLI before pushing"
+    The `gh repo create` command below requires the GitHub CLI to be authenticated. If you haven't done this yet:
+    ```bash
+    gh auth login
+    ```
+    Follow the prompts (select GitHub.com → HTTPS → browser). This is a one-time step. Without it, `gh repo create` will fail with an authentication error and block all 9 MCP steps that follow.
+
 !!! tip "Push your banking lab to GitHub first"
     ```bash
     cd expert/labs/banking-industry/gfm-bank

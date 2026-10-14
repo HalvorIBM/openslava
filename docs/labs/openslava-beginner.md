@@ -47,7 +47,7 @@ flowchart LR
 Splitting work across modes is a **smart development pattern**, not just a Bob quirk. Each mode has different tool permissions by design:
 
 - **Ask** can read files but cannot write or run commands — safe for exploration and Q&A
-- **Plan** can read and propose changes but cannot execute — ideal for design without side-effects
+- **Plan** can read files and write documentation (e.g. `.md` plan files), but cannot run shell commands — ideal for design without side-effects
 - **Agent** can read, write, and run commands — the full power of an autonomous coding agent
 
 Using the right mode for each phase keeps Bob's actions **predictable, reviewable, and reversible**. When you prototype in Ask, nothing breaks. When you finalize in Agent, every action is intentional.
@@ -89,7 +89,7 @@ Produce a component list, the CSS animation approach, and a file layout.
 **Observe:** Bob produces a detailed plan — component names, CSS strategy, file tree — but writes nothing to disk. Plan mode can design but not implement.
 
 !!! info "Plan mode = design without side-effects"
-    Plan mode can read and propose edits, but does not execute commands. Use it to pair-design with Bob before committing to an implementation. A good plan prompt saves you from costly mid-build pivots.
+    Plan mode can read files and write documentation (like plan notes or `.md` files), but cannot execute shell commands or modify source code. Use it to pair-design with Bob before committing to an implementation. A good plan prompt saves you from costly mid-build pivots.
 
 !!! tip "Why plan before building?"
     Asking Bob to plan first gives you a chance to review and refine the approach. If the plan looks off, you correct it here — not after Bob has written 15 files. This is the same discipline as writing a design doc before opening an editor.
@@ -187,7 +187,11 @@ Open `http://localhost:5173` — you should see the Galaxium flight booking UI.
 **What happens:** Bob reads the entire codebase, then writes:
 
 - `AGENTS.md` at the repo root — project overview, key constraints, file map
-- `.bob/rules-agent/AGENTS-agent.md`, `.bob/rules-plan/AGENTS-plan.md`, `.bob/rules-ask/AGENTS-ask.md`
+- `.bob/rules-agent/AGENTS-agent.md` — Agent-mode-specific context (file structure, naming conventions)
+- `.bob/rules-plan/AGENTS-plan.md` — Plan-mode-specific context (architecture, constraints)
+- `.bob/rules-ask/AGENTS-ask.md` — Ask-mode-specific context (project overview, glossary)
+
+If `AGENTS.md` already exists (e.g. from a previous `/init` run), Bob **overwrites** it with a fresh scan. Any manual additions you want to keep should be moved to a separate rules file in `.bob/rules/` before re-running.
 
 **Read `AGENTS.md` together.** Bob has discovered:
 
@@ -246,10 +250,13 @@ Implement the layovers plan. Follow the AGENTS.md conventions:
 **Observe Bob working across:**
 
 - `booking_system_backend/models.py` — `LayoverStop` model
-- `booking_system_backend/server.py` — updated route schema, MCP tool registration
+- `booking_system_backend/server.py` — updated route schema
 - `booking_system_frontend/src/types/` — `LayoverStop` TypeScript type
 - `booking_system_frontend/src/pages/Flights.tsx` — updated route card
 - A new `LayoverBadge` component
+
+!!! info "FastMCP and MCP tool registration"
+    Galaxium Travels uses `FastMCP`, which **automatically exposes all FastAPI routes as MCP tools** — you don't need to manually register each one. The AGENTS.md constraint "REST + MCP tool" reflects this pattern: adding a REST endpoint is sufficient, and the MCP tool appears automatically. Bob may still generate an explicit `mcp.tool()` decorator; both approaches work, and the explicit form makes the tool's schema easier to customise later.
 
 **Restart the backend, refresh the browser** — multi-stop routes now appear.
 

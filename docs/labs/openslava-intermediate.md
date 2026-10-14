@@ -102,12 +102,18 @@ and a clean folder layout suitable for future enhancements.
 
 ### Step 4 — Integrate Yahoo Finance data
 
+!!! warning "Yahoo Finance and CORS"
+    Yahoo Finance does not allow direct browser requests — the browser will block them with a CORS error. **The data layer must run server-side** (a small Node/Express or Python proxy that the React frontend calls). Ask Bob to implement this pattern; the lab prompt below instructs it to do so.
+
 Start a **+ New task** in Bob and send:
 
 ```
 Implement a finance data layer for the following stock indices using Yahoo Finance data:
 Euro Stoxx 50 (`^STOXX50E`), DAX (`^GDAXI`), Nikkei 225 (`^N225`),
 Dow Jones Industrial Average (`^DJI`), and MSCI World (`URTH`).
+
+Fetch the data server-side via a lightweight proxy (e.g. a small Express or FastAPI server)
+to avoid CORS restrictions — the React frontend must call this proxy, not Yahoo Finance directly.
 Normalize the returned data so the UI can display quote summaries,
 short-term history, and quarterly trend views.
 Keep the code easy to extend if more indices need to be added later.
@@ -129,7 +135,7 @@ Run the app locally to verify:
 ```bash
 cd finance-app
 npm install
-npm start
+npm run dev
 ```
 
 !!! info "Why start a new task for each phase?"

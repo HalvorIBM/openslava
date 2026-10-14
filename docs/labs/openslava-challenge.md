@@ -77,8 +77,8 @@ Run `/init` on the completed codebase. The `AGENTS.md` at the repo root must exi
 Create `.bob/rules/pocketledger-standards.md` containing at minimum these three rules:
 
 ```markdown
-All Python functions that handle monetary amounts must use float with exactly
-2 decimal places of precision — never store raw user input directly to the DB.
+All Python functions that handle monetary amounts must use the Decimal type, never float.
+This avoids IEEE 754 rounding errors that are unacceptable for financial data.
 
 All React components must have a JSDoc comment describing their props.
 
@@ -91,11 +91,14 @@ Run at least one Agent mode interaction after creating the rules and confirm `bo
 !!! info "Rules enforce standards without reminders"
     Once this rules file exists, Bob will:
 
-    - Round monetary values automatically in every function it writes
+    - Use `Decimal` automatically in every monetary function it writes
     - Add JSDoc comments to every React component it creates
     - Append to `bob-audit/audit.log` after every Agent interaction
 
     You don't need to ask. You don't need to remind Bob. The standard is always active. This is the difference between rules and prompts: rules are permanent, prompts are per-conversation.
+
+!!! info "Why `Decimal`, not `float`?"
+    IEEE 754 floating-point arithmetic accumulates rounding errors. `0.1 + 0.2` in Python float is `0.30000000000000004` — not `0.3`. For financial data, that is a correctness bug. `Decimal` provides exact decimal arithmetic and is the standard in any Python fintech or accounting codebase. The Expert track uses the same rule.
 
 ### B-REQ-3 — Custom `ledger-reviewer` mode
 
