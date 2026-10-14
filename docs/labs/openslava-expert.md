@@ -159,15 +159,15 @@ From `expert/labs/banking-industry/gfm-bank/`, switch to **Agent** mode, type `/
 - What frameworks and patterns did it identify?
 - What constraints did it record (e.g. Decimal for monetary values)?
 
-**Open `.bob/rules-agent/AGENTS-agent.md`:** compare to the root file. What is mode-specific?
+**Open `.bob/rules-agent/AGENTS.md`:** compare to the root file. What is mode-specific?
 
 !!! info "Mode-specific AGENTS.md files"
     `/init` generates **four** context files:
 
     - `AGENTS.md` — root, loaded in all modes
-    - `.bob/rules-agent/AGENTS-agent.md` — extra context for Agent (file structure, implementation patterns)
-    - `.bob/rules-plan/AGENTS-plan.md` — extra context for Plan (architecture, constraints)
-    - `.bob/rules-ask/AGENTS-ask.md` — extra context for Ask (project overview, glossary)
+    - `.bob/rules-agent/AGENTS.md` — extra context for Agent (file structure, implementation patterns)
+    - `.bob/rules-plan/AGENTS.md` — extra context for Plan (architecture, constraints)
+    - `.bob/rules-ask/AGENTS.md` — extra context for Ask (project overview, glossary)
 
     Each mode gets the context relevant to its purpose. Plan mode gets architecture guidance; Agent mode gets file layout and naming conventions.
 
@@ -407,7 +407,7 @@ Verify: no error badge; Bob shows GitHub tools in the sidebar.
     ```bash
     gh auth login
     ```
-    Follow the prompts (select GitHub.com → HTTPS → browser). This is a one-time step. Without it, `gh repo create` will fail with an authentication error and block all 9 MCP steps that follow.
+    Follow the prompts (select GitHub.com → HTTPS → browser). This is a one-time step. Without it, `gh repo create` will fail with an authentication error and block the steps that follow.
 
 !!! tip "Push your banking lab to GitHub first"
     ```bash
@@ -473,7 +473,7 @@ Commit the change and open a pull request with a description referencing the iss
 ### Step 4 — Verify the endpoint
 
 ```
-Test the new export endpoint with the sample IBAN DE89545769475769453536.
+Test the new export endpoint for account ACC-001 (Alice Müller).
 Show me the CSV output.
 ```
 
