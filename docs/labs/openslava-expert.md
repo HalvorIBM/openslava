@@ -396,9 +396,11 @@ Bob with GitHub MCP produces all four automatically. The issue description becom
 
 ### Step 1 — Install GitHub MCP (if not done in Intermediate track)
 
-1. Bob sidebar → **Marketplace** → search **GitHub** → Install
-2. Settings → MCP → GitHub → set `GITHUB_TOKEN` (needs `repo` scope)
-3. Verify: no error badge; Bob shows GitHub tools in the sidebar
+**Option A — from the chat (recommended):** type `/configure-mcp`, search for **GitHub**, click **Install**, set `GITHUB_TOKEN` (`repo` scope).
+
+**Option B — from the sidebar:** Marketplace → search **GitHub** → Install → Settings → MCP → GitHub → set `GITHUB_TOKEN`.
+
+Verify: no error badge; Bob shows GitHub tools in the sidebar.
 
 !!! warning "Authenticate `gh` CLI before pushing"
     The `gh repo create` command below requires the GitHub CLI to be authenticated. If you haven't done this yet:

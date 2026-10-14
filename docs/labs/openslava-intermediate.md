@@ -51,18 +51,19 @@ This turns Bob from a local coding assistant into a **connected engineering agen
 
 ### Step 1 — Install GitHub MCP
 
-1. Open the Bob sidebar → **Marketplace** icon
-2. Search for **GitHub**
-3. Click **Install**
-4. Open Bob settings → MCP → GitHub → set `GITHUB_TOKEN` to your personal access token (`repo` scope)
-5. Verify: no red error badge on the MCP server entry; Bob sidebar shows GitHub tools available
+**Option A — from the chat (recommended):** type `/configure-mcp` in Bob's chat, then search for **GitHub**, click **Install**, and set `GITHUB_TOKEN` to your personal access token (`repo` scope).
+
+**Option B — from the sidebar:** Bob sidebar → **Marketplace** icon → search **GitHub** → **Install** → Settings → MCP → GitHub → set `GITHUB_TOKEN`.
+
+Either way, verify there is no red error badge on the MCP server entry and that Bob shows GitHub tools in the sidebar.
+
+!!! tip "Use `/configure-mcp` — it's the fastest path"
+    `/configure-mcp` opens the MCP configuration panel directly from chat without leaving your current conversation. Use it any time you need to add or update an integration mid-task.
 
 !!! tip "Create a token"
     GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic) → New token → tick **repo** → Generate.
 
-!!! info "Why use `/configure-mcp` in the chat?"
-    You can also type `/configure-mcp` in Bob's chat to open the MCP configuration panel directly without leaving your conversation. This is especially useful mid-task when you realise you need a new integration.
-
+!!! info "Global vs project scope"
     MCP configuration can live at two levels:
     - **Global** (`~/.bob/mcp_settings.json`) — available in all workspaces
     - **Project** (`.bob/mcp.json`) — scoped to this repo, can be committed for team use
