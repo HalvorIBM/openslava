@@ -2076,11 +2076,9 @@
 </ul>
 <p>Bob with GitHub MCP produces all four automatically. The issue description becomes the requirement. The PR description links to the issue. The commit timestamp is git. The review is your team's normal process. Bob handles the mechanical linkage so nothing falls through the cracks.</p>
 <h3 id="step-1-install-github-mcp-if-not-done-in-intermediate-track">Step 1 — Install GitHub MCP (if not done in Intermediate track)<a class="headerlink" href="#step-1-install-github-mcp-if-not-done-in-intermediate-track" title="Permanent link">¶</a></h3>
-<ol>
-<li>Bob sidebar → <strong>Marketplace</strong> → search <strong>GitHub</strong> → Install</li>
-<li>Settings → MCP → GitHub → set <code>GITHUB_TOKEN</code> (needs <code>repo</code> scope)</li>
-<li>Verify: no error badge; Bob shows GitHub tools in the sidebar</li>
-</ol>
+<p><strong>Option A — from the chat (recommended):</strong> type <code>/configure-mcp</code>, search for <strong>GitHub</strong>, click <strong>Install</strong>, set <code>GITHUB_TOKEN</code> (<code>repo</code> scope).</p>
+<p><strong>Option B — from the sidebar:</strong> Marketplace → search <strong>GitHub</strong> → Install → Settings → MCP → GitHub → set <code>GITHUB_TOKEN</code>.</p>
+<p>Verify: no error badge; Bob shows GitHub tools in the sidebar.</p>
 <div class="admonition warning">
 <p class="admonition-title">Authenticate <code>gh</code> CLI before pushing</p>
 <p>The <code>gh repo create</code> command below requires the GitHub CLI to be authenticated. If you haven't done this yet:

@@ -1469,20 +1469,19 @@ flowchart LR
 </ul>
 <p>This turns Bob from a local coding assistant into a <strong>connected engineering agent</strong> that works within your team's actual workflow. Issues stay linked to implementations, PRs reference requirements, and the audit trail is automatic.</p>
 <h3 id="step-1-install-github-mcp">Step 1 — Install GitHub MCP<a class="headerlink" href="#step-1-install-github-mcp" title="Permanent link">¶</a></h3>
-<ol>
-<li>Open the Bob sidebar → <strong>Marketplace</strong> icon</li>
-<li>Search for <strong>GitHub</strong></li>
-<li>Click <strong>Install</strong></li>
-<li>Open Bob settings → MCP → GitHub → set <code>GITHUB_TOKEN</code> to your personal access token (<code>repo</code> scope)</li>
-<li>Verify: no red error badge on the MCP server entry; Bob sidebar shows GitHub tools available</li>
-</ol>
+<p><strong>Option A — from the chat (recommended):</strong> type <code>/configure-mcp</code> in Bob's chat, then search for <strong>GitHub</strong>, click <strong>Install</strong>, and set <code>GITHUB_TOKEN</code> to your personal access token (<code>repo</code> scope).</p>
+<p><strong>Option B — from the sidebar:</strong> Bob sidebar → <strong>Marketplace</strong> icon → search <strong>GitHub</strong> → <strong>Install</strong> → Settings → MCP → GitHub → set <code>GITHUB_TOKEN</code>.</p>
+<p>Either way, verify there is no red error badge on the MCP server entry and that Bob shows GitHub tools in the sidebar.</p>
+<div class="admonition tip">
+<p class="admonition-title">Use <code>/configure-mcp</code> — it's the fastest path</p>
+<p><code>/configure-mcp</code> opens the MCP configuration panel directly from chat without leaving your current conversation. Use it any time you need to add or update an integration mid-task.</p>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">Create a token</p>
 <p>GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic) → New token → tick <strong>repo</strong> → Generate.</p>
 </div>
 <div class="admonition info">
-<p class="admonition-title">Why use <code>/configure-mcp</code> in the chat?</p>
-<p>You can also type <code>/configure-mcp</code> in Bob's chat to open the MCP configuration panel directly without leaving your conversation. This is especially useful mid-task when you realise you need a new integration.</p>
+<p class="admonition-title">Global vs project scope</p>
 <p>MCP configuration can live at two levels:
 - <strong>Global</strong> (<code>~/.bob/mcp_settings.json</code>) — available in all workspaces
 - <strong>Project</strong> (<code>.bob/mcp.json</code>) — scoped to this repo, can be committed for team use</p>
