@@ -2081,29 +2081,36 @@
 <li>Settings → MCP → GitHub → set <code>GITHUB_TOKEN</code> (needs <code>repo</code> scope)</li>
 <li>Verify: no error badge; Bob shows GitHub tools in the sidebar</li>
 </ol>
+<div class="admonition warning">
+<p class="admonition-title">Authenticate <code>gh</code> CLI before pushing</p>
+<p>The <code>gh repo create</code> command below requires the GitHub CLI to be authenticated. If you haven't done this yet:
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>gh<span class="w"> </span>auth<span class="w"> </span>login
+</code></pre></div>
+Follow the prompts (select GitHub.com → HTTPS → browser). This is a one-time step. Without it, <code>gh repo create</code> will fail with an authentication error and block all 9 MCP steps that follow.<p></p>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">Push your banking lab to GitHub first</p>
-<p></p><div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nb">cd</span><span class="w"> </span>expert/labs/banking-industry/gfm-bank
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>git<span class="w"> </span>init<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Initial GFM Bank commit"</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>gh<span class="w"> </span>repo<span class="w"> </span>create<span class="w"> </span>gfm-bank<span class="w"> </span>--public<span class="w"> </span>--source<span class="o">=</span>.<span class="w"> </span>--push
+<p></p><div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nb">cd</span><span class="w"> </span>expert/labs/banking-industry/gfm-bank
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>git<span class="w"> </span>init<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Initial GFM Bank commit"</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>gh<span class="w"> </span>repo<span class="w"> </span>create<span class="w"> </span>gfm-bank<span class="w"> </span>--public<span class="w"> </span>--source<span class="o">=</span>.<span class="w"> </span>--push
 </code></pre></div>
 Or use any repo you already have on GitHub.<p></p>
 </div>
 <div class="admonition info">
 <p class="admonition-title">Commit your <code>.bob/</code> configuration before pushing</p>
 <p>The rules and custom modes you built in E2 and E3 should be committed before you push:
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>git<span class="w"> </span>add<span class="w"> </span>.bob/<span class="w"> </span>AGENTS.md<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Add Bob configuration: fintech rules and custom modes"</span>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>git<span class="w"> </span>add<span class="w"> </span>.bob/<span class="w"> </span>AGENTS.md<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Add Bob configuration: fintech rules and custom modes"</span>
 </code></pre></div>
 Anyone who clones your repo now gets the full Bob setup — context, standards, and compliance modes — immediately.<p></p>
 </div>
 <h3 id="step-2-create-a-github-issue-with-bob">Step 2 — Create a GitHub issue with Bob<a class="headerlink" href="#step-2-create-a-github-issue-with-bob" title="Permanent link">¶</a></h3>
 <p>In <strong>Agent</strong> mode:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>Use GitHub MCP to create a new issue in this repo titled
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>"Add transaction export to CSV endpoint"
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>with label "enhancement" and body:
-<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>"Users need to download their transaction history as a CSV file.
-<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>The endpoint should accept an account_id parameter and return
-<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>a CSV with columns: date, amount, type."
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>Use GitHub MCP to create a new issue in this repo titled
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>"Add transaction export to CSV endpoint"
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>with label "enhancement" and body:
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>"Users need to download their transaction history as a CSV file.
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>The endpoint should accept an account_id parameter and return
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>a CSV with columns: date, amount, type."
 </code></pre></div>
 <p><strong>Observe:</strong> Bob calls the GitHub MCP <code>create_issue</code> tool. Verify the issue appears on GitHub.</p>
 <div class="admonition tip">
@@ -2113,12 +2120,12 @@ Anyone who clones your repo now gets the full Bob setup — context, standards, 
 </div>
 <h3 id="step-3-issue-to-pr-loop">Step 3 — Issue-to-PR loop<a class="headerlink" href="#step-3-issue-to-pr-loop" title="Permanent link">¶</a></h3>
 <p>Start a <strong>+ New task</strong> in Bob (<strong>Agent</strong> mode):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>Read the issue you just created.
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>Create a feature branch called "feature/csv-export".
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>Implement a GET /transactions/{account_id}/export endpoint in demo_api.py
-<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>that returns a CSV response (Content-Type: text/csv) with columns:
-<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>booking_ts, amount_eur, type.
-<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>Commit the change and open a pull request with a description referencing the issue number.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Read the issue you just created.
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>Create a feature branch called "feature/csv-export".
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>Implement a GET /transactions/{account_id}/export endpoint in demo_api.py
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>that returns a CSV response (Content-Type: text/csv) with columns:
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>booking_ts, amount_eur, type.
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>Commit the change and open a pull request with a description referencing the issue number.
 </code></pre></div>
 <p><strong>Observe Bob:</strong></p>
 <ol>
@@ -2134,8 +2141,8 @@ Anyone who clones your repo now gets the full Bob setup — context, standards, 
 <p>This is the <strong>propose, then approve</strong> pattern at work on a remote system.</p>
 </div>
 <h3 id="step-4-verify-the-endpoint">Step 4 — Verify the endpoint<a class="headerlink" href="#step-4-verify-the-endpoint" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Test the new export endpoint with the sample IBAN DE89545769475769453536.
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>Show me the CSV output.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>Test the new export endpoint with the sample IBAN DE89545769475769453536.
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>Show me the CSV output.
 </code></pre></div>
 <h3 id="discussion-questions">Discussion questions<a class="headerlink" href="#discussion-questions" title="Permanent link">¶</a></h3>
 <ul class="task-list">

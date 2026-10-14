@@ -1508,13 +1508,20 @@ flowchart LR
 </code></pre></div>
 <p><strong>Observe:</strong> Bob creates the <code>finance-app</code> directory with the full project structure.</p>
 <h3 id="step-4-integrate-yahoo-finance-data">Step 4 — Integrate Yahoo Finance data<a class="headerlink" href="#step-4-integrate-yahoo-finance-data" title="Permanent link">¶</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Yahoo Finance and CORS</p>
+<p>Yahoo Finance does not allow direct browser requests — the browser will block them with a CORS error. <strong>The data layer must run server-side</strong> (a small Node/Express or Python proxy that the React frontend calls). Ask Bob to implement this pattern; the lab prompt below instructs it to do so.</p>
+</div>
 <p>Start a <strong>+ New task</strong> in Bob and send:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Implement a finance data layer for the following stock indices using Yahoo Finance data:
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Euro Stoxx 50 (`^STOXX50E`), DAX (`^GDAXI`), Nikkei 225 (`^N225`),
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Dow Jones Industrial Average (`^DJI`), and MSCI World (`URTH`).
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>Normalize the returned data so the UI can display quote summaries,
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>short-term history, and quarterly trend views.
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>Keep the code easy to extend if more indices need to be added later.
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>Fetch the data server-side via a lightweight proxy (e.g. a small Express or FastAPI server)
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>to avoid CORS restrictions — the React frontend must call this proxy, not Yahoo Finance directly.
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>Normalize the returned data so the UI can display quote summaries,
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>short-term history, and quarterly trend views.
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>Keep the code easy to extend if more indices need to be added later.
 </code></pre></div>
 <p>In the same chat, build the dashboard views:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Build 2 to 3 dashboard views for the finance application:
@@ -1527,7 +1534,7 @@ flowchart LR
 <p>Run the app locally to verify:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">cd</span><span class="w"> </span>finance-app
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>npm<span class="w"> </span>install
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>npm<span class="w"> </span>start
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>npm<span class="w"> </span>run<span class="w"> </span>dev
 </code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Why start a new task for each phase?</p>

@@ -1356,8 +1356,8 @@
 </div>
 <h3 id="b-req-2-team-rules-file">B-REQ-2 — Team rules file<a class="headerlink" href="#b-req-2-team-rules-file" title="Permanent link">¶</a></h3>
 <p>Create <code>.bob/rules/pocketledger-standards.md</code> containing at minimum these three rules:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>All Python functions that handle monetary amounts must use float with exactly
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>2 decimal places of precision — never store raw user input directly to the DB.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>All Python functions that handle monetary amounts must use the Decimal type, never float.
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>This avoids IEEE 754 rounding errors that are unacceptable for financial data.
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>All React components must have a JSDoc comment describing their props.
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
@@ -1369,11 +1369,15 @@
 <p class="admonition-title">Rules enforce standards without reminders</p>
 <p>Once this rules file exists, Bob will:</p>
 <ul>
-<li>Round monetary values automatically in every function it writes</li>
+<li>Use <code>Decimal</code> automatically in every monetary function it writes</li>
 <li>Add JSDoc comments to every React component it creates</li>
 <li>Append to <code>bob-audit/audit.log</code> after every Agent interaction</li>
 </ul>
 <p>You don't need to ask. You don't need to remind Bob. The standard is always active. This is the difference between rules and prompts: rules are permanent, prompts are per-conversation.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Why <code>Decimal</code>, not <code>float</code>?</p>
+<p>IEEE 754 floating-point arithmetic accumulates rounding errors. <code>0.1 + 0.2</code> in Python float is <code>0.30000000000000004</code> — not <code>0.3</code>. For financial data, that is a correctness bug. <code>Decimal</code> provides exact decimal arithmetic and is the standard in any Python fintech or accounting codebase. The Expert track uses the same rule.</p>
 </div>
 <h3 id="b-req-3-custom-ledger-reviewer-mode">B-REQ-3 — Custom <code>ledger-reviewer</code> mode<a class="headerlink" href="#b-req-3-custom-ledger-reviewer-mode" title="Permanent link">¶</a></h3>
 <p>Create <code>.bob/custom_modes.yaml</code> with a <code>ledger-reviewer</code> mode that:</p>

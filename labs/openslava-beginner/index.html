@@ -1507,7 +1507,7 @@ flowchart LR
 <p>Splitting work across modes is a <strong>smart development pattern</strong>, not just a Bob quirk. Each mode has different tool permissions by design:</p>
 <ul>
 <li><strong>Ask</strong> can read files but cannot write or run commands — safe for exploration and Q&amp;A</li>
-<li><strong>Plan</strong> can read and propose changes but cannot execute — ideal for design without side-effects</li>
+<li><strong>Plan</strong> can read files and write documentation (e.g. <code>.md</code> plan files), but cannot run shell commands — ideal for design without side-effects</li>
 <li><strong>Agent</strong> can read, write, and run commands — the full power of an autonomous coding agent</li>
 </ul>
 <p>Using the right mode for each phase keeps Bob's actions <strong>predictable, reviewable, and reversible</strong>. When you prototype in Ask, nothing breaks. When you finalize in Agent, every action is intentional.</p>
@@ -1544,7 +1544,7 @@ Ask mode is read-only by design — perfect for questions and exploration.</p>
 <p><strong>Observe:</strong> Bob produces a detailed plan — component names, CSS strategy, file tree — but writes nothing to disk. Plan mode can design but not implement.</p>
 <div class="admonition info">
 <p class="admonition-title">Plan mode = design without side-effects</p>
-<p>Plan mode can read and propose edits, but does not execute commands. Use it to pair-design with Bob before committing to an implementation. A good plan prompt saves you from costly mid-build pivots.</p>
+<p>Plan mode can read files and write documentation (like plan notes or <code>.md</code> files), but cannot execute shell commands or modify source code. Use it to pair-design with Bob before committing to an implementation. A good plan prompt saves you from costly mid-build pivots.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Why plan before building?</p>
@@ -1623,8 +1623,11 @@ Ask mode is read-only by design — perfect for questions and exploration.</p>
 <p><strong>What happens:</strong> Bob reads the entire codebase, then writes:</p>
 <ul>
 <li><code>AGENTS.md</code> at the repo root — project overview, key constraints, file map</li>
-<li><code>.bob/rules-agent/AGENTS-agent.md</code>, <code>.bob/rules-plan/AGENTS-plan.md</code>, <code>.bob/rules-ask/AGENTS-ask.md</code></li>
+<li><code>.bob/rules-agent/AGENTS-agent.md</code> — Agent-mode-specific context (file structure, naming conventions)</li>
+<li><code>.bob/rules-plan/AGENTS-plan.md</code> — Plan-mode-specific context (architecture, constraints)</li>
+<li><code>.bob/rules-ask/AGENTS-ask.md</code> — Ask-mode-specific context (project overview, glossary)</li>
 </ul>
+<p>If <code>AGENTS.md</code> already exists (e.g. from a previous <code>/init</code> run), Bob <strong>overwrites</strong> it with a fresh scan. Any manual additions you want to keep should be moved to a separate rules file in <code>.bob/rules/</code> before re-running.</p>
 <p><strong>Read <code>AGENTS.md</code> together.</strong> Bob has discovered:</p>
 <ul>
 <li>The three services (frontend / backend / hold service)</li>
@@ -1676,11 +1679,15 @@ Ask mode is read-only by design — perfect for questions and exploration.</p>
 <p><strong>Observe Bob working across:</strong></p>
 <ul>
 <li><code>booking_system_backend/models.py</code> — <code>LayoverStop</code> model</li>
-<li><code>booking_system_backend/server.py</code> — updated route schema, MCP tool registration</li>
+<li><code>booking_system_backend/server.py</code> — updated route schema</li>
 <li><code>booking_system_frontend/src/types/</code> — <code>LayoverStop</code> TypeScript type</li>
 <li><code>booking_system_frontend/src/pages/Flights.tsx</code> — updated route card</li>
 <li>A new <code>LayoverBadge</code> component</li>
 </ul>
+<div class="admonition info">
+<p class="admonition-title">FastMCP and MCP tool registration</p>
+<p>Galaxium Travels uses <code>FastMCP</code>, which <strong>automatically exposes all FastAPI routes as MCP tools</strong> — you don't need to manually register each one. The AGENTS.md constraint "REST + MCP tool" reflects this pattern: adding a REST endpoint is sufficient, and the MCP tool appears automatically. Bob may still generate an explicit <code>mcp.tool()</code> decorator; both approaches work, and the explicit form makes the tool's schema easier to customise later.</p>
+</div>
 <p><strong>Restart the backend, refresh the browser</strong> — multi-stop routes now appear.</p>
 <div class="admonition info">
 <p class="admonition-title">Why start a new task for implementation?</p>
